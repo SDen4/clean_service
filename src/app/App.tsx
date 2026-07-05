@@ -1,7 +1,19 @@
-import './App.css';
+import { ModeToggle } from '@/features/user';
 
 function App() {
-  return <h1>Clean Service</h1>;
+  return (
+    <main className="p-2">
+      <h1>Clean Service</h1>
+
+      <div className="bg-red-500 p-4 text-white text-2xl">
+        Если я красный — Tailwind работает!
+      </div>
+
+      <br />
+
+      <ModeToggle />
+    </main>
+  );
 }
 
 export default App;
