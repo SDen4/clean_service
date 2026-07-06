@@ -1,17 +1,11 @@
-import { ModeToggle } from '@/features/user';
+import { RouterProvider } from 'react-router-dom';
+
+import { browserRouter } from './router/browser-router';
 
 function App() {
   return (
     <main className="p-2">
-      <h1>Clean Service</h1>
-
-      <div className="bg-red-500 p-4 text-white text-2xl">
-        Если я красный — Tailwind работает!
-      </div>
-
-      <br />
-
-      <ModeToggle />
+      <RouterProvider router={browserRouter} />
     </main>
   );
 }
