@@ -3,3 +3,5 @@ export * from './dropdown-menu';
 
 export * from './navigation-menu';
 export * from './navigation-menu/navigation-menu-trigger-style';
+
+export * from './error-boundary';

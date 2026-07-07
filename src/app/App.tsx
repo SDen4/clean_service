@@ -1,11 +1,15 @@
 import { RouterProvider } from 'react-router-dom';
 
+import { ErrorBoundary } from '@/shared/ui';
+
 import { browserRouter } from './router/browser-router';
 
 function App() {
   return (
     <main className="p-2">
-      <RouterProvider router={browserRouter} />
+      <ErrorBoundary>
+        <RouterProvider router={browserRouter} />
+      </ErrorBoundary>
     </main>
   );
 }
