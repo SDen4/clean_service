@@ -11,28 +11,24 @@ import {
 import { MenuItem } from './menu-item';
 
 const names: Record<Theme, string> = {
-  light: 'Светлая',
-  dark: 'Темная',
-  system: 'Системная',
+  light: 'Светлая тема',
+  dark: 'Темная тема',
+  system: 'Системная тема',
 };
 
 export const ModeToggle = () => {
   return (
-    <div style={{ display: 'flex ', alignItems: 'center', gap: '12px' }}>
-      <p>Тема</p>
+    <DropdownMenu>
+      <DropdownMenuTrigger render={<Button variant="outline" size="icon" />}>
+        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      </DropdownMenuTrigger>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="outline" size="icon" />}>
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        </DropdownMenuTrigger>
-
-        <DropdownMenuContent align="end">
-          {Object.keys(names).map((el) => (
-            <MenuItem key={el} themeType={el as Theme} names={names} />
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+      <DropdownMenuContent align="end">
+        {Object.keys(names).map((el) => (
+          <MenuItem key={el} themeType={el as Theme} names={names} />
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

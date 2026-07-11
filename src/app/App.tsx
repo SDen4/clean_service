@@ -6,7 +6,7 @@ import { browserRouter } from './router/browser-router';
 
 function App() {
   return (
-    <main className="p-2">
+    <main className="flex flex-col gap-4 p-2 max-w-screen-xl w-full">
       <ErrorBoundary>
         <RouterProvider router={browserRouter} />
       </ErrorBoundary>
