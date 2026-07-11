@@ -81,6 +81,9 @@
   span {
     @apply text-sm text-slate-500
   }
+  svg {
+    @apply stroke-blue-500
+  }
   #root {
     display: flex;
     justify-content: center;
@@ -88,3 +91,13 @@
     width: 100%;
   }
 }
+
+/* 
+=== BREAKPOINTS ===
+
+sm  640px  / 40rem @media (min-width: 640px)   { ... } Large smartphones 
+md  768px  / 48rem @media (min-width: 768px)   { ... } Tablets
+lg  1024px / 64rem @media (min-width: 1024px)  { ... } Laptops
+xl  1280px / 80rem @media (min-width: 1280px)  { ... } Desktops
+2xl 1536px / 96rem @media (min-width: 1536px)  { ... } Large screens 
+*/

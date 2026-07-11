@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import { ROUTES } from '@/shared/config';
+import { navigationData } from '@/entities/navigation';
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,15 +10,11 @@ import {
   navigationMenuTriggerStyle,
 } from '@/shared/ui';
 
-const navigationData = [
-  { title: 'О компании', route: ROUTES.ABOUT, id: 'about' },
-  { title: 'Контакты', route: ROUTES.CONTACTS, id: 'contacts' },
-];
-
+/** Навигация по сайту */
 export const Navigation = () => {
   return (
     <NavigationMenu>
-      <NavigationMenuList className="gap-4">
+      <NavigationMenuList className="gap-4 items-start">
         {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -27,16 +24,19 @@ export const Navigation = () => {
           </NavigationMenuContent>
         </NavigationMenuItem> */}
 
-        {navigationData.map((el) => (
-          <NavigationMenuItem key={el.id}>
-            <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
-              render={<Link to={el.route} />}
-            >
-              {el.title}
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        ))}
+        {navigationData
+          .filter((el) => el.id !== 'main')
+          .map((el) => (
+            <NavigationMenuItem key={el.id}>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                render={<Link to={el.route} />}
+              >
+                {el.icon}
+                {el.title}
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          ))}
       </NavigationMenuList>
     </NavigationMenu>
   );

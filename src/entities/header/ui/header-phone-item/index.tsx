@@ -5,13 +5,15 @@ interface IProps {
   tel: string;
   /** Имя */
   name: string;
+  /** Без иконки */
+  hideIcon?: boolean;
 }
 
 /** Элемент телефона с именем в хедере */
-export const HeaderPhoneItem = ({ tel, name }: IProps) => {
+export const HeaderPhoneItem = ({ tel, name, hideIcon }: IProps) => {
   return (
     <div className="flex gap-2 items-center">
-      <PhoneForwarded className="stroke-blue-500 group-hover:stroke-grey-500" />
+      {hideIcon ? null : <PhoneForwarded />}
 
       <div className="flex flex-col">
         <a href={`tel:${tel}`}>

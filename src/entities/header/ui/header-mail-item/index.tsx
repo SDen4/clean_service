@@ -3,13 +3,15 @@ import { Mail } from 'lucide-react';
 interface IProps {
   /** Адрес электронной почты */
   mail: string;
+  /** Без иконки */
+  hideIcon?: boolean;
 }
 
 /** Элемент электронной почты в хедере */
-export const HeaderMailItem = ({ mail }: IProps) => {
+export const HeaderMailItem = ({ mail, hideIcon }: IProps) => {
   return (
     <div className="flex gap-2 items-center">
-      <Mail className="stroke-blue-500 group-hover:stroke-grey-500" />
+      {hideIcon ? null : <Mail />}
 
       <a href={`mailto:${mail}`}>
         <h6>{mail}</h6>
