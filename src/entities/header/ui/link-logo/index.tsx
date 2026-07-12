@@ -10,7 +10,7 @@ export const LinkLogo = () => (
   <Link to={ROUTES.MAIN} onMouseEnter={mainPageImport}>
     <div className="flex gap-1 items-center">
       <img src={logo} alt="company logo" />
-      <h1>БЭП Ремонт</h1>
+      <h1>БэП Ремонт</h1>
     </div>
   </Link>
 );

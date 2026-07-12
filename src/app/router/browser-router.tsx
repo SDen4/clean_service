@@ -41,6 +41,6 @@ export const browserRouter = createBrowserRouter(
     },
   ],
   {
-    basename: ROUTES.MAIN,
+    basename: '/clean_service/',
   },
 );

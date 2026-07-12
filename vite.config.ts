@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/clean_service/',
   plugins: [react()],
   resolve: {
     alias: {
