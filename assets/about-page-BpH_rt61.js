@@ -1,1 +1,0 @@
-import{n as e}from"./index-DxbYoxNW.js";var t=e(),n=()=>(0,t.jsx)(`h1`,{children:`About company page`});export{n as default};

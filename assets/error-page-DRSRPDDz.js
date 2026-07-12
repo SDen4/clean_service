@@ -1,0 +1,1 @@
+import{n as e}from"./index-CwA-ajd9.js";var t=e(),n=()=>(0,t.jsx)(`h1`,{children:`Error page`});export{n as default};
