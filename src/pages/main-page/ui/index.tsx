@@ -1,10 +1,12 @@
 import { PageWrapper } from '@/entities/page';
 
-export const MainPage = () => (
+const MainPage = () => (
   <PageWrapper>
-    <h2>Главная страница</h2>
+    <h1>Главная страница</h1>
     <div className="md:bg-red-500 xl:bg-blue-500 p-4 text-white text-2xl">
       Если я красный/синий — Tailwind работает!
     </div>
   </PageWrapper>
 );
+
+export default MainPage;

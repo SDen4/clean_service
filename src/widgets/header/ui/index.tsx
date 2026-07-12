@@ -27,6 +27,6 @@ export const Header = () => (
       <Menu className="lg:hidden" />
     </div>
 
-    <Navigation />
+    <Navigation className="hidden lg:flex" />
   </header>
 );

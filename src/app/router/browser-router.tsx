@@ -1,10 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { MainPage } from '@/pages/main-page';
-
 import { ROUTES } from '@/shared/config';
 
 import { MainLayout } from '../main-layout';
+
+import {
+  AboutPageLazy,
+  ContactsPageLazy,
+  ErrorPageLazy,
+  MainPageLazy,
+  ServicesPageLazy,
+} from './lazy-components-imports';
 
 export const browserRouter = createBrowserRouter(
   [
@@ -12,25 +18,29 @@ export const browserRouter = createBrowserRouter(
       element: <MainLayout />,
       children: [
         {
-          path: '/',
-          element: <MainPage />,
+          path: ROUTES.MAIN,
+          element: <MainPageLazy />,
         },
         {
           path: ROUTES.ABOUT,
-          element: <div>About page</div>,
+          element: <AboutPageLazy />,
+        },
+        {
+          path: ROUTES.SERVICES,
+          element: <ServicesPageLazy />,
         },
         {
           path: ROUTES.CONTACTS,
-          element: <div>Contacts page</div>,
+          element: <ContactsPageLazy />,
         },
       ],
     },
     {
       path: '*',
-      element: <div>Error page</div>,
+      element: <ErrorPageLazy />,
     },
   ],
   {
-    basename: '/',
+    basename: ROUTES.MAIN,
   },
 );

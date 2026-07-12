@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { navigationData } from '@/entities/navigation';
 
+import { ROUTES } from '@/shared/config';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,10 +11,14 @@ import {
   navigationMenuTriggerStyle,
 } from '@/shared/ui';
 
+interface IProps {
+  className?: string;
+}
+
 /** Навигация по сайту */
-export const Navigation = () => {
+export const Navigation = ({ className }: IProps) => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className={className}>
       <NavigationMenuList className="gap-4 items-start">
         {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
@@ -25,12 +30,12 @@ export const Navigation = () => {
         </NavigationMenuItem> */}
 
         {navigationData
-          .filter((el) => el.id !== 'main')
+          .filter((el) => el.id !== ROUTES.MAIN)
           .map((el) => (
             <NavigationMenuItem key={el.id}>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
-                render={<Link to={el.route} />}
+                render={<Link to={el.route} onMouseEnter={el.importFunc} />}
               >
                 {el.icon}
                 {el.title}
