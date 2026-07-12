@@ -1,1 +1,0 @@
-import{n as e,t}from"./index-BENJkRaO.js";var n=e(),r=()=>(0,n.jsxs)(t,{children:[(0,n.jsx)(`h1`,{children:`Главная страница`}),(0,n.jsx)(`div`,{className:`md:bg-red-500 xl:bg-blue-500 p-4 text-white text-2xl`,children:`Если я красный/синий — Tailwind работает!`})]});export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./index-BENJkRaO.js";var t=e(),n=()=>(0,t.jsx)(`h1`,{children:`Services page`});export{n as default};
