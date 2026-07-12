@@ -1,1 +1,0 @@
-import{n as e}from"./index-BcxweT9z.js";var t=e(),n=()=>(0,t.jsx)(`h1`,{children:`Contacts page`});export{n as default};
