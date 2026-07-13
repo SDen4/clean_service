@@ -8,7 +8,7 @@ import { ROUTES } from '@/shared/config';
 export const LinkLogo = () => (
   <Link to={ROUTES.MAIN} onMouseEnter={mainPageImport}>
     <div className="flex gap-1 items-center">
-      <img src={logo} alt="company logo" />
+      <img src={logo} className="w-24" alt="company logo" />
       <h1>БэП Ремонт</h1>
     </div>
   </Link>
