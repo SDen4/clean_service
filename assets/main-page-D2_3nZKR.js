@@ -1,0 +1,1 @@
+import{n as e,s as t}from"./index-CF03Ur2E.js";var n=t(),r=()=>(0,n.jsx)(e,{children:(0,n.jsx)(`h2`,{children:`Главная страница БэП Ремонт`})});export{r as default};

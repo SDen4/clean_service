@@ -1,0 +1,1 @@
+import{s as e}from"./index-CF03Ur2E.js";var t=e(),n=()=>(0,t.jsx)(`h2`,{children:`Services page`});export{n as default};
