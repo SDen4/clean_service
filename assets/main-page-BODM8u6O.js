@@ -1,0 +1,1 @@
+import{o as e,t}from"./index-C0kSPAi5.js";var n=e(),r=()=>(0,n.jsx)(t,{children:(0,n.jsx)(`h2`,{children:`Главная страница БэП Ремонт`})});export{r as default};
