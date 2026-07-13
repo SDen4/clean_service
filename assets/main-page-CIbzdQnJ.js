@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DGeXAQPT.js";import{i as t}from"./index-xlyFXrX2.js";var n=e(),r=()=>(0,n.jsx)(t,{children:(0,n.jsx)(`h2`,{children:`Главная страница БэП Ремонт`})});export{r as default};
