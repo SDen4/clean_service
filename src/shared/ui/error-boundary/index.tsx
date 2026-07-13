@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
 import { Component } from 'react';
+import { Ban, RefreshCw } from 'lucide-react';
+
+import logo from '../../assets/logoCompressed.png';
+import { Button } from '../button';
 
 interface IProps {
   children: ReactNode;
@@ -25,14 +29,21 @@ export class ErrorBoundary extends Component<IProps, IState> {
     const { error } = this.state;
     const { children } = this.props;
 
-    const onClick = () => window.location.reload();
+    const onReload = () => window.location.reload();
 
     if (error) {
       return (
-        <div>
-          <h1>Error Page</h1>
-          <br />
-          <button onClick={onClick}>Перезагрузить</button>
+        <div className="flex flex-col gap-10">
+          <div className="relative -mt-48">
+            <img src={logo} alt="логотип" className="w-60 h-40" />
+            <Ban className="fill-gray-100 stroke-orange-500 size-24 absolute top-24 left-[70px]" />
+          </div>
+
+          <h1>Ошибка приложения</h1>
+
+          <Button onClick={onReload}>
+            <RefreshCw /> Перезагрузить
+          </Button>
         </div>
       );
     }

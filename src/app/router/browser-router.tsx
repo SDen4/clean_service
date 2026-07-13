@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { Ban } from 'lucide-react';
 
 import { ROUTES } from '@/shared/config';
 
@@ -16,6 +17,13 @@ export const browserRouter = createBrowserRouter(
   [
     {
       element: <MainLayout />,
+      errorElement: (
+        <ErrorPageLazy
+          title="Ошибка приложения"
+          text="Что-то пошло не так..."
+          icon={Ban}
+        />
+      ),
       children: [
         {
           path: ROUTES.MAIN,
