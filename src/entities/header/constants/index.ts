@@ -3,4 +3,4 @@ export const contacts = [
   { name: 'Вячеслав', tel: '+7 (922) 22-37-787', id: 2 },
 ] as const;
 
-export const mail = 'bep-remont@mail.ru';
+export const mail = 'bepremont@mail.ru';
