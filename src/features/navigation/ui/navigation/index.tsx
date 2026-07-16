@@ -18,8 +18,8 @@ interface IProps {
 /** Навигация по сайту */
 export const Navigation = ({ className }: IProps) => {
   return (
-    <NavigationMenu className={className}>
-      <NavigationMenuList className="gap-4 items-start">
+    <NavigationMenu className={`${className} my-2`}>
+      <NavigationMenuList className="gap-4 items-start px-0">
         {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
           <NavigationMenuContent>
