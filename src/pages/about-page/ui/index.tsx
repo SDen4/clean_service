@@ -1,21 +1,6 @@
+import { AboutSubText, AboutText, AboutTitle } from '@/entities/text';
+
 import logo from '@/shared/assets/logoCompressed.png';
-
-const AboutText = ({ className }: { className?: string }) => (
-  <p className={className}>
-    Мы создаём сервис, в основе которого лежат три принципа: скорость, честность
-    и выгода для партнёра. Мы сознательно отказались от дорогих офисов и не
-    раздуваем штат. Запчасти закупаем напрямую у крупных оптовых поставщиков
-    Екатеринбурга строго под вашу задачу. Это означает, что вы получаете новые,
-    качественные комплектующие без складских наценок и переплат за хранение.
-    Бюрократии нет — есть инженеры, нацеленные на быстрый и качественный ремонт.
-  </p>
-);
-
-const AboutSubText = ({ className }: { className?: string }) => (
-  <h4 className={className}>
-    Почему мы можем предложить цены на 20–30% ниже рынка?
-  </h4>
-);
 
 export const AboutPage = () => {
   return (
@@ -24,24 +9,20 @@ export const AboutPage = () => {
 
       <div className="flex w-full gap-4">
         <img
-          className="h-[200px] min-w-[250px] block"
+          className="w-full h-auto object-contain"
           src={logo}
           alt="Логотип компании"
         />
 
         <div className="flex flex-col gap-4">
-          <h4>
-            «БэП Ремонт» — это команда сервисных инженеров в Екатеринбурге,
-            которая специализируется на профессиональной клининговой технике и
-            оборудовании.
-          </h4>
-
+          <AboutTitle className="hidden min-[480px]:block" />
           <AboutSubText className="hidden sm:block" />
           <AboutText className="hidden lg:block" />
         </div>
       </div>
 
-      <AboutSubText className="sm:hidden" />
+      <AboutTitle className="min-[480px]:hidden text-center" />
+      <AboutSubText className="sm:hidden text-center" />
       <AboutText className="lg:hidden" />
 
       <h4>Чем мы занимаемся</h4>

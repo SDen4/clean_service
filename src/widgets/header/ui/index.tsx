@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`flex flex-col justify-between w-full py-2 gap-y-2 sticky top-0 bg-background z-10 transition-all duration-500 ${isScrolled ? 'opacity-[97%]' : ''}`}
+      className={`flex flex-col justify-between w-full py-2 gap-y-2 sticky top-0 bg-background z-10 transition-opacity duration-500 ${isScrolled ? 'opacity-[97%]' : ''}`}
     >
       <div className="flex justify-between w-full items-center">
         <LinkLogo />
