@@ -5,6 +5,14 @@ import { Ban, RefreshCw } from 'lucide-react';
 import logo from '../../assets/logoCompressed.png';
 import { Button } from '../button';
 
+const wrapperStyles =
+  'flex flex-col gap-16 h-[90vh] w-full items-center justify-center';
+const iconStyles =
+  'fill-gray-100 stroke-orange-500 size-24 absolute top-24 left-[70px]';
+const imgWrapperStyles = 'relative -mt-48';
+
+const Img = () => <img src={logo} alt="логотип" className="w-60 h-40" />;
+
 interface IProps {
   children: ReactNode;
   props?: unknown;
@@ -16,6 +24,8 @@ interface IState {
 }
 
 export class ErrorBoundary extends Component<IProps, IState> {
+  private timerId: ReturnType<typeof setTimeout> | null = null;
+
   constructor(props: IProps) {
     super(props);
     this.state = { error: null, errorInfo: null };
@@ -25,23 +35,78 @@ export class ErrorBoundary extends Component<IProps, IState> {
     this.setState({ error, errorInfo });
   }
 
+  componentDidMount() {
+    this.maybeScheduleReload();
+  }
+
+  componentDidUpdate(_prevProps: IProps, prevState: IState) {
+    if (this.state.error !== prevState.error) {
+      this.maybeScheduleReload();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timerId !== null) {
+      clearTimeout(this.timerId);
+      this.timerId = null;
+    }
+  }
+
+  maybeScheduleReload() {
+    const error = this.state.error as {
+      message: string;
+      name: string;
+    } | null;
+
+    const isChunkLoadError =
+      error?.message?.includes('Failed to fetch dynamically imported module') ||
+      error?.name === 'ChunkLoadError';
+
+    if (isChunkLoadError && this.timerId === null) {
+      this.timerId = setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
+  }
+
   render(): ReactNode {
-    const { error } = this.state;
+    const error = this.state.error as {
+      message: string;
+      name: string;
+    } | null;
     const { children } = this.props;
 
     const onReload = () => window.location.reload();
 
+    const isChunkLoadError =
+      error?.message?.includes('Failed to fetch dynamically imported module') ||
+      error?.name === 'ChunkLoadError';
+
+    if (isChunkLoadError) {
+      return (
+        <div className={wrapperStyles}>
+          <div className={imgWrapperStyles}>
+            <Img />
+            <RefreshCw className={iconStyles} />
+          </div>
+
+          <h1>Доступна новая версия сайта</h1>
+          <h2>Перезагружаем…</h2>
+        </div>
+      );
+    }
+
     if (error) {
       return (
-        <div className="flex flex-col gap-10">
-          <div className="relative -mt-48">
-            <img src={logo} alt="логотип" className="w-60 h-40" />
-            <Ban className="fill-gray-100 stroke-orange-500 size-24 absolute top-24 left-[70px]" />
+        <div className={wrapperStyles}>
+          <div className={imgWrapperStyles}>
+            <Img />
+            <Ban className={iconStyles} />
           </div>
 
           <h1>Ошибка приложения</h1>
 
-          <Button onClick={onReload}>
+          <Button variant="outline" onClick={onReload}>
             <RefreshCw /> Перезагрузить
           </Button>
         </div>

@@ -22,7 +22,7 @@ const ErrorPage = ({ title, text, icon }: IProps) => {
   const onClick = () => navigate(ROUTES.MAIN);
 
   return (
-    <div className="flex flex-col gap-16 justify-center items-center w-full h-screen">
+    <div className="flex flex-col gap-16 justify-center items-center w-full h-[90vh]">
       <div className="relative -mt-48">
         <img src={logo} alt="логотип" className="w-60 h-40" />
         <Icon className="fill-gray-100 stroke-orange-500 size-24 absolute top-24 left-[70px]" />
