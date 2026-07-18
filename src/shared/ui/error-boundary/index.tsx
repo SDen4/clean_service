@@ -4,15 +4,7 @@ import { Ban, RefreshCw } from 'lucide-react';
 
 import logo from '../../assets/logoCompressed.png';
 import { Button } from '../button';
-
-const CHUNK_LOAD_ERROR_MESSAGES = [
-  'Failed to fetch dynamically imported module',
-  'Importing a module script failed',
-  'error loading dynamically imported module',
-  'Failed to load module script',
-  'Loading chunk',
-  'Failed to fetch',
-];
+import { isChunkLoadErrorFunc } from './isChunkLoadErrorFunc';
 
 const wrapperStyles =
   'flex flex-col gap-16 h-[90vh] w-full items-center justify-center';
@@ -67,15 +59,7 @@ export class ErrorBoundary extends Component<IProps, IState> {
       name: string;
     } | null;
 
-    const isChunkLoadError =
-      error != null &&
-      ((typeof error === 'object' &&
-        'message' in error &&
-        typeof error.message === 'string' &&
-        CHUNK_LOAD_ERROR_MESSAGES.some((msg) => error.message.includes(msg))) ||
-        (typeof error === 'object' &&
-          'name' in error &&
-          error.name === 'ChunkLoadError'));
+    const isChunkLoadError = isChunkLoadErrorFunc(error);
 
     if (isChunkLoadError && this.timerId === null) {
       this.timerId = setTimeout(() => window.location.reload(), 2000);
@@ -91,9 +75,7 @@ export class ErrorBoundary extends Component<IProps, IState> {
 
     const onReload = () => window.location.reload();
 
-    const isChunkLoadError =
-      error?.message?.includes('Failed to fetch dynamically imported module') ||
-      error?.name === 'ChunkLoadError';
+    const isChunkLoadError = isChunkLoadErrorFunc(error);
 
     if (isChunkLoadError) {
       return (
@@ -103,7 +85,7 @@ export class ErrorBoundary extends Component<IProps, IState> {
             <RefreshCw className={iconStyles} />
           </div>
 
-          <h1>Доступна новая версия сайта</h1>
+          <h1 className="text-center">Доступна новая версия сайта</h1>
           <h2>Перезагружаем…</h2>
         </div>
       );
@@ -117,7 +99,7 @@ export class ErrorBoundary extends Component<IProps, IState> {
             <Ban className={iconStyles} />
           </div>
 
-          <h1>Ошибка приложения</h1>
+          <h1 className="text-center">Ошибка приложения</h1>
 
           <Button variant="outline" onClick={onReload}>
             <RefreshCw /> Перезагрузить
