@@ -68,7 +68,7 @@ export const Menu = ({ className }: IProps) => (
           <DropdownMenuLabel>Навигация</DropdownMenuLabel>
 
           {navigationData.map((el) => (
-            <DropdownMenuItem key={el.id} onMouseEnter={el.importFunc}>
+            <DropdownMenuItem key={el.id}>
               <Link to={el.route} className="flex justify-between w-full">
                 {el.title}
                 <DropdownMenuShortcut>{el.icon}</DropdownMenuShortcut>
