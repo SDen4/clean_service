@@ -5,6 +5,15 @@ import { Ban, RefreshCw } from 'lucide-react';
 import logo from '../../assets/logoCompressed.png';
 import { Button } from '../button';
 
+const CHUNK_LOAD_ERROR_MESSAGES = [
+  'Failed to fetch dynamically imported module',
+  'Importing a module script failed',
+  'error loading dynamically imported module',
+  'Failed to load module script',
+  'Loading chunk',
+  'Failed to fetch',
+];
+
 const wrapperStyles =
   'flex flex-col gap-16 h-[90vh] w-full items-center justify-center';
 const iconStyles =
@@ -59,13 +68,17 @@ export class ErrorBoundary extends Component<IProps, IState> {
     } | null;
 
     const isChunkLoadError =
-      error?.message?.includes('Failed to fetch dynamically imported module') ||
-      error?.name === 'ChunkLoadError';
+      error != null &&
+      ((typeof error === 'object' &&
+        'message' in error &&
+        typeof error.message === 'string' &&
+        CHUNK_LOAD_ERROR_MESSAGES.some((msg) => error.message.includes(msg))) ||
+        (typeof error === 'object' &&
+          'name' in error &&
+          error.name === 'ChunkLoadError'));
 
     if (isChunkLoadError && this.timerId === null) {
-      this.timerId = setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      this.timerId = setTimeout(() => window.location.reload(), 2000);
     }
   }
 
