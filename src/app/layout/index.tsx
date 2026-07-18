@@ -1,10 +1,14 @@
 import type { ReactNode } from 'react';
 
+import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   <>
     <Header />
-    {children}
+    <main className="flex flex-col flex-1 gap-4 px-2 pt-4 pb-6 max-w-screen-xl w-full">
+      {children}
+    </main>
+    <Footer />
   </>
 );
