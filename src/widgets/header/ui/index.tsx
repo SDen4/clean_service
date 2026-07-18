@@ -39,7 +39,7 @@ export const Header = () => {
       <div className="flex justify-between w-full items-center">
         <LinkLogo />
 
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden items-start lg:flex gap-6">
           {contacts.map((el) => (
             <HeaderPhoneItem name={el.name} tel={el.tel} key={el.id} />
           ))}

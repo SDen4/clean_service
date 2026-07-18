@@ -12,8 +12,8 @@ interface IProps {
 /** Элемент телефона с именем в хедере */
 export const HeaderPhoneItem = ({ tel, name, hideIcon }: IProps) => {
   return (
-    <div className="flex gap-2 items-center">
-      {hideIcon ? null : <PhoneForwarded />}
+    <div className="flex gap-2 items-start">
+      {hideIcon ? null : <PhoneForwarded className="pt-1" />}
 
       <div className="flex flex-col">
         <a href={`tel:${tel}`}>
