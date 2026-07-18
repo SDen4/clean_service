@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 
+import { Breadcrumb } from '@/features/breadcrumb';
 import { Menu } from '@/features/header';
 import { Navigation } from '@/features/navigation';
 import { ModeToggle } from '@/features/user';
@@ -51,6 +52,8 @@ export const Header = () => {
       </div>
 
       <Navigation className="hidden lg:flex" />
+
+      <Breadcrumb />
     </header>
   );
 };

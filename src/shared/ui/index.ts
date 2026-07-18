@@ -1,4 +1,5 @@
 export * from './button';
+export * from './breadcrumb';
 export * from './dropdown-menu';
 
 export * from './navigation-menu';
