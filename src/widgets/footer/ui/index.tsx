@@ -18,9 +18,9 @@ export const Footer = () => (
       <div className="flex flex-col items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-10">
         <div className="hidden md:block">
           <Link to={ROUTES.MAIN} onMouseEnter={mainPageImport}>
-            <div className="flex flex-col gap-3 min-w-[200px]">
+            <div className="flex flex-col  gap-1 min-w-[200px]">
               <img src={logo} className="w-24" alt="company logo" />
-              <h4>БэП Ремонт</h4>
+              <h5 className="font-bold">БэП Ремонт</h5>
             </div>
           </Link>
         </div>
