@@ -2,17 +2,10 @@ import type { ReactNode } from 'react';
 import { Component } from 'react';
 import { Ban, RefreshCw } from 'lucide-react';
 
-import logo from '../../assets/logoCompressed.png';
 import { Button } from '../button';
 import { isChunkLoadErrorFunc } from './isChunkLoadErrorFunc';
 
-const wrapperStyles =
-  'flex flex-col gap-16 h-[90vh] w-full items-center justify-center';
-const iconStyles =
-  'fill-gray-100 stroke-orange-500 size-24 absolute top-24 left-[70px]';
-const imgWrapperStyles = 'relative -mt-48';
-
-const Img = () => <img src={logo} alt="логотип" className="w-60 h-40" />;
+import { ErrorPageWrapper } from '../error-page-wrapper';
 
 interface IProps {
   children: ReactNode;
@@ -79,32 +72,21 @@ export class ErrorBoundary extends Component<IProps, IState> {
 
     if (isChunkLoadError) {
       return (
-        <div className={wrapperStyles}>
-          <div className={imgWrapperStyles}>
-            <Img />
-            <RefreshCw className={iconStyles} />
-          </div>
-
+        <ErrorPageWrapper icon={RefreshCw}>
           <h1 className="text-center">Доступна новая версия сайта</h1>
           <h2>Перезагружаем…</h2>
-        </div>
+        </ErrorPageWrapper>
       );
     }
 
     if (error) {
       return (
-        <div className={wrapperStyles}>
-          <div className={imgWrapperStyles}>
-            <Img />
-            <Ban className={iconStyles} />
-          </div>
-
+        <ErrorPageWrapper icon={Ban}>
           <h1 className="text-center">Ошибка приложения</h1>
-
           <Button variant="outline" onClick={onReload}>
             <RefreshCw /> Перезагрузить
           </Button>
-        </div>
+        </ErrorPageWrapper>
       );
     }
 
