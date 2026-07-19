@@ -13,6 +13,7 @@ import {
   mail,
 } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
+import { Tooltip } from '@/entities/tooltip';
 
 export const Header = () => {
   const headerRef = useRef<HTMLHeadElement | null>(null);
@@ -48,7 +49,9 @@ export const Header = () => {
             <HeaderMailItem mail={mail} />
           </div>
 
-          <ModeToggle className="hidden lg:block" />
+          <Tooltip text="Выбор цветовой темы">
+            <ModeToggle className="hidden lg:block" />
+          </Tooltip>
 
           <Menu className="lg:hidden" />
         </div>
