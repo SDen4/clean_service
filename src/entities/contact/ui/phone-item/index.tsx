@@ -9,8 +9,8 @@ interface IProps {
   hideIcon?: boolean;
 }
 
-/** Элемент телефона с именем в хедере */
-export const HeaderPhoneItem = ({ tel, name, hideIcon }: IProps) => {
+/** Элемент телефона */
+export const PhoneItem = ({ tel, name, hideIcon }: IProps) => {
   return (
     <div className="flex gap-2 items-start">
       {hideIcon ? null : <PhoneForwarded className="pt-1" />}

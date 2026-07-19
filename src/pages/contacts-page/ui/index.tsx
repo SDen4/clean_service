@@ -1,28 +1,38 @@
 import {
   contacts,
-  HeaderMailItem,
-  HeaderPhoneItem,
   mail,
-} from '@/entities/header';
+  MailItem,
+  PhoneItem,
+  TelegramItem,
+} from '@/entities/contact';
 import { PageWrapper } from '@/entities/page';
+
+const blockStyles = 'flex flex-col gap-5 min-w-[200px]';
 
 const ContactsPage = () => {
   return (
     <PageWrapper>
-      <div className="flex flex-col gap-10">
-        <h2>Контакты</h2>
+      <h2>Контакты</h2>
+      <div className="flex flex-wrap gap-10">
+        <div className={blockStyles}>
+          <h4>Мессенджеры</h4>
 
-        <div className="flex flex-col gap-5">
-          <h4>Телефоны</h4>
           {contacts.map((el) => (
-            <HeaderPhoneItem name={el.name} tel={el.tel} key={el.id} />
+            <TelegramItem name={el.name} tel={el.tel} key={el.id} />
           ))}
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className={blockStyles}>
+          <h4>Телефоны</h4>
+          {contacts.map((el) => (
+            <PhoneItem name={el.name} tel={el.tel} key={el.id} />
+          ))}
+        </div>
+
+        <div className={blockStyles}>
           <h4>Электронная почта</h4>
 
-          <HeaderMailItem mail={mail} />
+          <MailItem mail={mail} />
         </div>
       </div>
     </PageWrapper>

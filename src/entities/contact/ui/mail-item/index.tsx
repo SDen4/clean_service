@@ -7,8 +7,8 @@ interface IProps {
   hideIcon?: boolean;
 }
 
-/** Элемент электронной почты в хедере */
-export const HeaderMailItem = ({ mail, hideIcon }: IProps) => {
+/** Элемент электронной почты */
+export const MailItem = ({ mail, hideIcon }: IProps) => {
   return (
     <div className="flex gap-2 items-center">
       {hideIcon ? null : <Mail />}

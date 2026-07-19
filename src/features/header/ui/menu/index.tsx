@@ -3,12 +3,7 @@ import { Mail, MenuIcon, PhoneForwarded } from 'lucide-react';
 
 import { ModeToggle } from '@/features/user';
 
-import {
-  contacts,
-  HeaderMailItem,
-  HeaderPhoneItem,
-  mail,
-} from '@/entities/header';
+import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { navigationData } from '@/entities/navigation';
 
 import {
@@ -45,11 +40,11 @@ export const Menu = ({ className }: IProps) => {
         />
         <DropdownMenuContent align="start">
           <DropdownMenuGroup>
-            <DropdownMenuLabel>Контакты</DropdownMenuLabel>
+            <DropdownMenuLabel>Телефоны</DropdownMenuLabel>
             <div className="flex flex-col gap-y-2 w-full">
               {contacts.map((el) => (
                 <div className="flex justify-between gap-2" key={el.id}>
-                  <HeaderPhoneItem hideIcon name={el.name} tel={el.tel} />
+                  <PhoneItem hideIcon name={el.name} tel={el.tel} />
                   <PhoneForwarded className="size-5 pt-1" />
                 </div>
               ))}
@@ -62,7 +57,7 @@ export const Menu = ({ className }: IProps) => {
             <DropdownMenuLabel>Почта</DropdownMenuLabel>
             <DropdownMenuItem>
               <div className="flex justify-between gap-2">
-                <HeaderMailItem hideIcon mail={mail} />
+                <MailItem hideIcon mail={mail} />
                 <Mail className="size-5 pt-1" />
               </div>
             </DropdownMenuItem>

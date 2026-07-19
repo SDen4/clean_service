@@ -5,13 +5,8 @@ import { Menu } from '@/features/header';
 import { Navigation } from '@/features/navigation';
 import { ModeToggle } from '@/features/user';
 
-import {
-  contacts,
-  HeaderMailItem,
-  HeaderPhoneItem,
-  LinkLogo,
-  mail,
-} from '@/entities/header';
+import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
+import { LinkLogo } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
 import { Tooltip } from '@/entities/tooltip';
 
@@ -34,9 +29,9 @@ export const Header = () => {
 
           <div className="hidden items-start lg:flex gap-6">
             {contacts.map((el) => (
-              <HeaderPhoneItem name={el.name} tel={el.tel} key={el.id} />
+              <PhoneItem name={el.name} tel={el.tel} key={el.id} />
             ))}
-            <HeaderMailItem mail={mail} />
+            <MailItem mail={mail} />
           </div>
 
           <Tooltip text="Выбор цветовой темы">
