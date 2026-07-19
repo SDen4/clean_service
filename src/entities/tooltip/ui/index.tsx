@@ -22,7 +22,7 @@ export function Tooltip({ children, text, side }: IProps) {
 
   return (
     <TooltipLib>
-      <TooltipTrigger>{children}</TooltipTrigger>
+      <TooltipTrigger render={children} />
       <TooltipContent side={side}>
         <p>{text}</p>
       </TooltipContent>

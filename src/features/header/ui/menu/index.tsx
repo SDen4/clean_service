@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, MenuIcon, PhoneForwarded } from 'lucide-react';
 
 import { ModeToggle } from '@/features/user';
@@ -27,67 +27,86 @@ interface IProps {
   className?: string;
 }
 
-export const Menu = ({ className }: IProps) => (
-  <div className={className}>
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        render={
-          <Button variant="outline">
-            <MenuIcon />
-          </Button>
-        }
-      />
-      <DropdownMenuContent align="start">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Контакты</DropdownMenuLabel>
-          <div className="flex flex-col gap-y-2 w-full">
-            {contacts.map((el) => (
-              <div className="flex justify-between gap-2" key={el.id}>
-                <HeaderPhoneItem hideIcon name={el.name} tel={el.tel} />
-                <PhoneForwarded className="size-5 pt-1" />
-              </div>
-            ))}
-          </div>
-        </DropdownMenuGroup>
+export const Menu = ({ className }: IProps) => {
+  const { pathname } = useLocation();
 
-        <DropdownMenuSeparator />
+  const isCurrentPage = (path: string) =>
+    pathname !== '/' ? path === pathname.slice(1) : path === pathname;
 
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Почта</DropdownMenuLabel>
-          <DropdownMenuItem>
-            <div className="flex justify-between gap-2">
-              <HeaderMailItem hideIcon mail={mail} />
-              <Mail className="size-5 pt-1" />
+  return (
+    <div className={className}>
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline">
+              <MenuIcon />
+            </Button>
+          }
+        />
+        <DropdownMenuContent align="start">
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Контакты</DropdownMenuLabel>
+            <div className="flex flex-col gap-y-2 w-full">
+              {contacts.map((el) => (
+                <div className="flex justify-between gap-2" key={el.id}>
+                  <HeaderPhoneItem hideIcon name={el.name} tel={el.tel} />
+                  <PhoneForwarded className="size-5 pt-1" />
+                </div>
+              ))}
             </div>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
+          </DropdownMenuGroup>
 
-        <DropdownMenuSeparator />
+          <DropdownMenuSeparator />
 
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Навигация</DropdownMenuLabel>
-
-          {navigationData.map((el) => (
-            <DropdownMenuItem key={el.id}>
-              <Link to={el.route} className="flex justify-between w-full">
-                {el.title}
-                <DropdownMenuShortcut>{el.icon}</DropdownMenuShortcut>
-              </Link>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Почта</DropdownMenuLabel>
+            <DropdownMenuItem>
+              <div className="flex justify-between gap-2">
+                <HeaderMailItem hideIcon mail={mail} />
+                <Mail className="size-5 pt-1" />
+              </div>
             </DropdownMenuItem>
-          ))}
-        </DropdownMenuGroup>
+          </DropdownMenuGroup>
 
-        <DropdownMenuSeparator />
+          <DropdownMenuSeparator />
 
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Оформление</DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Навигация</DropdownMenuLabel>
 
-          <div className="flex items-center w-full justify-between">
-            <p>Тема</p>
-            <ModeToggle />
-          </div>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  </div>
-);
+            {navigationData.map((el) =>
+              isCurrentPage(el.route) ? (
+                <span className="flex justify-between items-center w-full opacity-50 py-1 px-1.5 bg-slate-100 rounded-sm">
+                  {el.title}
+                  <DropdownMenuShortcut className="[&_svg]:max-w-4 [&_svg]:max-h-4">
+                    {el.icon}
+                  </DropdownMenuShortcut>
+                </span>
+              ) : (
+                <DropdownMenuItem key={el.id} disabled={true}>
+                  <Link
+                    to={el.route}
+                    className="flex items-center justify-between w-full"
+                  >
+                    {el.title}
+                    <DropdownMenuShortcut>{el.icon}</DropdownMenuShortcut>
+                  </Link>
+                </DropdownMenuItem>
+              ),
+            )}
+          </DropdownMenuGroup>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Оформление</DropdownMenuLabel>
+
+            <div className="flex items-center w-full justify-between">
+              <p>Тема</p>
+              <ModeToggle />
+            </div>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+};
