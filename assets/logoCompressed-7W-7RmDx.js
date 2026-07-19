@@ -1,1 +1,0 @@
-var e=`/clean_service/assets/logoCompressed-B1OzZ0W8.png`;export{e as t};
