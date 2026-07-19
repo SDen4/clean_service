@@ -40,7 +40,9 @@ export const Header = () => {
     >
       <BlockWrapper>
         <div className="flex justify-between w-full items-center">
-          <LinkLogo />
+          <Tooltip text="На главную страницу">
+            <LinkLogo />
+          </Tooltip>
 
           <div className="hidden items-start lg:flex gap-6">
             {contacts.map((el) => (
