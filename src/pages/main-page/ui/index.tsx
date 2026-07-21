@@ -9,7 +9,7 @@ const fontStyles =
 const testStyles = `absolute ${fontStyles} max-w-[70%]`;
 
 const thesisText =
-  'text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3vw] text-sky-900 text-center p-10 leading-none';
+  'text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3vw] text-sky-900 dark:text-blue-100 text-center p-10 leading-none';
 
 const Divider = () => <div className="h-[1px] w-full bg-sky-500" />;
 
