@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { navigationData } from '@/entities/navigation';
 
@@ -9,6 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
+  Link,
 } from '@/shared/ui';
 
 const mainNavItem = navigationData[0];

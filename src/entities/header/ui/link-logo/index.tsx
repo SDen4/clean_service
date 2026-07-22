@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-
 import { mainPageImport } from '@/entities/page';
 
 import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
+import { Link } from '@/shared/ui';
 
 export const LinkLogo = () => (
   <Link to={ROUTES.MAIN} onMouseEnter={mainPageImport}>

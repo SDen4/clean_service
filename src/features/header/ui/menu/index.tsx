@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Mail, MenuIcon, PhoneForwarded } from 'lucide-react';
 
 import { ModeToggle } from '@/features/user';
@@ -16,6 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
+  Link,
 } from '@/shared/ui';
 
 interface IProps {

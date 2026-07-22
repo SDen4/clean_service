@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import {
   contacts,
   mail,
@@ -12,6 +10,7 @@ import { BlockWrapper, mainPageImport } from '@/entities/page';
 
 import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
+import { Link } from '@/shared/ui';
 
 const blockStyles = 'flex flex-col gap-3 min-w-[200px]';
 
