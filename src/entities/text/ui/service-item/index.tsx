@@ -1,13 +1,21 @@
 import { SquareCheckBig } from 'lucide-react';
 
+interface IProps {
+  item: { text: string; icon?: React.ElementType };
+}
+
 /** Элемент текста списка услуг */
-export const ServiceItem = ({ text }: { text?: string }) => {
-  if (!text) return '';
+export const ServiceItem = ({ item }: IProps) => {
+  if (!item) return '';
+
+  const Icon = item.icon || SquareCheckBig;
 
   return (
-    <div className="flex gap-2">
-      <SquareCheckBig className="pt-1 w-6 h-6 min-h-6 min-w-6" />
-      <h4>{text}</h4>
+    <div className="flex gap-3">
+      <Icon className="pt-1 w-10 h-10 min-h-10 min-w-10" />
+      <h2 className="text-2xl sm:text-4xl text-sky-900 dark:text-blue-100">
+        {item.text}
+      </h2>
     </div>
   );
 };
