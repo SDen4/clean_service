@@ -36,7 +36,7 @@ export const ServiceItem = ({ item }: IProps) => {
       </div>
 
       <div className="absolute -bottom-12 -right-12">
-        <Icon className="w-64 h-64 min-h-10 opacity-35 group-hover:opacity-10 transition-all duration-[0.3s] group-hover:translate-x-16 group-hover:translate-y-16" />
+        <Icon className="w-64 h-64 opacity-35 group-hover:opacity-10 transition-all duration-[0.3s] group-hover:translate-x-16 group-hover:translate-y-16" />
       </div>
     </Card>
   );
