@@ -31,7 +31,12 @@ export const Footer = () => (
           <h4>Для покупателей</h4>
 
           {navigationData.map((el) => (
-            <Link key={el.id} to={el.route} className="flex w-full gap-2">
+            <Link
+              key={el.id}
+              to={el.route}
+              className="flex w-full gap-2"
+              onMouseEnter={el.importFunc}
+            >
               {el.icon}
               {el.title}
             </Link>
