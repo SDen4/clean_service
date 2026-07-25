@@ -23,7 +23,7 @@ interface IProps {
   className?: string;
 }
 
-export const Menu = ({ className }: IProps) => {
+const Menu = ({ className }: IProps) => {
   const { pathname } = useLocation();
 
   const isCurrentPage = (path: string) =>
@@ -71,7 +71,10 @@ export const Menu = ({ className }: IProps) => {
 
             {navigationData.map((el) =>
               isCurrentPage(el.route) ? (
-                <span className="flex justify-between items-center w-full text-base opacity-50 py-1 px-1.5 bg-slate-100 rounded-sm">
+                <span
+                  key={el.id}
+                  className="flex justify-between items-center w-full text-base opacity-50 py-1 px-1.5 bg-slate-100 rounded-sm"
+                >
                   {el.title}
                   <DropdownMenuShortcut className="[&_svg]:max-w-4 [&_svg]:max-h-4">
                     {el.icon}
@@ -106,3 +109,5 @@ export const Menu = ({ className }: IProps) => {
     </div>
   );
 };
+
+export default Menu;

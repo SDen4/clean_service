@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { lazy, useCallback, useEffect, useRef, useState } from 'react';
 
-import { Menu } from '@/features/header';
 import { Navigation } from '@/features/navigation';
 import { ModeToggle } from '@/features/user';
 
@@ -9,15 +8,49 @@ import { LinkLogo } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
 import { Tooltip } from '@/entities/tooltip';
 
-export const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const MenuLazy = lazy(() => import('@/features/header'));
 
-  document.addEventListener('scroll', function () {
-    setIsScrolled(window.scrollY > 0);
-  });
+const windowWidthForMenuVisible = 1024;
+
+export const Header = () => {
+  const headerRef = useRef<HTMLHeadElement | null>(null);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
+
+  const scrollListenerFunc = useCallback(
+    () => setIsScrolled(window.scrollY > 0),
+    [],
+  );
+  const resizeListenerFunc = useCallback(() => {
+    if (headerRef?.current?.clientWidth) {
+      return setMobileMenuVisible(
+        Boolean(headerRef.current.clientWidth < windowWidthForMenuVisible),
+      );
+    }
+  }, []);
+
+  document.addEventListener('scroll', () => scrollListenerFunc());
+  window.addEventListener('resize', () => resizeListenerFunc);
+
+  useEffect(() => resizeListenerFunc(), [resizeListenerFunc]);
+
+  useEffect(
+    () => () => {
+      document.removeEventListener('scroll', scrollListenerFunc);
+    },
+    [scrollListenerFunc],
+  );
+  useEffect(
+    () => () => {
+      document.removeEventListener('resize', resizeListenerFunc);
+    },
+    [resizeListenerFunc],
+  );
 
   return (
     <header
+      ref={headerRef}
       className={`flex items-center justify-center w-full py-2 sticky top-0 bg-background z-10 transition-opacity duration-500 ${isScrolled ? 'opacity-[97%] shadow-md' : ''}`}
     >
       <BlockWrapper>
@@ -37,7 +70,7 @@ export const Header = () => {
             <ModeToggle className="hidden lg:block" />
           </Tooltip>
 
-          <Menu className="lg:hidden" />
+          {isMobileMenuVisible && <MenuLazy className="lg:hidden" />}
         </div>
 
         <Navigation className="hidden lg:flex" />
