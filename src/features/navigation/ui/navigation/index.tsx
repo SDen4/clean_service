@@ -16,7 +16,7 @@ interface IProps {
 
 /** Навигация по сайту */
 export const Navigation = ({ className }: IProps) => (
-  <NavigationMenu className={`${className} my-2`}>
+  <NavigationMenu className={`${className}`}>
     <NavigationMenuList className="gap-4 items-start px-0">
       {navigationData
         .filter((el) => el.id !== ROUTES.MAIN)
