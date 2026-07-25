@@ -21,7 +21,7 @@ export const ServiceItem = ({ item }: IProps) => {
   return (
     <Card className="relative min-h-[280px] min-w-[300px] w-[30%] justify-between group hover:(shadow-xl) hover:-translate-y-1 transition-all duration-[0.3s] bg-gradient-to-tl from-slate-100 to-slate-300">
       <CardHeader>
-        <CardTitle className="z-[1] p-4 text-2xl text-sky-900 ">
+        <CardTitle className="z-[1] p-4 text-2xl dark:text-sky-950">
           {item.text}
         </CardTitle>
       </CardHeader>
