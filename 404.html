@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/clean_service/favicon-96x96.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>БэП Ремонт</title>
-    <script type="module" crossorigin src="/clean_service/assets/index-CSJYHZU_.js"></script>
+    <script type="module" crossorigin src="/clean_service/assets/index-Choq8d_D.js"></script>
     <link rel="modulepreload" crossorigin href="/clean_service/assets/rolldown-runtime-Bh1tDfsg.js">
     <link rel="modulepreload" crossorigin href="/clean_service/assets/vendor-BzCmh7_f.js">
     <link rel="modulepreload" crossorigin href="/clean_service/assets/vendor-DjuLUxct.js">
@@ -26,9 +26,48 @@
     <link rel="modulepreload" crossorigin href="/clean_service/assets/vendor-DjqZEyll.js">
     <link rel="modulepreload" crossorigin href="/clean_service/assets/vendor-BLUaYARZ.js">
     <link rel="modulepreload" crossorigin href="/clean_service/assets/vendor-B_HhjjuZ.js">
-    <link rel="stylesheet" crossorigin href="/clean_service/assets/index-xcPfhsL_.css">
+    <link rel="stylesheet" crossorigin href="/clean_service/assets/index-BWD-_s9S.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="loader" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+      ">
+        <div style="text-align: center;">
+          <h1 style="color: #333; margin-top: 1rem;">Загрузка...</h1>
+          <div style="
+            margin-top: 1.5rem;
+            width: 200px;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+          ">
+            <div style="
+              width: 30%;
+              height: 100%;
+              background: #007bff;
+              border-radius: 2px;
+              animation: pulse 1.2s ease-in-out infinite;
+            "></div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        @keyframes pulse {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(200px); }
+        }
+      </style>
+
+    </div>
+    
   </body>
 </html>
