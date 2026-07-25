@@ -24,29 +24,26 @@ export const Header = () => {
   );
   const resizeListenerFunc = useCallback(() => {
     if (headerRef?.current?.clientWidth) {
-      return setMobileMenuVisible(
+      setMobileMenuVisible(
         Boolean(headerRef.current.clientWidth < windowWidthForMenuVisible),
       );
     }
   }, []);
 
-  document.addEventListener('scroll', () => scrollListenerFunc());
-  window.addEventListener('resize', () => resizeListenerFunc);
+  useEffect(() => {
+    resizeListenerFunc();
+    window.addEventListener('resize', resizeListenerFunc);
+    return () => {
+      window.removeEventListener('resize', resizeListenerFunc);
+    };
+  }, [resizeListenerFunc]);
 
-  useEffect(() => resizeListenerFunc(), [resizeListenerFunc]);
-
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    document.addEventListener('scroll', scrollListenerFunc);
+    return () => {
       document.removeEventListener('scroll', scrollListenerFunc);
-    },
-    [scrollListenerFunc],
-  );
-  useEffect(
-    () => () => {
-      document.removeEventListener('resize', resizeListenerFunc);
-    },
-    [resizeListenerFunc],
-  );
+    };
+  }, [scrollListenerFunc]);
 
   return (
     <header
