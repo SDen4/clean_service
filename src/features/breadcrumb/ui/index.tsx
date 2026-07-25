@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { navigationData } from '@/entities/navigation';
 import { BlockWrapper } from '@/entities/page';
 
+import { ROUTES } from '@/shared/config';
 import {
   Breadcrumb as BreadcrumbLib,
   BreadcrumbItem,
@@ -17,6 +18,9 @@ const mainNavItem = navigationData[0];
 
 export function Breadcrumb() {
   const { pathname } = useLocation();
+
+  // Don't show breadcrumb at the main page
+  if (pathname === ROUTES.MAIN) return null;
 
   const navItem = navigationData.find((el) => el.id === pathname.slice(1));
 
