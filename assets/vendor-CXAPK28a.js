@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-Bh1tDfsg.js";import{o as t}from"./vendor-DjuLUxct.js";import{n}from"./vendor-D_5quq5m.js";import{a as r,r as i}from"./vendor-SJqHMpOb.js";var a=e(t(),1),o=e(n(),1);function s(e){return a.createElement(i,{flushSync:o.flushSync,...e})}r();export{s as t};
