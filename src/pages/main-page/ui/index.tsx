@@ -17,7 +17,7 @@ const MainPage = () => (
   <PageWrapper>
     <div
       style={{ backgroundImage: `url(${bannerMain})` }}
-      className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat dark:opacity-50"
+      className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat dark:opacity-50 bg-sky-200"
     >
       <div
         style={{ backgroundImage: `url(${texture})` }}

@@ -9,7 +9,46 @@
     <title>БэП Ремонт</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="loader" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+      ">
+        <div style="text-align: center;">
+          <h1 style="color: #333; margin-top: 1rem;">Загрузка...</h1>
+          <div style="
+            margin-top: 1.5rem;
+            width: 200px;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+          ">
+            <div style="
+              width: 30%;
+              height: 100%;
+              background: #007bff;
+              border-radius: 2px;
+              animation: pulse 1.2s ease-in-out infinite;
+            "></div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        @keyframes pulse {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(200px); }
+        }
+      </style>
+
+    </div>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
