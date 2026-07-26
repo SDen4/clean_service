@@ -21,16 +21,16 @@ const blockStyles = 'flex flex-col gap-3 min-w-[200px]';
 export const Footer = () => (
   <footer className="flex flex-col items-center w-full pb-4 px-2 bg-sky-100 dark:bg-sky-900">
     <BlockWrapper className="items-center">
-      <div className="flex flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-10">
-        <div className="flex flex-col gap-1">
-          <div className="hidden md:block w-fit">
-            <Link to={ROUTES.MAIN} onMouseEnter={mainPageImport}>
-              <div className="flex flex-col  gap-1">
-                <img src={logo} className="w-24" alt="company logo" />
-                <h5 className="font-bold text-center">БэП Ремонт</h5>
-              </div>
-            </Link>
-          </div>
+      <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-10">
+        <div className="flex flex-col items-center sm:items-start gap-1">
+          <Link
+            to={ROUTES.MAIN}
+            onMouseEnter={mainPageImport}
+            className="flex w-fit flex-col  gap-1"
+          >
+            <img src={logo} className="w-24" alt="company logo" />
+            <h5 className="font-bold text-center">БэП Ремонт</h5>
+          </Link>
 
           <Link
             to={ROUTES.PRIVACY_POLICY}
