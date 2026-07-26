@@ -1,3 +1,5 @@
+import { CalendarDays, Clock7 } from 'lucide-react';
+
 import {
   contacts,
   mail,
@@ -16,12 +18,12 @@ import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
 import { Link } from '@/shared/ui';
 
-const blockStyles = 'flex flex-col gap-3 min-w-[200px]';
+const blockStyles = 'flex flex-col gap-3 sm:min-w-0 min-w-[200px]';
 
 export const Footer = () => (
   <footer className="flex flex-col items-center w-full pb-4 px-2 bg-sky-100 dark:bg-sky-900">
     <BlockWrapper className="items-center">
-      <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-10">
+      <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-x-4 gap-y-8">
         <div className="flex flex-col items-center sm:items-start gap-1">
           <Link
             to={ROUTES.MAIN}
@@ -76,6 +78,20 @@ export const Footer = () => (
           {contacts.map((el) => (
             <TelegramItem name={el.name} tel={el.tel} key={el.id} />
           ))}
+        </div>
+
+        <div className={blockStyles}>
+          <h4>Время работы</h4>
+
+          <div className="flex items-center gap-2">
+            <Clock7 />
+            <h6>09:00 - 19:00</h6>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <CalendarDays />
+            <h6>Пн - Вс</h6>
+          </div>
         </div>
       </div>
 
