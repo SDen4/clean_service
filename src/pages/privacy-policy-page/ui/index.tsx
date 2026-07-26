@@ -318,10 +318,6 @@ const PrivacyPolicyPage = () => {
           </p>
         </section>
 
-        <address>
-          Контакты: <a href={`mailto:${mail}`}>{mail}</a>,{' '}
-          <a href={`tel:${tel}`}>{tel}</a>
-        </address>
         <p>
           <small>© {companyName}, 2026. Все права защищены.</small>
         </p>
