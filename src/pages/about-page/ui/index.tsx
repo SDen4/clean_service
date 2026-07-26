@@ -1,9 +1,10 @@
+import { PageWrapper } from '@/entities/page';
 import { AboutSubText, AboutText, AboutTitle } from '@/entities/text';
 
 import logo from '@/shared/assets/logoCompressed.png';
 
-export const AboutPage = () => {
-  return (
+export const AboutPage = () => (
+  <PageWrapper>
     <div className="flex flex-col gap-4">
       <h2 className="mb-2">О компании</h2>
 
@@ -93,7 +94,7 @@ export const AboutPage = () => {
         </li>
       </ul>
     </div>
-  );
-};
+  </PageWrapper>
+);
 
 export default AboutPage;

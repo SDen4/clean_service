@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
-import { House, Info, UserSearch, Wrench } from 'lucide-react';
+import { House, Info, Landmark, UserSearch, Wrench } from 'lucide-react';
 
 import {
   aboutPageImport,
   contactsPageImport,
   mainPageImport,
+  privacyPolicyPageImport,
   servicesPageImport,
 } from '@/entities/page';
 
@@ -46,5 +47,16 @@ export const navigationData: INavigationData[] = [
     id: ROUTES.CONTACTS,
     icon: <UserSearch />,
     importFunc: contactsPageImport,
+  },
+] as const;
+
+export const breadcrumbData: INavigationData[] = [
+  ...navigationData,
+  {
+    title: 'Политика конфиденциальности',
+    route: ROUTES.PRIVACY_POLICY,
+    id: ROUTES.PRIVACY_POLICY,
+    icon: <Landmark />,
+    importFunc: privacyPolicyPageImport,
   },
 ] as const;

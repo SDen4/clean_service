@@ -5,6 +5,7 @@ import {
   contactsPageImport,
   errorPageImport,
   mainPageImport,
+  privacyPolicyPageImport,
   servicesPageImport,
 } from '@/entities/page';
 
@@ -13,6 +14,7 @@ const ContactsPageLazy = lazy(contactsPageImport);
 const AboutPageLazy = lazy(aboutPageImport);
 const ServicesPageLazy = lazy(servicesPageImport);
 const ErrorPageLazy = lazy(errorPageImport);
+const PrivacyPolicyPageLazy = lazy(privacyPolicyPageImport);
 
 export {
   MainPageLazy,
@@ -20,4 +22,5 @@ export {
   AboutPageLazy,
   ServicesPageLazy,
   ErrorPageLazy,
+  PrivacyPolicyPageLazy,
 };

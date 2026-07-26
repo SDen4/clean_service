@@ -7,4 +7,6 @@ export enum ROUTES {
   ABOUT = 'about',
   /** Страница с услугами */
   SERVICES = 'services',
+  /** Страница "Политика конфиденциальности" */
+  PRIVACY_POLICY = 'privacy-policy',
 }

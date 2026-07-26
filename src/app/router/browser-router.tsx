@@ -10,6 +10,7 @@ import {
   ContactsPageLazy,
   ErrorPageLazy,
   MainPageLazy,
+  PrivacyPolicyPageLazy,
   ServicesPageLazy,
 } from './lazy-components-imports';
 
@@ -40,6 +41,10 @@ export const browserRouter = createBrowserRouter(
         {
           path: ROUTES.CONTACTS,
           element: <ContactsPageLazy />,
+        },
+        {
+          path: ROUTES.PRIVACY_POLICY,
+          element: <PrivacyPolicyPageLazy />,
         },
       ],
     },
