@@ -7,6 +7,7 @@ import {
   PhoneItem,
   TelegramItem,
 } from '@/entities/contact';
+import { FooterBlock } from '@/entities/footer';
 import { navigationData } from '@/entities/navigation';
 import {
   BlockWrapper,
@@ -17,8 +18,6 @@ import {
 import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
 import { Link } from '@/shared/ui';
-
-const blockStyles = 'flex flex-col gap-3 sm:min-w-0 min-w-[200px]';
 
 export const Footer = () => (
   <footer className="flex flex-col items-center w-full pb-4 px-2 bg-sky-100 dark:bg-sky-900">
@@ -42,9 +41,7 @@ export const Footer = () => (
           </Link>
         </div>
 
-        <div className={blockStyles}>
-          <h4>Для покупателей</h4>
-
+        <FooterBlock text="Для покупателей">
           {navigationData.map((el) => (
             <Link
               key={el.id}
@@ -56,33 +53,9 @@ export const Footer = () => (
               {el.title}
             </Link>
           ))}
-        </div>
+        </FooterBlock>
 
-        <div className={blockStyles}>
-          <h4>Телефоны</h4>
-
-          {contacts.map((el) => (
-            <PhoneItem name={el.name} tel={el.tel} key={el.id} />
-          ))}
-        </div>
-
-        <div className={blockStyles}>
-          <h4>Электронная почта</h4>
-
-          <MailItem mail={mail} />
-        </div>
-
-        <div className={blockStyles}>
-          <h4>Мессенджеры</h4>
-
-          {contacts.map((el) => (
-            <TelegramItem name={el.name} tel={el.tel} key={el.id} />
-          ))}
-        </div>
-
-        <div className={blockStyles}>
-          <h4>Время работы</h4>
-
+        <FooterBlock text="Время работы">
           <div className="flex items-center gap-2">
             <Clock7 />
             <h6>09:00 - 19:00</h6>
@@ -92,7 +65,23 @@ export const Footer = () => (
             <CalendarDays />
             <h6>Пн - Вс</h6>
           </div>
-        </div>
+        </FooterBlock>
+
+        <FooterBlock text="Электронная почта">
+          <MailItem mail={mail} />
+        </FooterBlock>
+
+        <FooterBlock text="Мессенджеры">
+          {contacts.map((el) => (
+            <TelegramItem name={el.name} tel={el.tel} key={el.id} />
+          ))}
+        </FooterBlock>
+
+        <FooterBlock text="Телефоны">
+          {contacts.map((el) => (
+            <PhoneItem name={el.name} tel={el.tel} key={el.id} />
+          ))}
+        </FooterBlock>
       </div>
 
       <span>&#169; 2026 БэП Ремонт. Все права защищены</span>
