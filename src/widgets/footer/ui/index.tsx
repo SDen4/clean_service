@@ -4,8 +4,8 @@ import {
   contacts,
   mail,
   MailItem,
+  MessengerItem,
   PhoneItem,
-  TelegramItem,
 } from '@/entities/contact';
 import { FooterBlock } from '@/entities/footer';
 import { navigationData } from '@/entities/navigation';
@@ -73,7 +73,7 @@ export const Footer = () => (
 
         <FooterBlock text="Мессенджеры">
           {contacts.map((el) => (
-            <TelegramItem name={el.name} tel={el.tel} key={el.id} />
+            <MessengerItem contact={el} key={el.id} />
           ))}
         </FooterBlock>
 

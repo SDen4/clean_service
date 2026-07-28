@@ -2,8 +2,8 @@ import {
   contacts,
   mail,
   MailItem,
+  MessengerItem,
   PhoneItem,
-  TelegramItem,
 } from '@/entities/contact';
 import { PageWrapper } from '@/entities/page';
 
@@ -18,7 +18,7 @@ const ContactsPage = () => {
           <h4>Мессенджеры</h4>
 
           {contacts.map((el) => (
-            <TelegramItem name={el.name} tel={el.tel} key={el.id} />
+            <MessengerItem contact={el} key={el.id} />
           ))}
         </div>
 
