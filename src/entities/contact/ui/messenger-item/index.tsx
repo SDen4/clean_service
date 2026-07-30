@@ -23,11 +23,11 @@ export const MessengerItem = ({ contact }: IProps) => {
           {...linkProps}
           href={`tg://resolve?phone=${formattedTel}?text=${contact.name},%20здравствуйте!%20Подскажите%20пожалуйста%20`}
         >
-          <img src={telegram} className="w-6 h-6" />
+          <img src={telegram} className="w-6 h-6" alt="telegram icon" />
         </a>
 
         <a {...linkProps} href={`https://max.ru/u/${contact.maxId}`}>
-          <img src={max} className="w-6 h-6" />
+          <img src={max} className="w-6 h-6" alt="max icon" />
         </a>
       </div>
 
