@@ -1,7 +1,6 @@
 import { PageWrapper } from '@/entities/page';
 
 import bannerMain from '@/shared/assets/bannerMain3.jpg';
-import texture from '@/shared/assets/texture.png';
 
 const fontStyles =
   'text-[9vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] xl:text-[4vw]';
@@ -20,7 +19,11 @@ const MainPage = () => (
       className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat dark:opacity-70 bg-sky-200"
     >
       <div
-        style={{ backgroundImage: `url(${texture})` }}
+        style={{
+          backgroundImage:
+            'repeating-conic-gradient(rgba(0, 0, 0, 0.2) 0% 25%, transparent 0% 50%)',
+          backgroundSize: '6px 6px',
+        }}
         className="absolute top-0 bottom-0 left-0 right-0"
       />
       <h1 className={`${bannerTextStyles} right-10 top-10 text-right`}>
