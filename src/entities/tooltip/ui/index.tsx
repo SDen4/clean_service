@@ -24,9 +24,7 @@ export function Tooltip({ children, text, side }: IProps) {
     <TooltipLib>
       {/* render={<div />} решает баг с ошибкой вложенной кнопки в shadcn */}
       <TooltipTrigger render={<div />}>{children}</TooltipTrigger>
-      <TooltipContent side={side}>
-        <p>{text}</p>
-      </TooltipContent>
+      <TooltipContent side={side}>{text}</TooltipContent>
     </TooltipLib>
   );
 }
