@@ -19,7 +19,7 @@ import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
 import { Link } from '@/shared/ui';
 
-export const Footer = () => (
+const Footer = () => (
   <footer className="flex flex-col items-center w-full pb-4 px-2 bg-sky-100 dark:bg-sky-900">
     <BlockWrapper className="items-center">
       <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-x-4 gap-y-8">
@@ -88,3 +88,5 @@ export const Footer = () => (
     </BlockWrapper>
   </footer>
 );
+
+export default Footer;
