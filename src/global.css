@@ -98,6 +98,12 @@
     width: 100%;
     min-height: 100vh;
     gap: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='16' fill='rgba(0,0,0,0.08)' font-family='Inter, system-ui, sans-serif' transform='rotate(-15 100 50)'%3EБэП Ремонт%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  .dark #root {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='16' fill='rgba(255,255,255,0.08)' font-family='Inter, system-ui, sans-serif' transform='rotate(-15 100 50)'%3EБэП Ремонт%3C/text%3E%3C/svg%3E");
   }
 }
 
