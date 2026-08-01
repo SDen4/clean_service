@@ -1,11 +1,10 @@
-import { CalendarDays, Clock7 } from 'lucide-react';
-
 import {
   contacts,
   mail,
   MailItem,
   MessengerItem,
   PhoneItem,
+  WorkTimeItem,
 } from '@/entities/contact';
 import { FooterBlock } from '@/entities/footer';
 import { navigationData } from '@/entities/navigation';
@@ -56,15 +55,7 @@ const Footer = () => (
         </FooterBlock>
 
         <FooterBlock text="Время работы">
-          <div className="flex items-center gap-2">
-            <Clock7 />
-            <h6>09:00 - 19:00</h6>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <CalendarDays />
-            <h6>Пн - Вс</h6>
-          </div>
+          <WorkTimeItem />
         </FooterBlock>
 
         <FooterBlock text="Электронная почта">
