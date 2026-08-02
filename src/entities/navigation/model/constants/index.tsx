@@ -7,7 +7,7 @@ import {
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,
-} from '@/entities/page';
+} from '@/entities/page/@x/navigation';
 
 import { ROUTES } from '@/shared/config';
 
