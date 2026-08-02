@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { TriangleAlert } from 'lucide-react';
 
-import logo from '../../assets/logoCompressed.png';
+import { logo } from '../../model';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   /** Контент страницы */

@@ -1,7 +1,7 @@
 import { lazy, useCallback, useEffect, useRef, useState } from 'react';
 
+import { ModeToggle } from '@/features/header';
 import { Navigation } from '@/features/navigation';
-import { ModeToggle } from '@/features/user';
 
 import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { LinkLogo } from '@/entities/header';

@@ -1,8 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Mail, MenuIcon, PhoneForwarded } from 'lucide-react';
 
-import { ModeToggle } from '@/features/user';
-
 import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { navigationData } from '@/entities/navigation';
 
@@ -18,6 +16,8 @@ import {
   DropdownMenuTrigger,
   Link,
 } from '@/shared/ui';
+
+import { ModeToggle } from '../mode-toggle';
 
 interface IProps {
   className?: string;

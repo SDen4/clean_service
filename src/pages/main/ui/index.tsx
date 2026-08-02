@@ -1,6 +1,6 @@
 import { PageWrapper } from '@/entities/page';
 
-import bannerMain from '@/shared/assets/bannerMain3.jpg';
+import { bannerMain } from '@/shared/model';
 
 const fontStyles =
   'text-[9vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] xl:text-[4vw]';

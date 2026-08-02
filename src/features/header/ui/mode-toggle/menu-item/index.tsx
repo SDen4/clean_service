@@ -1,6 +1,6 @@
-import { useTheme } from '@/shared/hooks';
 import { cn } from '@/shared/lib';
-import type { Theme } from '@/shared/types';
+import type { Theme } from '@/shared/model';
+import { useTheme } from '@/shared/model';
 import { DropdownMenuItem } from '@/shared/ui';
 
 interface IProps {

@@ -1,7 +1,7 @@
 import { PageWrapper } from '@/entities/page';
 import { AboutSubText, AboutText, AboutTitle } from '@/entities/text';
 
-import logo from '@/shared/assets/logoCompressed.png';
+import { logo } from '@/shared/model';
 
 export const AboutPage = () => (
   <PageWrapper>

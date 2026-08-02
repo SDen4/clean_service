@@ -1,7 +1,7 @@
-import { mainPageImport } from '@/entities/page';
+import { mainPageImport } from '@/entities/page/@x/header';
 
-import logo from '@/shared/assets/logoCompressed.png';
 import { ROUTES } from '@/shared/config';
+import { logo } from '@/shared/model';
 import { Link } from '@/shared/ui';
 
 export const LinkLogo = () => (

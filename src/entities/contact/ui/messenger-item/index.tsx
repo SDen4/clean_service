@@ -1,7 +1,6 @@
-import max from '@/shared/assets/MAX.svg';
-import telegram from '@/shared/assets/telegram.svg';
+import { max, telegram } from '@/shared/model';
 
-import type { IContact } from '../../types';
+import type { IContact } from '../../model/types';
 
 const linkProps = {
   className: 'flex w-full gap-2',
