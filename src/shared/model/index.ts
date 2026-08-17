@@ -1,5 +1,7 @@
 export { useTheme } from './hooks/use-theme';
 
+export { PageKeys } from './constants';
+
 export * from './types';
 
 export { default as max } from './assets/MAX.svg';

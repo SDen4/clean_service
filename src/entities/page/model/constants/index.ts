@@ -1,6 +1,10 @@
-export const mainPageImport = () => import('@/pages/main');
-export const contactsPageImport = () => import('@/pages/contacts');
-export const aboutPageImport = () => import('@/pages/about');
-export const servicesPageImport = () => import('@/pages/services');
-export const errorPageImport = () => import('@/pages/error');
-export const privacyPolicyPageImport = () => import('@/pages/privacy-policy');
+import { getPreloader } from '@/shared/lib';
+import { PageKeys } from '@/shared/model';
+
+export const mainPageImport = () => getPreloader(PageKeys.main)();
+export const contactsPageImport = () => getPreloader(PageKeys.contacts)();
+export const aboutPageImport = () => getPreloader(PageKeys.about)();
+export const servicesPageImport = () => getPreloader(PageKeys.services)();
+export const errorPageImport = () => getPreloader(PageKeys.error)();
+export const privacyPolicyPageImport = () =>
+  getPreloader(PageKeys.privacyPolicy)();

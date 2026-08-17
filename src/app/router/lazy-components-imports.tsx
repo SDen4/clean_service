@@ -1,4 +1,7 @@
+import type { ComponentType } from 'react';
 import { lazy } from 'react';
+
+import type { IErrorPageProps } from '@/pages/error';
 
 import {
   aboutPageImport,
@@ -13,7 +16,9 @@ const MainPageLazy = lazy(mainPageImport);
 const ContactsPageLazy = lazy(contactsPageImport);
 const AboutPageLazy = lazy(aboutPageImport);
 const ServicesPageLazy = lazy(servicesPageImport);
-const ErrorPageLazy = lazy(errorPageImport);
+const ErrorPageLazy = lazy(errorPageImport) as React.LazyExoticComponent<
+  ComponentType<IErrorPageProps>
+>;
 const PrivacyPolicyPageLazy = lazy(privacyPolicyPageImport);
 
 export {

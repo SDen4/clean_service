@@ -4,16 +4,12 @@ import { House, TriangleAlert } from 'lucide-react';
 import { ROUTES } from '@/shared/config';
 import { Button, ErrorPageWrapper } from '@/shared/ui';
 
-interface IProps {
-  title?: string;
-  text?: string;
-  icon?: React.ElementType;
-}
+import type { IErrorPageProps } from '../model/types';
 
 const defaultTitle = 'Ошибка';
 const defaultText = 'Запрашиваемой страницы не существует';
 
-const ErrorPage = ({ title, text, icon }: IProps) => {
+const ErrorPage = ({ title, text, icon }: IErrorPageProps) => {
   const navigate = useNavigate();
 
   const Icon = icon ?? TriangleAlert;

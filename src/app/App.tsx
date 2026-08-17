@@ -4,6 +4,8 @@ import { ErrorBoundary } from '@/shared/ui';
 
 import { browserRouter } from './router/browser-router';
 
+import './preload';
+
 function App() {
   return (
     <ErrorBoundary>
