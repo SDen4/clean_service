@@ -5,7 +5,7 @@ import { bannerMain } from '@/shared/model';
 const fontStyles =
   'text-[9vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] xl:text-[4vw]';
 
-const bannerTextStyles = `absolute ${fontStyles} max-w-[70%] dark:text-sky-950`;
+const bannerTextStyles = `absolute ${fontStyles} max-w-[70%] dark:text-sky-950 drop-shadow-[0_2px_2px_rgba(255,255,255,0.9)]`;
 
 const thesisText =
   'text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3vw] text-center p-10 leading-none';
