@@ -20,7 +20,7 @@ const ErrorPage = ({ title, text, icon }: IErrorPageProps) => {
     <ErrorPageWrapper icon={Icon}>
       <h1>{title ?? defaultTitle}</h1>
       <h4 className="text-center">{text ?? defaultText}</h4>
-      <Button variant="outline" onClick={onClick}>
+      <Button variant="outline" onClick={onClick} aria-label="На главную">
         <House /> На главную
       </Button>
     </ErrorPageWrapper>

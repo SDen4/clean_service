@@ -34,7 +34,7 @@ const Menu = ({ className }: IProps) => {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="outline">
+            <Button variant="outline" aria-label="Меню">
               <MenuIcon />
             </Button>
           }
