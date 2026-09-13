@@ -11,3 +11,5 @@ export * from './error-page-wrapper';
 
 export * from './link';
 export * from './tooltip';
+
+export * from './go-main-button';

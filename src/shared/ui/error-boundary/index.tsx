@@ -2,9 +2,8 @@ import type { ReactNode } from 'react';
 import { Component } from 'react';
 import { Ban, RefreshCw } from 'lucide-react';
 
-import { GoMainButton } from '@/entities/navigation';
-
 import { Button } from '../button';
+import { GoMainButton } from '../go-main-button';
 import { isChunkLoadErrorFunc } from './isChunkLoadErrorFunc';
 
 import { ErrorPageWrapper } from '../error-page-wrapper';

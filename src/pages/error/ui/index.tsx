@@ -1,8 +1,6 @@
 import { TriangleAlert } from 'lucide-react';
 
-import { GoMainButton } from '@/entities/navigation';
-
-import { ErrorPageWrapper } from '@/shared/ui';
+import { ErrorPageWrapper, GoMainButton } from '@/shared/ui';
 
 import type { IErrorPageProps } from '../model/types';
 
