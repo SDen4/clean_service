@@ -6,7 +6,6 @@ import {
   PhoneItem,
   WorkTimeItem,
 } from '@/entities/contact';
-import { PageWrapper } from '@/entities/page';
 
 import { Card, CardTitle } from '@/shared/ui';
 
@@ -15,12 +14,12 @@ const cardStyles = `flex flex-col gap-5 min-w-[220px] p-4 bg-gradient-to-tl from
 
 const ContactsPage = () => {
   return (
-    <PageWrapper>
+    <>
       <h2>Контакты</h2>
 
       <div className="flex flex-wrap gap-10 justify-center sm:justify-start dark:[&_h6]:text-sky-950 dark:[&>div]:text-sky-950">
         <Card className={cardStyles}>
-          <CardTitle>Время работы</CardTitle>
+          <CardTitle>Время работы!42132121</CardTitle>
           <WorkTimeItem />
         </Card>
 
@@ -61,7 +60,7 @@ const ContactsPage = () => {
           />
         </div>
       </div>
-    </PageWrapper>
+    </>
   );
 };
 

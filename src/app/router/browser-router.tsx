@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Ban } from 'lucide-react';
 
 import { ROUTES } from '@/shared/config';
+import { ErrorBoundary } from '@/shared/ui';
 
 import { MainLayout } from '../main-layout';
 
@@ -28,23 +29,43 @@ export const browserRouter = createBrowserRouter(
       children: [
         {
           path: ROUTES.MAIN,
-          element: <MainPageLazy />,
+          element: (
+            <ErrorBoundary>
+              <MainPageLazy />
+            </ErrorBoundary>
+          ),
         },
         {
           path: ROUTES.ABOUT,
-          element: <AboutPageLazy />,
+          element: (
+            <ErrorBoundary>
+              <AboutPageLazy />
+            </ErrorBoundary>
+          ),
         },
         {
           path: ROUTES.SERVICES,
-          element: <ServicesPageLazy />,
+          element: (
+            <ErrorBoundary>
+              <ServicesPageLazy />
+            </ErrorBoundary>
+          ),
         },
         {
           path: ROUTES.CONTACTS,
-          element: <ContactsPageLazy />,
+          element: (
+            <ErrorBoundary>
+              <ContactsPageLazy />
+            </ErrorBoundary>
+          ),
         },
         {
           path: ROUTES.PRIVACY_POLICY,
-          element: <PrivacyPolicyPageLazy />,
+          element: (
+            <ErrorBoundary>
+              <PrivacyPolicyPageLazy />
+            </ErrorBoundary>
+          ),
         },
       ],
     },

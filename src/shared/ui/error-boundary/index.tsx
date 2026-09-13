@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import { Component } from 'react';
 import { Ban, RefreshCw } from 'lucide-react';
 
+import { GoMainButton } from '@/entities/navigation';
+
 import { Button } from '../button';
 import { isChunkLoadErrorFunc } from './isChunkLoadErrorFunc';
 
@@ -83,13 +85,18 @@ export class ErrorBoundary extends Component<IProps, IState> {
       return (
         <ErrorPageWrapper icon={Ban}>
           <h1 className="text-center">Ошибка приложения</h1>
-          <Button
-            variant="outline"
-            onClick={onReload}
-            aria-label="Перезагрузить"
-          >
-            <RefreshCw /> Перезагрузить
-          </Button>
+
+          <div className="flex gap-5">
+            <Button
+              variant="outline"
+              onClick={onReload}
+              aria-label="Перезагрузить"
+            >
+              <RefreshCw /> Перезагрузить
+            </Button>
+
+            <GoMainButton />
+          </div>
         </ErrorPageWrapper>
       );
     }

@@ -1,5 +1,3 @@
-import { PageWrapper } from '@/entities/page';
-
 import { bannerMain } from '@/shared/model';
 
 const fontStyles =
@@ -13,7 +11,7 @@ const thesisText =
 const Divider = () => <div className="h-[1px] w-full bg-sky-500" />;
 
 const MainPage = () => (
-  <PageWrapper>
+  <>
     <div
       style={{ backgroundImage: `url(${bannerMain})` }}
       className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat dark:opacity-70 bg-sky-200"
@@ -60,7 +58,7 @@ const MainPage = () => (
       Мы обслуживаем поломоечные машины, парогенераторы, промышленные и
       профессиональные пылесосы любых марок
     </h2>
-  </PageWrapper>
+  </>
 );
 
 export default MainPage;

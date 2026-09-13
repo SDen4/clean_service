@@ -3,6 +3,7 @@ const messages = [
   'Importing a module script failed',
   'error loading dynamically imported module',
   'Failed to load module script',
+  'Failed to load resource',
   'Loading chunk',
   'Failed to fetch',
 ];

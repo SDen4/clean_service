@@ -56,18 +56,16 @@ const serviceList = [
   },
 ];
 
-const ServicesPage = () => {
-  return (
-    <div className="flex flex-col gap-9">
-      <h2 className="mb-2">Услуги</h2>
+const ServicesPage = () => (
+  <div className="flex flex-col gap-9">
+    <h2 className="mb-2">Услуги</h2>
 
-      <div className="flex flex-wrap gap-12 justify-center">
-        {serviceList.map((el) => (
-          <ServiceItem key={el.text} item={el} />
-        ))}
-      </div>
+    <div className="flex flex-wrap gap-12 justify-center">
+      {serviceList.map((el) => (
+        <ServiceItem key={el.text} item={el} />
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default ServicesPage;
