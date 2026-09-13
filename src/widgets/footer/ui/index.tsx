@@ -21,7 +21,7 @@ import { Link } from '@/shared/ui';
 const Footer = () => (
   <footer className="flex flex-col items-center w-full pb-4 px-2 bg-sky-100 dark:bg-sky-900">
     <BlockWrapper className="items-center">
-      <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-6 gap-x-4 gap-y-8">
+      <div className="flex flex-col-reverse [480px]:flex-col flex-wrap items-center min-[480px]:items-start min-[480px]:flex-row justify-between min-w-full w-full py-10 gap-x-4 gap-y-8">
         <div className="flex flex-col items-center sm:items-start gap-1">
           <Link
             to={ROUTES.MAIN}
