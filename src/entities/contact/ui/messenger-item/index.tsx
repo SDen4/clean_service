@@ -19,7 +19,7 @@ export const MessengerItem = ({ contact }: IProps) => {
         {!!contact.telegramLogin && (
           <a
             {...linkProps}
-            href={`https://t.me/@${contact.telegramLogin}?text=${contact.name},%20здравствуйте!%20Подскажите%20пожалуйста%20`}
+            href={`https://t.me/@${contact.telegramLogin}?text=${contact.name},%20здравствуйте!%20Подскажите%20пожалуйста%20(введите%20свой%20вопрос)`}
           >
             <img src={telegram} className="w-6 h-6" alt="telegram icon" />
           </a>
