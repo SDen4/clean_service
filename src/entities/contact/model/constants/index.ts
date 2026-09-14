@@ -11,7 +11,7 @@ export const contacts: IContact[] = [
   {
     name: 'Вячеслав',
     tel: '+7 (922) 22-37-787',
-    telegramLogin: '',
+    telegramLogin: 'SlavaP787',
     maxId: 'f9LHodD0cOKGQSw9lYQmc1ICXsQvxMLnPfSY2RKyGY0EClJIua02KVDNZfM',
     id: 2,
   },
