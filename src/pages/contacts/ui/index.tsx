@@ -19,7 +19,7 @@ const ContactsPage = () => {
 
       <div className="flex flex-wrap gap-10 justify-center sm:justify-start dark:[&_h6]:text-sky-950 dark:[&>div]:text-sky-950">
         <Card className={cardStyles}>
-          <CardTitle>Время работы!42132121</CardTitle>
+          <CardTitle>Время работы</CardTitle>
           <WorkTimeItem />
         </Card>
 
