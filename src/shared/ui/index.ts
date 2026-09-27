@@ -10,6 +10,7 @@ export * from './error-boundary';
 export * from './error-page-wrapper';
 
 export * from './link';
+export * from './loader';
 export * from './tooltip';
 
 export * from './go-main-button';

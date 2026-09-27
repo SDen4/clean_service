@@ -1,8 +1,17 @@
 import type { ReactNode } from 'react';
-import { House, Info, Landmark, UserSearch, Wrench } from 'lucide-react';
+import {
+  House,
+  Info,
+  Landmark,
+  ShoppingCart,
+  UserSearch,
+  Wrench,
+} from 'lucide-react';
 
+import type { ICategory } from '@/entities/catalog/@x/navigation';
 import {
   aboutPageImport,
+  catalogPageImport,
   contactsPageImport,
   mainPageImport,
   privacyPolicyPageImport,
@@ -17,6 +26,7 @@ interface INavigationData {
   id: ROUTES;
   icon: ReactNode;
   importFunc?: () => void;
+  subCategories?: ICategory[];
 }
 
 export const navigationData: INavigationData[] = [
@@ -47,6 +57,13 @@ export const navigationData: INavigationData[] = [
     id: ROUTES.CONTACTS,
     icon: <UserSearch />,
     importFunc: contactsPageImport,
+  },
+  {
+    title: 'Каталог',
+    route: ROUTES.CATALOG,
+    id: ROUTES.CATALOG,
+    icon: <ShoppingCart />,
+    importFunc: catalogPageImport,
   },
 ] as const;
 

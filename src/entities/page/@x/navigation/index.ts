@@ -1,6 +1,7 @@
 export {
   aboutPageImport,
   contactsPageImport,
+  catalogPageImport,
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,

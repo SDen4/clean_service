@@ -8,11 +8,14 @@ import { MainLayout } from '../main-layout';
 
 import {
   AboutPageLazy,
+  CatalogPageLazy,
   ContactsPageLazy,
   ErrorPageLazy,
+  GoodsListPageLazy,
   MainPageLazy,
   PrivacyPolicyPageLazy,
   ServicesPageLazy,
+  SubCategoryPageLazy,
 } from './lazy-components-imports';
 
 export const browserRouter = createBrowserRouter(
@@ -56,6 +59,30 @@ export const browserRouter = createBrowserRouter(
           element: (
             <ErrorBoundary>
               <ContactsPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: ROUTES.CATALOG,
+          element: (
+            <ErrorBoundary>
+              <CatalogPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: `${ROUTES.CATALOG}/:categoryId`,
+          element: (
+            <ErrorBoundary>
+              <SubCategoryPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: `${ROUTES.CATALOG}/:categoryId/:subCategoryId`,
+          element: (
+            <ErrorBoundary>
+              <GoodsListPageLazy />
             </ErrorBoundary>
           ),
         },

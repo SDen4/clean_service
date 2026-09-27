@@ -105,6 +105,7 @@ export default defineConfig([
               '^(@company|@ui|config|vendored-lib)(/.*|$)',
               'class-variance-authority',
               '@base-ui',
+              'sonner',
             ],
             ['^@/app'],
             ['^@/pages'],

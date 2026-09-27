@@ -3,6 +3,9 @@ import { PageKeys } from '@/shared/model';
 
 // Регистрация пред загрузчиков
 registerPreloader(PageKeys.main, () => import('@/pages/main'));
+registerPreloader(PageKeys.catalog, () => import('@/pages/catalog'));
+registerPreloader(PageKeys.subCategory, () => import('@/pages/sub-category'));
+registerPreloader(PageKeys.goodsList, () => import('@/pages/goods-list'));
 registerPreloader(PageKeys.contacts, () => import('@/pages/contacts'));
 registerPreloader(PageKeys.about, () => import('@/pages/about'));
 registerPreloader(PageKeys.services, () => import('@/pages/services'));

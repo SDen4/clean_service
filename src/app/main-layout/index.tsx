@@ -1,13 +1,16 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Toaster } from 'sonner';
+
+import { Loader } from '@/shared/ui';
 
 import { Layout } from '../layout';
-import { Fallback } from './fallback';
 
 export const MainLayout = () => {
   return (
     <Layout>
-      <Suspense fallback={<Fallback />}>
+      <Toaster />
+      <Suspense fallback={<Loader className="min-h-[50vh]" />}>
         <Outlet />
       </Suspense>
     </Layout>
