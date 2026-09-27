@@ -44,9 +44,9 @@ export function Breadcrumb() {
 
       let title = category?.name || '';
 
-      if (i === 3) {
+      if (i === 3 || i === 2) {
         const offer = offers.find((offer) => String(offer.id) === el);
-        title = offer?.name ?? '';
+        if (offer?.name) title = offer?.name;
       }
 
       const parentId = category?.parentId;
