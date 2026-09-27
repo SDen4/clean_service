@@ -1,0 +1,1 @@
+var e=(e,t=0,n=0)=>typeof e==`number`?new Intl.NumberFormat(`ru-RU`,{minimumFractionDigits:n,maximumFractionDigits:t}).format(e):``;export{e as t};
