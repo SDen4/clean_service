@@ -13,7 +13,7 @@ import type {
 
 import { XMLParser } from 'fast-xml-parser';
 
-const feedUrl = 'https://bep-remont.duckdns.org/yandex-1313';
+const feedUrl = 'https://bep-remont.duckdns.org/yandex';
 
 // Вынести в отдельный хелпер + добавить юнит-тест
 /** Приводит одиночный элемент к массиву (fast-xml-parser так не делает сам) */
