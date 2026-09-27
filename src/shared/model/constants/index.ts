@@ -8,4 +8,5 @@ export enum PageKeys {
   catalog = 'catalog',
   subCategory = 'sub-category',
   goodsList = 'goods-list',
+  product = 'product',
 }

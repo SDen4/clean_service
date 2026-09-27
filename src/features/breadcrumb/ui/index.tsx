@@ -27,7 +27,7 @@ const mainNavItem = breadcrumbData[0];
 export function Breadcrumb() {
   const { pathname } = useLocation();
 
-  const { categories } = useGoods();
+  const { categories, offers } = useGoods();
 
   // Don't show breadcrumb at the main page
   if (pathname === ROUTES.MAIN) return null;
@@ -42,7 +42,13 @@ export function Breadcrumb() {
 
       const category = categories.find((cat) => String(cat.id) === String(el));
 
-      const categoryName = category?.name || '';
+      let title = category?.name || '';
+
+      if (i === 3) {
+        const offer = offers.find((offer) => String(offer.id) === el);
+        title = offer?.name ?? '';
+      }
+
       const parentId = category?.parentId;
 
       const subCategories = categories.filter(
@@ -54,7 +60,7 @@ export function Breadcrumb() {
 
       return {
         id: el,
-        title: categoryName,
+        title,
         icon: <ShoppingBasket />,
         route: arr
           .slice(0, i + 1)

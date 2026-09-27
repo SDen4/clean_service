@@ -10,6 +10,7 @@ registerPreloader(PageKeys.contacts, () => import('@/pages/contacts'));
 registerPreloader(PageKeys.about, () => import('@/pages/about'));
 registerPreloader(PageKeys.services, () => import('@/pages/services'));
 registerPreloader(PageKeys.error, () => import('@/pages/error'));
+registerPreloader(PageKeys.product, () => import('@/pages/product'));
 registerPreloader(
   PageKeys.privacyPolicy,
   () => import('@/pages/privacy-policy'),

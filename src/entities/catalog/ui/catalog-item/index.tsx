@@ -35,7 +35,7 @@ export const CatalogItem = ({ item }: IProps) => {
         </Link>
       </CardHeader>
 
-      <ul>
+      <ul className="z-10">
         {subCategories.map((el) => (
           <li key={el.id + String(el?.parentId)}>
             <Link to={`${item.id}/${el.id}`} className="dark:text-sky-950">

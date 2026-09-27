@@ -11,6 +11,7 @@ import {
   goodsListPageImport,
   mainPageImport,
   privacyPolicyPageImport,
+  productPageImport,
   servicesPageImport,
   subCategoryPageImport,
 } from '@/entities/page';
@@ -26,6 +27,7 @@ const ErrorPageLazy = lazy(errorPageImport) as React.LazyExoticComponent<
 const SubCategoryPageLazy = lazy(subCategoryPageImport);
 const GoodsListPageLazy = lazy(goodsListPageImport);
 const PrivacyPolicyPageLazy = lazy(privacyPolicyPageImport);
+const ProductPageLazy = lazy(productPageImport);
 
 export {
   MainPageLazy,
@@ -37,4 +39,5 @@ export {
   PrivacyPolicyPageLazy,
   SubCategoryPageLazy,
   GoodsListPageLazy,
+  ProductPageLazy,
 };
