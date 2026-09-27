@@ -27,7 +27,7 @@ const mainNavItem = breadcrumbData[0];
 export function Breadcrumb() {
   const { pathname } = useLocation();
 
-  const { categories } = useGoods((store) => store);
+  const { categories } = useGoods();
 
   // Don't show breadcrumb at the main page
   if (pathname === ROUTES.MAIN) return null;
