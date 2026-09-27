@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageOff } from 'lucide-react';
+
+import type { TSortState } from '@/features/product';
+import { PriceSortButton } from '@/features/product';
 
 import { GoodsListFallback, useGetCatalogData } from '@/entities/catalog';
 
@@ -15,15 +19,29 @@ const GoodsListPage = () => {
   const subCategoryName =
     categories.find((el) => String(el.id) === String(subCategoryId))?.name ||
     '';
-  const filteredOffers = offers?.filter(
-    (el) => String(el.categoryId) === String(subCategoryId),
-  );
+
+  const [sort, setSort] = useState<TSortState>('none');
+  const filteredOffers = offers
+    ?.filter((el) => String(el.categoryId) === String(subCategoryId))
+    .sort((a, b) => {
+      if (sort !== 'none') {
+        if (sort === 'asc') {
+          return a.price > b.price ? 1 : -1;
+        } else {
+          return b.price > a.price ? 1 : -1;
+        }
+      }
+      return 0;
+    });
 
   if (!isData) return <GoodsListFallback />;
 
   return (
     <>
-      <h2>{subCategoryName}</h2>
+      <div className="flex w-full items-center justify-between">
+        <h2>{subCategoryName}</h2>
+        <PriceSortButton sort={sort} setSort={setSort} />
+      </div>
 
       {isLoading && !isData && !error ? (
         <Loader />
