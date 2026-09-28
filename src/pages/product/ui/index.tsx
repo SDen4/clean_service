@@ -4,7 +4,7 @@ import { ImageOff } from 'lucide-react';
 import { useGetCatalogData } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
-import { Loader } from '@/shared/ui';
+import { ClipboardCopyWrapper, Loader } from '@/shared/ui';
 
 /** Страница товара от партнера */
 const ProductPage = () => {
@@ -23,7 +23,7 @@ const ProductPage = () => {
       ) : (
         <div className="flex flex-col w-full gap-10">
           <h2>
-            {product?.name}{' '}
+            <ClipboardCopyWrapper>{product?.name}</ClipboardCopyWrapper>{' '}
             {product?.available === false && (
               <span className="text-red-600"> Нет в наличии</span>
             )}
@@ -31,7 +31,11 @@ const ProductPage = () => {
 
           <div className="flex gap-5">
             <div className="flex justify-center items-center min-w-96 w-96 h-96 rounded-xl overflow-auto">
-              {product?.picture ? <img src={product.picture} /> : <ImageOff />}
+              {product?.picture ? (
+                <img src={product.picture} />
+              ) : (
+                <ImageOff className="w-48 h-48" />
+              )}
             </div>
 
             <div className="flex flex-col gap-3">
@@ -45,7 +49,9 @@ const ProductPage = () => {
               {product?.vendorCode ? (
                 <div>
                   <span>Артикул</span>
-                  <h6>{product.vendorCode}</h6>
+                  <ClipboardCopyWrapper>
+                    <h6>{product.vendorCode}</h6>
+                  </ClipboardCopyWrapper>
                 </div>
               ) : null}
 

@@ -1,5 +1,6 @@
 export * from './button';
 export * from './card';
+export * from './clipboard-copy-wrapper';
 export * from './breadcrumb';
 export * from './dropdown-menu';
 
