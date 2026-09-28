@@ -14,6 +14,8 @@ const ProductPage = () => {
 
   const product = offers.find((el) => String(el.id) === String(productId));
 
+  const productParams = Object.entries(product?.params ?? {});
+
   return (
     <>
       {isLoading && !isData && !error ? (
@@ -51,6 +53,23 @@ const ProductPage = () => {
                 <div>
                   <span>Описание</span>
                   <h6>{product.description}</h6>
+                </div>
+              ) : null}
+
+              {productParams.length ? (
+                <div className="flex flex-col gap-1">
+                  <span>Характеристики</span>
+                  <div className="flex flex-col w-fit">
+                    {productParams.map(([key, value]) => (
+                      <div
+                        className="flex items-center justify-between gap-3"
+                        key={key}
+                      >
+                        <span>{key}: </span>
+                        <h6>{value}</h6>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : null}
 
