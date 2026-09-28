@@ -2,9 +2,8 @@ import { type ReactNode, useRef } from 'react';
 import { Copy, Info } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Tooltip } from '@/entities/tooltip';
-
 import { Button } from '../button';
+import { Tooltip } from '../tooltip';
 
 interface IProps {
   children: ReactNode;

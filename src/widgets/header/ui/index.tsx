@@ -6,7 +6,8 @@ import { ModeToggle } from '@/features/theme';
 import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { LinkLogo } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
-import { Tooltip } from '@/entities/tooltip';
+
+import { Tooltip } from '@/shared/ui';
 
 const MenuLazy = lazy(() => import('@/features/header'));
 
