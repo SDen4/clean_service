@@ -1,7 +1,17 @@
-import './App.css';
+import { RouterProvider } from 'react-router-dom';
+
+import { ErrorBoundary } from '@/shared/ui';
+
+import { browserRouter } from './router/browser-router';
+
+import './preload';
 
 function App() {
-  return <h1>Clean Service</h1>;
+  return (
+    <ErrorBoundary>
+      <RouterProvider router={browserRouter} />
+    </ErrorBoundary>
+  );
 }
 
 export default App;

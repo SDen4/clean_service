@@ -1,0 +1,79 @@
+import type { ReactNode } from 'react';
+import {
+  House,
+  Info,
+  Landmark,
+  ShoppingCart,
+  UserSearch,
+  Wrench,
+} from 'lucide-react';
+
+import type { ICategory } from '@/entities/catalog/@x/navigation';
+import {
+  aboutPageImport,
+  catalogPageImport,
+  contactsPageImport,
+  mainPageImport,
+  privacyPolicyPageImport,
+  servicesPageImport,
+} from '@/entities/page/@x/navigation';
+
+import { ROUTES } from '@/shared/config';
+
+interface INavigationData {
+  title: string;
+  route: ROUTES;
+  id: ROUTES;
+  icon: ReactNode;
+  importFunc?: () => void;
+  subCategories?: ICategory[];
+}
+
+export const navigationData: INavigationData[] = [
+  {
+    title: 'Главная',
+    route: ROUTES.MAIN,
+    id: ROUTES.MAIN,
+    icon: <House />,
+    importFunc: mainPageImport,
+  },
+  {
+    title: 'О компании',
+    route: ROUTES.ABOUT,
+    id: ROUTES.ABOUT,
+    icon: <Info />,
+    importFunc: aboutPageImport,
+  },
+  {
+    title: 'Услуги',
+    route: ROUTES.SERVICES,
+    id: ROUTES.SERVICES,
+    icon: <Wrench />,
+    importFunc: servicesPageImport,
+  },
+  {
+    title: 'Контакты',
+    route: ROUTES.CONTACTS,
+    id: ROUTES.CONTACTS,
+    icon: <UserSearch />,
+    importFunc: contactsPageImport,
+  },
+  {
+    title: 'Каталог',
+    route: ROUTES.CATALOG,
+    id: ROUTES.CATALOG,
+    icon: <ShoppingCart />,
+    importFunc: catalogPageImport,
+  },
+] as const;
+
+export const breadcrumbData: INavigationData[] = [
+  ...navigationData,
+  {
+    title: 'Политика конфиденциальности',
+    route: ROUTES.PRIVACY_POLICY,
+    id: ROUTES.PRIVACY_POLICY,
+    icon: <Landmark />,
+    importFunc: privacyPolicyPageImport,
+  },
+] as const;

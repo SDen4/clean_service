@@ -1,0 +1,12 @@
+export enum PageKeys {
+  main = 'main',
+  contacts = 'contacts',
+  about = 'about',
+  services = 'services',
+  error = 'error',
+  privacyPolicy = 'privacy-policy',
+  catalog = 'catalog',
+  subCategory = 'sub-category',
+  productsList = 'products-list',
+  product = 'product',
+}

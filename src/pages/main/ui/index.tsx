@@ -1,0 +1,64 @@
+import { bannerMain } from '@/shared/model';
+
+const fontStyles =
+  'text-[9vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] xl:text-[4vw]';
+
+const bannerTextStyles = `absolute ${fontStyles} max-w-[70%] dark:text-sky-950 drop-shadow-[0_2px_2px_rgba(255,255,255,0.9)]`;
+
+const thesisText =
+  'text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3vw] text-center p-10 leading-none';
+
+const Divider = () => <div className="h-[1px] w-full bg-sky-500" />;
+
+const MainPage = () => (
+  <>
+    <div
+      style={{ backgroundImage: `url(${bannerMain})` }}
+      className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat dark:opacity-70 bg-sky-200"
+    >
+      <div
+        style={{
+          backgroundImage:
+            'repeating-conic-gradient(rgba(0, 0, 0, 0.2) 0% 25%, transparent 0% 50%)',
+          backgroundSize: '6px 6px',
+        }}
+        className="absolute top-0 bottom-0 left-0 right-0"
+      />
+      <h1 className={`${bannerTextStyles} right-10 top-10 text-right`}>
+        Сервисное обслуживание поломоечной техники
+      </h1>
+      <h1 className={`${bannerTextStyles} left-10 bottom-10`}>
+        Запчасти и ремонт
+      </h1>
+    </div>
+
+    <h2 className={thesisText}>
+      Мы понимаем, что ремонт клининговой техники — это вопрос доверия и
+      быстрого возврата оборудования в строй
+    </h2>
+
+    <Divider />
+
+    <h2 className={thesisText}>
+      Мы — команда инженеров в Екатеринбурге, которая построила сервис без
+      скрытых наценок
+    </h2>
+
+    <Divider />
+
+    <h2 className={thesisText}>
+      У нас нет раздутого штата и расходов на дорогие офисы, поэтому стоимость
+      ремонта честно ниже на 20–30%, чем в крупных сервисных центрах. Вы платите
+      только за реальную работу и качественные запчасти
+    </h2>
+
+    <Divider />
+
+    <h2 className={thesisText}>
+      Мы обслуживаем поломоечные машины, парогенераторы, промышленные и
+      профессиональные пылесосы любых марок
+    </h2>
+  </>
+);
+
+export default MainPage;
