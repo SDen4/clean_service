@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { ChevronDownIcon, ShoppingBasket } from 'lucide-react';
+import { ChevronDownIcon, List, ShoppingBasket } from 'lucide-react';
 
-import { EMPTY_PATH, useProducts } from '@/entities/catalog';
+import { IconWrapper } from '@/entities/breadcrumb';
+import { useProducts } from '@/entities/catalog';
 import { breadcrumbData } from '@/entities/navigation';
 import { BlockWrapper } from '@/entities/page';
 
@@ -34,7 +35,7 @@ export function Breadcrumb() {
 
   const navItems = pathname
     .split('/')
-    .filter((el) => el && el !== EMPTY_PATH)
+    // .filter((el) => el && el !== EMPTY_PATH)
     .map((el, i, arr) => {
       const brItem = breadcrumbData.find((br) => br.id === el);
 
@@ -44,7 +45,7 @@ export function Breadcrumb() {
 
       let title = category?.name || '';
 
-      if (i === 3 || i === 2) {
+      if (i === 3 || i === 4) {
         const offer = offers.find((offer) => String(offer.id) === el);
         if (offer?.name) title = offer?.name;
       }
@@ -94,68 +95,72 @@ export function Breadcrumb() {
             />
           </BreadcrumbItem>
 
-          {navItems.map((el, i, arr) => (
-            <React.Fragment key={el.id}>
-              <BreadcrumbSeparator />
+          {navItems
+            .filter((el) => !!el.title)
+            .map((el, i, arr) => (
+              <React.Fragment key={el.id}>
+                <BreadcrumbSeparator />
 
-              <BreadcrumbItem>
-                {i === arr.length - 1 ? (
-                  el.subCategories?.length ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger
-                        render={
-                          <button className="flex items-center gap-1">
-                            {el.title}
-                            <ChevronDownIcon
-                              data-icon="inline-end"
-                              className="size-3.5"
-                            />
-                          </button>
-                        }
-                      />
-                      <DropdownMenuContent align="start">
-                        <DropdownMenuGroup>
-                          {el.subCategories.map((subCat) => (
-                            <DropdownMenuItem
-                              key={`${subCat.id}_${subCat.name}`}
-                            >
-                              <Link
-                                to={`${el.route.replace(/\/[^/]+\/?$/, `/${subCat.id}`)}`}
+                <BreadcrumbItem>
+                  {i === arr.length - 1 ? (
+                    el.subCategories?.length ? (
+                      <DropdownMenu>
+                        <IconWrapper>
+                          <List />
+                        </IconWrapper>
+
+                        <DropdownMenuTrigger
+                          render={
+                            <button className="flex items-center gap-1">
+                              {el.title}
+                              <ChevronDownIcon
+                                data-icon="inline-end"
+                                className="size-3.5"
+                              />
+                            </button>
+                          }
+                        />
+                        <DropdownMenuContent align="start">
+                          <DropdownMenuGroup>
+                            {el.subCategories.map((subCat) => (
+                              <DropdownMenuItem
+                                key={`${subCat.id}_${subCat.name}`}
                               >
-                                {subCat.name}
-                              </Link>
-                            </DropdownMenuItem>
-                          ))}
-                        </DropdownMenuGroup>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <BreadcrumbPage>
-                      <div className="flex items-center gap-1">
-                        <div className="[&>svg]:w-3 [&>svg]:h-3">
-                          {el?.icon}
+                                <Link
+                                  to={`${el.route.replace(/\/[^/]+\/?$/, `/${subCat.id}`)}`}
+                                >
+                                  {subCat.name}
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuGroup>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    ) : (
+                      <BreadcrumbPage>
+                        <div className="flex items-center gap-1">
+                          <IconWrapper>{el?.icon}</IconWrapper>
+                          {el?.title}
                         </div>
-                        {el?.title}
-                      </div>
-                    </BreadcrumbPage>
-                  )
-                ) : (
-                  <BreadcrumbLink
-                    render={
-                      <Link
-                        className="flex items-center gap-1"
-                        to={el.route}
-                        onMouseEnter={el?.importFunc}
-                      >
-                        <div className="[&>svg]:w-3 [&>svg]:h-3">{el.icon}</div>
-                        {el.title}
-                      </Link>
-                    }
-                  />
-                )}
-              </BreadcrumbItem>
-            </React.Fragment>
-          ))}
+                      </BreadcrumbPage>
+                    )
+                  ) : (
+                    <BreadcrumbLink
+                      render={
+                        <Link
+                          className="flex items-center gap-1"
+                          to={el.route}
+                          onMouseEnter={el?.importFunc}
+                        >
+                          <IconWrapper>{el.icon}</IconWrapper>
+                          {el.title}
+                        </Link>
+                      }
+                    />
+                  )}
+                </BreadcrumbItem>
+              </React.Fragment>
+            ))}
         </BreadcrumbList>
       </BreadcrumbLib>
     </BlockWrapper>

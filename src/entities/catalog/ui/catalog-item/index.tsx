@@ -24,7 +24,7 @@ export const CatalogItem = ({ item }: IProps) => {
   const isNoSubCategories = !subCategories?.length;
 
   return (
-    <Card className="relative min-h-[200px] min-w-[300px] w-[30%] group hover:(shadow-xl) hover:-translate-y-1 transition-all duration-[0.3s] bg-gradient-to-tl from-slate-100 to-slate-300">
+    <Card className="relative pb-3 min-h-[200px] min-w-[300px] w-[30%] group hover:(shadow-xl) hover:-translate-y-1 transition-all duration-[0.3s] bg-gradient-to-tl from-slate-100 to-slate-300">
       <CardHeader>
         <Link
           to={isNoSubCategories ? `${EMPTY_PATH}/${item.id}` : String(item.id)}

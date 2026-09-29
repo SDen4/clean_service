@@ -49,7 +49,7 @@ export const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`flex items-center justify-center w-full py-2 sticky top-0 bg-background z-10 transition-shadow duration-500 ${isScrolled ? 'opacity-[97%] shadow-md dark:shadow-white/20' : ''}`}
+      className={`flex items-center justify-center w-full py-2 sticky top-0 bg-background z-20 transition-shadow duration-500 ${isScrolled ? 'opacity-[97%] shadow-md dark:shadow-white/20' : ''}`}
     >
       <BlockWrapper>
         <div className="flex justify-between w-full items-center">
