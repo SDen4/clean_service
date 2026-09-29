@@ -38,7 +38,7 @@ const ProductsListPage = () => {
 
   return (
     <>
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-end justify-between gap-2">
         <h2>{subCategoryName}</h2>
         <PriceSortButton sort={sort} setSort={setSort} />
       </div>

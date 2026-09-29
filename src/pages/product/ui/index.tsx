@@ -29,7 +29,7 @@ const ProductPage = () => {
             )}
           </h2>
 
-          <div className="flex gap-5">
+          <div className="flex flex-col items-center sm:items-start sm:flex-row gap-5">
             <div className="flex justify-center items-center min-w-96 w-96 h-96 rounded-xl overflow-auto">
               {product?.picture ? (
                 <img src={product.picture} />
