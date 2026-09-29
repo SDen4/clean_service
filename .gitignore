@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 stats.html
+
+# Vitest reports and artifacts
+.vitest/
+coverage

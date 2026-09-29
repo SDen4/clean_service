@@ -34,7 +34,7 @@ const ProductsListPage = () => {
       return 0;
     });
 
-  if (!isData) return <ProductsListFallback />;
+  if (!isData || !filteredOffers?.length) return <ProductsListFallback />;
 
   return (
     <>
