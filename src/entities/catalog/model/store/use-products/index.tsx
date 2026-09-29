@@ -3,7 +3,7 @@ import type { ICategory, IOffer } from '../../types';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { create } from 'zustand';
 
-export const useGoods: UseBoundStore<
+export const useProducts: UseBoundStore<
   StoreApi<{
     isData: boolean;
     offers: IOffer[];

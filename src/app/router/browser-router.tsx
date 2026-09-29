@@ -11,10 +11,10 @@ import {
   CatalogPageLazy,
   ContactsPageLazy,
   ErrorPageLazy,
-  GoodsListPageLazy,
   MainPageLazy,
   PrivacyPolicyPageLazy,
   ProductPageLazy,
+  ProductsListPageLazy,
   ServicesPageLazy,
   SubCategoryPageLazy,
 } from './lazy-components-imports';
@@ -83,7 +83,7 @@ export const browserRouter = createBrowserRouter(
           path: `${ROUTES.CATALOG}/:categoryId/:subCategoryId`,
           element: (
             <ErrorBoundary>
-              <GoodsListPageLazy />
+              <ProductsListPageLazy />
             </ErrorBoundary>
           ),
         },

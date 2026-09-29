@@ -5,13 +5,13 @@ import { ImageOff } from 'lucide-react';
 import type { TSortState } from '@/features/product';
 import { PriceSortButton } from '@/features/product';
 
-import { GoodsListFallback, useGetCatalogData } from '@/entities/catalog';
+import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
 import { Link, Loader } from '@/shared/ui';
 
 /** Список товаров от партнера */
-const GoodsListPage = () => {
+const ProductsListPage = () => {
   const { subCategoryId } = useParams();
 
   const { offers, categories, isLoading, isData, error } = useGetCatalogData();
@@ -34,7 +34,7 @@ const GoodsListPage = () => {
       return 0;
     });
 
-  if (!isData) return <GoodsListFallback />;
+  if (!isData) return <ProductsListFallback />;
 
   return (
     <>
@@ -83,4 +83,4 @@ const GoodsListPage = () => {
   );
 };
 
-export default GoodsListPage;
+export default ProductsListPage;

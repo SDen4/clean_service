@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { ChevronDownIcon, ShoppingBasket } from 'lucide-react';
 
-import { EMPTY_PATH, useGoods } from '@/entities/catalog';
+import { EMPTY_PATH, useProducts } from '@/entities/catalog';
 import { breadcrumbData } from '@/entities/navigation';
 import { BlockWrapper } from '@/entities/page';
 
@@ -27,7 +27,7 @@ const mainNavItem = breadcrumbData[0];
 export function Breadcrumb() {
   const { pathname } = useLocation();
 
-  const { categories, offers } = useGoods();
+  const { categories, offers } = useProducts();
 
   // Don't show breadcrumb at the main page
   if (pathname === ROUTES.MAIN) return null;

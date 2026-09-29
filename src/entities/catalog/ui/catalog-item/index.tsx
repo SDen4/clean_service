@@ -2,7 +2,7 @@ import { ShoppingCart } from 'lucide-react';
 
 import { Card, CardHeader, CardTitle, Link } from '@/shared/ui';
 
-import { useGoods } from '../../model/store/use-goods';
+import { useProducts } from '../../model/store/use-products';
 import type { ICategory } from '../../model/types';
 
 import { EMPTY_PATH } from '../../model/constants';
@@ -13,7 +13,7 @@ interface IProps {
 
 /** Элемент списка категорий каталога */
 export const CatalogItem = ({ item }: IProps) => {
-  const { categories } = useGoods((state) => state);
+  const { categories } = useProducts((state) => state);
 
   if (!item) return '';
 

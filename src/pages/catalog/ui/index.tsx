@@ -1,6 +1,6 @@
 import {
   CatalogItem,
-  GoodsListFallback,
+  ProductsListFallback,
   useGetCatalogData,
 } from '@/entities/catalog';
 
@@ -14,7 +14,7 @@ const CatalogPage = () => {
     <>
       <h2>Каталог</h2>
 
-      {!!error && <GoodsListFallback />}
+      {!!error && <ProductsListFallback />}
 
       {isLoading && !isData && !error ? (
         <Loader />

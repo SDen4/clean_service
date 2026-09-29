@@ -10,5 +10,6 @@ export const errorPageImport = () => getPreloader(PageKeys.error)();
 export const privacyPolicyPageImport = () =>
   getPreloader(PageKeys.privacyPolicy)();
 export const subCategoryPageImport = () => getPreloader(PageKeys.subCategory)();
-export const goodsListPageImport = () => getPreloader(PageKeys.goodsList)();
+export const productsListPageImport = () =>
+  getPreloader(PageKeys.productsList)();
 export const productPageImport = () => getPreloader(PageKeys.product)();

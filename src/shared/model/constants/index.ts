@@ -7,6 +7,6 @@ export enum PageKeys {
   privacyPolicy = 'privacy-policy',
   catalog = 'catalog',
   subCategory = 'sub-category',
-  goodsList = 'goods-list',
+  productsList = 'products-list',
   product = 'product',
 }

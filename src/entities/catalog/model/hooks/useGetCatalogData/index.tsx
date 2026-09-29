@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import { normalizeCategory } from '../../helpers/normalize-category';
 import { normalizeOffer } from '../../helpers/normalize-offer';
 import { toArray } from '../../helpers/to-array';
-import { useGoods } from '../../store/use-goods';
+import { useProducts } from '../../store/use-products';
 import type { IRawYmlCatalog } from '../../types';
 
 import { XMLParser } from 'fast-xml-parser';
@@ -24,7 +24,7 @@ export const useGetCatalogData = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const { categories, offers, setData, isData } = useGoods((store) => store);
+  const { categories, offers, setData, isData } = useProducts((store) => store);
 
   useEffect(() => {
     const controller = new AbortController();

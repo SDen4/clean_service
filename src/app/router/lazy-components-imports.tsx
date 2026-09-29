@@ -8,10 +8,10 @@ import {
   catalogPageImport,
   contactsPageImport,
   errorPageImport,
-  goodsListPageImport,
   mainPageImport,
   privacyPolicyPageImport,
   productPageImport,
+  productsListPageImport,
   servicesPageImport,
   subCategoryPageImport,
 } from '@/entities/page';
@@ -25,7 +25,7 @@ const ErrorPageLazy = lazy(errorPageImport) as React.LazyExoticComponent<
   ComponentType<IErrorPageProps>
 >;
 const SubCategoryPageLazy = lazy(subCategoryPageImport);
-const GoodsListPageLazy = lazy(goodsListPageImport);
+const ProductsListPageLazy = lazy(productsListPageImport);
 const PrivacyPolicyPageLazy = lazy(privacyPolicyPageImport);
 const ProductPageLazy = lazy(productPageImport);
 
@@ -38,6 +38,6 @@ export {
   ErrorPageLazy,
   PrivacyPolicyPageLazy,
   SubCategoryPageLazy,
-  GoodsListPageLazy,
+  ProductsListPageLazy,
   ProductPageLazy,
 };

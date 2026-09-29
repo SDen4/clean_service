@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { GoodsListFallback, useGetCatalogData } from '@/entities/catalog';
+import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
 
 import { Link, Loader } from '@/shared/ui';
 
@@ -16,7 +16,7 @@ const SubCategoryPage = () => {
   const subCategories =
     categories.filter((el) => String(el.parentId) === String(categoryId)) || [];
 
-  if (!isData) return <GoodsListFallback />;
+  if (!isData) return <ProductsListFallback />;
 
   return (
     <>
