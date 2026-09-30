@@ -1,6 +1,6 @@
-import { formatNumbers } from '.';
-
 import { describe, expect, test } from 'vitest';
+
+import { formatNumbers } from '.';
 
 describe('Format numbers unit tests', () => {
   test('default round', () => {

@@ -1,8 +1,6 @@
 import type { IOffer, IRawOffer, IRawParam } from '../../types';
 import { toArray } from '../to-array';
 
-// Добавить юнит тесты
-
 /** Из <param name="X">Y</param> делает { X: "Y" } */
 const paramsToRecord = (
   raw?: IRawParam | IRawParam[],

@@ -39,7 +39,10 @@ const ProductsListPage = () => {
   return (
     <>
       <div className="flex w-full items-end justify-between gap-2">
-        <h2>{subCategoryName}</h2>
+        <h2>
+          {subCategoryName}{' '}
+          {filteredOffers?.length ? `(${filteredOffers.length} шт.)` : ''}
+        </h2>
         <PriceSortButton sort={sort} setSort={setSort} />
       </div>
 
@@ -48,10 +51,18 @@ const ProductsListPage = () => {
       ) : (
         <div className="flex flex-col w-full gap-1">
           {filteredOffers.map((el) => (
-            <Link to={el.id} key={el.id + el.name}>
+            <Link
+              to={el.id}
+              key={el.id + el.name}
+              className="[content-visibility:auto] [contain-intrinsic-size:auto_80px]"
+            >
               <div className="flex items-center gap-3 w-full p-2 rounded-md bg-slate-100 dark:bg-slate-200">
                 <div className="flex justify-center items-center w-16 h-16">
-                  {el?.picture ? <img src={el.picture} /> : <ImageOff />}
+                  {el?.picture ? (
+                    <img loading="lazy" decoding="async" src={el.picture} />
+                  ) : (
+                    <ImageOff />
+                  )}
                 </div>
 
                 <div className="flex flex-col w-full gap-1">
