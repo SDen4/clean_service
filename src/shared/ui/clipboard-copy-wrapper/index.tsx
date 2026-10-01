@@ -13,6 +13,8 @@ interface IProps {
 export const ClipboardCopyWrapper = ({ children }: IProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
+  if (!children) return null;
+
   const onClick = async () => {
     try {
       await navigator.clipboard.writeText(ref.current?.innerText ?? '');

@@ -5,6 +5,7 @@ import { ROUTES } from '@/shared/config';
 import { ErrorBoundary } from '@/shared/ui';
 
 import { MainLayout } from '../main-layout';
+import { checkNumberUrl } from './checkNumberUrl';
 
 import {
   AboutPageLazy,
@@ -78,6 +79,8 @@ export const browserRouter = createBrowserRouter(
               <SubCategoryPageLazy />
             </ErrorBoundary>
           ),
+          loader: checkNumberUrl,
+          errorElement: <ErrorPageLazy />,
         },
         {
           path: `${ROUTES.CATALOG}/:categoryId/:subCategoryId`,
@@ -86,6 +89,8 @@ export const browserRouter = createBrowserRouter(
               <ProductsListPageLazy />
             </ErrorBoundary>
           ),
+          loader: checkNumberUrl,
+          errorElement: <ErrorPageLazy />,
         },
         {
           path: `${ROUTES.CATALOG}/:categoryId/:subCategoryId/:productId`,
@@ -94,6 +99,8 @@ export const browserRouter = createBrowserRouter(
               <ProductPageLazy />
             </ErrorBoundary>
           ),
+          loader: checkNumberUrl,
+          errorElement: <ErrorPageLazy />,
         },
         {
           path: ROUTES.PRIVACY_POLICY,
