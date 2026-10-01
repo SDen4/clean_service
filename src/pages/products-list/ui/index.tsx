@@ -8,7 +8,7 @@ import { PriceSortButton } from '@/features/product';
 import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
-import { Link, Loader } from '@/shared/ui';
+import { Link, Loader, ScrollUpButton } from '@/shared/ui';
 
 /** Список товаров от партнера */
 const ProductsListPage = () => {
@@ -41,7 +41,7 @@ const ProductsListPage = () => {
       <div className="flex w-full items-end justify-between gap-2">
         <h2>
           {subCategoryName}{' '}
-          {filteredOffers?.length ? `(${filteredOffers.length} шт.)` : ''}
+          {filteredOffers?.length ? `(${filteredOffers.length}\u00a0шт.)` : ''}
         </h2>
         <PriceSortButton sort={sort} setSort={setSort} />
       </div>
@@ -88,6 +88,7 @@ const ProductsListPage = () => {
               </div>
             </Link>
           ))}
+          <ScrollUpButton />
         </div>
       )}
     </>

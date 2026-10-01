@@ -14,5 +14,6 @@ export * from './link';
 export * from './loader';
 export * from './tooltip';
 export { TooltipProvider } from './tooltip-ui-kit';
+export { ScrollUpButton } from './scroll-up-button';
 
 export * from './go-main-button';
