@@ -3,15 +3,16 @@ import {
   House,
   Info,
   Landmark,
+  Search,
   ShoppingCart,
   UserSearch,
   Wrench,
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
+import { catalogSearchPageImport, catalogWrapperImport } from '@/entities/page';
 import {
   aboutPageImport,
-  catalogPageImport,
   contactsPageImport,
   mainPageImport,
   privacyPolicyPageImport,
@@ -63,7 +64,7 @@ export const navigationData: INavigationData[] = [
     route: ROUTES.CATALOG,
     id: ROUTES.CATALOG,
     icon: <ShoppingCart />,
-    importFunc: catalogPageImport,
+    importFunc: catalogWrapperImport,
   },
 ] as const;
 
@@ -75,5 +76,12 @@ export const breadcrumbData: INavigationData[] = [
     id: ROUTES.PRIVACY_POLICY,
     icon: <Landmark />,
     importFunc: privacyPolicyPageImport,
+  },
+  {
+    title: 'Каталог (поиск)',
+    route: ROUTES.CATALOG_SEARCH,
+    id: ROUTES.CATALOG_SEARCH,
+    icon: <Search />,
+    importFunc: catalogSearchPageImport,
   },
 ] as const;

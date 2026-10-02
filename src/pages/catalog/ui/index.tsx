@@ -6,14 +6,12 @@ import {
 
 import { Loader } from '@/shared/ui';
 
-/** Каталоги товаров от партнера */
+/** Каталог товаров от партнера */
 const CatalogPage = () => {
   const { categories, isLoading, isData, error } = useGetCatalogData();
 
   return (
     <>
-      <h2>Каталог</h2>
-
       {!!error && <ProductsListFallback />}
 
       {isLoading && !isData && !error ? (

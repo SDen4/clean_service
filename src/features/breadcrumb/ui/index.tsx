@@ -33,44 +33,41 @@ export function Breadcrumb() {
   // Don't show breadcrumb at the main page
   if (pathname === ROUTES.MAIN) return null;
 
-  const navItems = pathname
-    .split('/')
-    // .filter((el) => el && el !== EMPTY_PATH)
-    .map((el, i, arr) => {
-      const brItem = breadcrumbData.find((br) => br.id === el);
+  const navItems = pathname.split('/').map((el, i, arr) => {
+    const brItem = breadcrumbData.find((br) => br.id === el);
 
-      if (brItem) return brItem;
+    if (brItem) return brItem;
 
-      const category = categories.find((cat) => String(cat.id) === String(el));
+    const category = categories.find((cat) => String(cat.id) === String(el));
 
-      let title = category?.name || '';
+    let title = category?.name || '';
 
-      if (i === 3 || i === 4) {
-        const offer = offers.find((offer) => String(offer.id) === el);
-        if (offer?.name) title = offer?.name;
-      }
+    if (i === 3 || i === 4) {
+      const offer = offers.find((offer) => String(offer.id) === el);
+      if (offer?.name) title = offer?.name;
+    }
 
-      const parentId = category?.parentId;
+    const parentId = category?.parentId;
 
-      const subCategories = categories.filter(
-        (cat) =>
-          cat.parentId &&
-          String(cat.parentId) === String(parentId) &&
-          cat.id !== category?.id,
-      );
+    const subCategories = categories.filter(
+      (cat) =>
+        cat.parentId &&
+        String(cat.parentId) === String(parentId) &&
+        cat.id !== category?.id,
+    );
 
-      return {
-        id: el,
-        title,
-        icon: <ShoppingBasket />,
-        route: arr
-          .slice(0, i + 1)
-          .map(decodeURIComponent)
-          .join('/'),
-        importFunc: () => null,
-        subCategories,
-      };
-    });
+    return {
+      id: el,
+      title,
+      icon: <ShoppingBasket />,
+      route: arr
+        .slice(0, i + 1)
+        .map(decodeURIComponent)
+        .join('/'),
+      importFunc: () => null,
+      subCategories,
+    };
+  });
 
   if (!navItems.length) return null;
 

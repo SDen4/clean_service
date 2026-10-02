@@ -10,6 +10,8 @@ import { checkNumberUrl } from './checkNumberUrl';
 import {
   AboutPageLazy,
   CatalogPageLazy,
+  CatalogSearchPageLazy,
+  CatalogWrapperPageLazy,
   ContactsPageLazy,
   ErrorPageLazy,
   MainPageLazy,
@@ -65,12 +67,29 @@ export const browserRouter = createBrowserRouter(
           ),
         },
         {
-          path: ROUTES.CATALOG,
           element: (
             <ErrorBoundary>
-              <CatalogPageLazy />
+              <CatalogWrapperPageLazy />
             </ErrorBoundary>
           ),
+          children: [
+            {
+              path: ROUTES.CATALOG,
+              element: (
+                <ErrorBoundary>
+                  <CatalogPageLazy />
+                </ErrorBoundary>
+              ),
+            },
+            {
+              path: ROUTES.CATALOG_SEARCH,
+              element: (
+                <ErrorBoundary>
+                  <CatalogSearchPageLazy />
+                </ErrorBoundary>
+              ),
+            },
+          ],
         },
         {
           path: `${ROUTES.CATALOG}/:categoryId`,

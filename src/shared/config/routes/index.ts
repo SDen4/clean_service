@@ -11,4 +11,6 @@ export enum ROUTES {
   PRIVACY_POLICY = 'privacy-policy',
   /** Каталог товаров от партнера */
   CATALOG = 'catalog',
+  /** Поиск по каталогу товаров от партнера */
+  CATALOG_SEARCH = 'catalog-search',
 }

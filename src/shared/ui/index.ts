@@ -3,6 +3,7 @@ export * from './card';
 export * from './clipboard-copy-wrapper';
 export * from './breadcrumb';
 export * from './dropdown-menu';
+export { Input } from './input';
 
 export * from './navigation-menu';
 export * from './navigation-menu/navigation-menu-trigger-style';
