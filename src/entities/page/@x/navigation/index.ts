@@ -5,4 +5,6 @@ export {
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,
+  catalogSearchPageImport,
+  catalogWrapperImport,
 } from '../../model/constants';

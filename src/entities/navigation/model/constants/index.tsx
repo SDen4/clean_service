@@ -10,9 +10,10 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
-import { catalogSearchPageImport, catalogWrapperImport } from '@/entities/page';
 import {
   aboutPageImport,
+  catalogSearchPageImport,
+  catalogWrapperImport,
   contactsPageImport,
   mainPageImport,
   privacyPolicyPageImport,
