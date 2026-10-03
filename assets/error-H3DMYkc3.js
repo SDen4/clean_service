@@ -1,1 +1,0 @@
-import{t as e}from"./vendor-u0Q0cDsb.js";import{m as t,o as n}from"./ui-DHnUEFrD.js";import{l as r}from"./vendor-rGW0OcNW.js";var i=e(),a=`Ошибка`,o=`Запрашиваемой страницы не существует`,s=({title:e,text:s,icon:c})=>(0,i.jsxs)(n,{icon:c??r,children:[(0,i.jsx)(`h1`,{children:e??a}),(0,i.jsx)(`h4`,{className:`text-center`,children:s??o}),(0,i.jsx)(t,{})]});export{s as default};
