@@ -46,7 +46,7 @@ export const CatalogItem = ({ item }: IProps) => {
       </ul>
 
       <div className="absolute -right-5 -bottom-5">
-        <ShoppingCart className="w-40 h-40 opacity-35 group-hover:opacity-10 transition-all duration-[0.3s] group-hover:translate-x-16 group-hover:translate-y-16" />
+        <ShoppingCart className="w-40 h-40 opacity-10 group-hover:opacity-10 transition-all duration-[0.3s] group-hover:translate-x-16 group-hover:translate-y-16" />
       </div>
     </Card>
   );
