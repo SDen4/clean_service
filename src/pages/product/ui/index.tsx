@@ -29,8 +29,8 @@ const ProductPage = () => {
             )}
           </h2>
 
-          <div className="flex flex-col items-center sm:items-start sm:flex-row gap-5">
-            <div className="flex justify-center items-center min-w-96 w-96 h-96 rounded-xl overflow-auto">
+          <div className="flex flex-col items-center sm:items-start sm:flex-row gap-10">
+            <div className="flex justify-center items-center min-w-96 w-96 h-96 rounded-xl overflow-auto border-[1px] border-gray-100">
               {product?.picture ? (
                 <ZoomImage
                   src={product.picture}
@@ -46,7 +46,9 @@ const ProductPage = () => {
               {product?.vendor ? (
                 <div>
                   <span>Производитель</span>
-                  <h6>{product.vendor}</h6>
+                  <ClipboardCopyWrapper>
+                    <h6>{product.vendor}</h6>
+                  </ClipboardCopyWrapper>
                 </div>
               ) : null}
 
