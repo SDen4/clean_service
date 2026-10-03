@@ -43,7 +43,7 @@ const CatalogWrapper = () => {
       <div className="flex w-full items-end justify-between flex-wrap gap-3">
         <h2>Каталог {isSearchPage && '(поиск)'}</h2>
 
-        <div className="flex items-center flex-wrap gap-3">
+        <div className="flex items-center justify-end flex-wrap gap-3 w-[65%]">
           {!!searchValue && (
             <Badge className="rounded-md px-2 py-4" variant="secondary">
               <PackageSearch data-icon="inline-start" />
@@ -51,7 +51,7 @@ const CatalogWrapper = () => {
             </Badge>
           )}
 
-          <div className="relative min-w-[300px] w-[30%]">
+          <div className="relative min-w-[300px] w-[46%]">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
             <Input
               value={searchValue}

@@ -41,7 +41,7 @@ export const ZoomImage = ({ src, alt, zoom = 2, className }: IProps) => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative overflow-hidden rounded-lg cursor-zoom-in ${className ?? ''}`}
+      className={`group relative overflow-hidden rounded-lg cursor-default sm:cursor-zoom-in ${className ?? ''}`}
       style={
         {
           // значения по умолчанию — центр
@@ -58,7 +58,7 @@ export const ZoomImage = ({ src, alt, zoom = 2, className }: IProps) => {
           transition-transform duration-300 ease-out
           will-change-transform
           [transform-origin:var(--ox)_var(--oy)]
-          group-hover:[transform:scale(var(--zoom))]
+          sm:group-hover:[transform:scale(var(--zoom))]
         "
         style={{ '--zoom': zoom } as React.CSSProperties}
       />
