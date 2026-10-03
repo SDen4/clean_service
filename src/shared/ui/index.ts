@@ -1,3 +1,4 @@
+export { Badge } from './badge';
 export * from './button';
 export * from './card';
 export * from './clipboard-copy-wrapper';
