@@ -4,7 +4,7 @@ import { ImageOff } from 'lucide-react';
 import { useGetCatalogData } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
-import { ClipboardCopyWrapper, Loader } from '@/shared/ui';
+import { ClipboardCopyWrapper, Loader, ZoomImage } from '@/shared/ui';
 
 /** Страница товара от партнера */
 const ProductPage = () => {
@@ -32,7 +32,11 @@ const ProductPage = () => {
           <div className="flex flex-col items-center sm:items-start sm:flex-row gap-5">
             <div className="flex justify-center items-center min-w-96 w-96 h-96 rounded-xl overflow-auto">
               {product?.picture ? (
-                <img src={product.picture} />
+                <ZoomImage
+                  src={product.picture}
+                  alt="Product picture"
+                  zoom={3}
+                />
               ) : (
                 <ImageOff className="w-48 h-48" />
               )}
