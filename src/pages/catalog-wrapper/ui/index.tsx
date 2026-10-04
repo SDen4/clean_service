@@ -81,7 +81,7 @@ const CatalogWrapper = () => {
         </div>
       </div>
 
-      <Outlet context={foundOffers} />
+      <Outlet context={{ foundOffers, searchValue }} />
     </>
   );
 };

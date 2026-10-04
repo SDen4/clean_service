@@ -47,13 +47,9 @@ export function Breadcrumb() {
       if (offer?.name) title = offer?.name;
     }
 
-    const parentId = category?.parentId;
-
     const subCategories = categories.filter(
       (cat) =>
-        cat.parentId &&
-        String(cat.parentId) === String(parentId) &&
-        cat.id !== category?.id,
+        cat.parentId && String(cat.parentId) === String(category?.parentId),
     );
 
     return {
@@ -123,11 +119,17 @@ export function Breadcrumb() {
                               <DropdownMenuItem
                                 key={`${subCat.id}_${subCat.name}`}
                               >
-                                <Link
-                                  to={`${el.route.replace(/\/[^/]+\/?$/, `/${subCat.id}`)}`}
-                                >
-                                  {subCat.name}
-                                </Link>
+                                {String(el.id) === String(subCat.id) ? (
+                                  <span className="text-slate-300">
+                                    {subCat.name}
+                                  </span>
+                                ) : (
+                                  <Link
+                                    to={`${el.route.replace(/\/[^/]+\/?$/, `/${subCat.id}`)}`}
+                                  >
+                                    {subCat.name}
+                                  </Link>
+                                )}
                               </DropdownMenuItem>
                             ))}
                           </DropdownMenuGroup>
