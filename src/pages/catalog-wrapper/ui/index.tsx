@@ -40,10 +40,17 @@ const CatalogWrapper = () => {
 
   return (
     <>
-      <div className="flex w-full items-end justify-between flex-wrap gap-3">
-        <h2>Каталог {isSearchPage && '(поиск)'}</h2>
+      <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] lg:sticky lg:top-[85px] lg:z-50">
+        <div
+          className="sticky top-20 bg-white overflow-hidden
+            animate-collapse 
+            [animation-timeline:scroll(root)] 
+            [animation-range:0_75px]"
+        >
+          <h2>Каталог {isSearchPage && '(поиск)'}</h2>
+        </div>
 
-        <div className="flex items-center justify-end flex-wrap gap-3 w-[65%]">
+        <div className="flex items-center justify-end flex-wrap gap-3 w-full md:w-[65%]">
           {!!searchValue && (
             <Badge className="rounded-md px-2 py-4" variant="secondary">
               <PackageSearch data-icon="inline-start" />
@@ -57,7 +64,7 @@ const CatalogWrapper = () => {
               value={searchValue}
               onChange={onChange}
               onFocus={onFocus}
-              className="pr-10 pl-10"
+              className="pr-10 pl-10 bg-background"
               placeholder="Поиск товаров по каталогу"
             />
 

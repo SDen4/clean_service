@@ -9,10 +9,10 @@ import { Layout } from '../layout';
 export const MainLayout = () => {
   return (
     <Layout>
-      <Toaster />
       <Suspense fallback={<Loader className="min-h-[50vh]" />}>
         <Outlet />
       </Suspense>
+      <Toaster />
     </Layout>
   );
 };

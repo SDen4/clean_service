@@ -45,6 +45,16 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      keyframes: {
+        collapse: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+          '100%': { opacity: '0' },
+        },
+      },
+      animation: {
+        collapse: 'collapse 1s linear forwards',
+      },
     },
   },
   plugins: [],
