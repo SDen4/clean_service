@@ -9,6 +9,7 @@ import {
   catalogSearchPageImport,
   catalogWrapperImport,
   contactsPageImport,
+  contactUsPageImport,
   errorPageImport,
   mainPageImport,
   privacyPolicyPageImport,
@@ -18,32 +19,34 @@ import {
   subCategoryPageImport,
 } from '@/entities/page';
 
-const MainPageLazy = lazy(mainPageImport);
-const CatalogPageLazy = lazy(catalogPageImport);
-const CatalogWrapperPageLazy = lazy(catalogWrapperImport);
-const CatalogSearchPageLazy = lazy(catalogSearchPageImport);
-const ContactsPageLazy = lazy(contactsPageImport);
 const AboutPageLazy = lazy(aboutPageImport);
-const ServicesPageLazy = lazy(servicesPageImport);
+const CatalogPageLazy = lazy(catalogPageImport);
+const CatalogSearchPageLazy = lazy(catalogSearchPageImport);
+const CatalogWrapperPageLazy = lazy(catalogWrapperImport);
+const ContactsPageLazy = lazy(contactsPageImport);
+const ContactUsPageLazy = lazy(contactUsPageImport);
 const ErrorPageLazy = lazy(errorPageImport) as React.LazyExoticComponent<
   ComponentType<IErrorPageProps>
 >;
-const SubCategoryPageLazy = lazy(subCategoryPageImport);
-const ProductsListPageLazy = lazy(productsListPageImport);
+const MainPageLazy = lazy(mainPageImport);
 const PrivacyPolicyPageLazy = lazy(privacyPolicyPageImport);
 const ProductPageLazy = lazy(productPageImport);
+const ProductsListPageLazy = lazy(productsListPageImport);
+const ServicesPageLazy = lazy(servicesPageImport);
+const SubCategoryPageLazy = lazy(subCategoryPageImport);
 
 export {
-  MainPageLazy,
+  AboutPageLazy,
   CatalogPageLazy,
   CatalogSearchPageLazy,
   CatalogWrapperPageLazy,
   ContactsPageLazy,
-  AboutPageLazy,
-  ServicesPageLazy,
+  ContactUsPageLazy,
   ErrorPageLazy,
+  MainPageLazy,
   PrivacyPolicyPageLazy,
-  SubCategoryPageLazy,
-  ProductsListPageLazy,
   ProductPageLazy,
+  ProductsListPageLazy,
+  ServicesPageLazy,
+  SubCategoryPageLazy,
 };

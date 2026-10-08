@@ -13,6 +13,7 @@ import {
   CatalogSearchPageLazy,
   CatalogWrapperPageLazy,
   ContactsPageLazy,
+  ContactUsPageLazy,
   ErrorPageLazy,
   MainPageLazy,
   PrivacyPolicyPageLazy,
@@ -126,6 +127,14 @@ export const browserRouter = createBrowserRouter(
           element: (
             <ErrorBoundary>
               <PrivacyPolicyPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: ROUTES.CONTACT_US,
+          element: (
+            <ErrorBoundary>
+              <ContactUsPageLazy />
             </ErrorBoundary>
           ),
         },

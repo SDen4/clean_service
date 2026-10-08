@@ -5,6 +5,8 @@ export const mainPageImport = () => getPreloader(PageKeys.main)();
 
 export const contactsPageImport = () => getPreloader(PageKeys.contacts)();
 
+export const contactUsPageImport = () => getPreloader(PageKeys.contactUs)();
+
 export const catalogPageImport = () => getPreloader(PageKeys.catalog)();
 
 export const catalogWrapperImport = () =>

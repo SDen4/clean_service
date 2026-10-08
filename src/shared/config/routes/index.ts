@@ -13,4 +13,6 @@ export enum ROUTES {
   CATALOG = 'catalog',
   /** Поиск по каталогу товаров от партнера */
   CATALOG_SEARCH = 'catalog-search',
+  /** Обратная связь */
+  CONTACT_US = 'contact-us',
 }

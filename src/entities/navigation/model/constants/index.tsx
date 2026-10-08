@@ -3,6 +3,7 @@ import {
   House,
   Info,
   Landmark,
+  MessageSquareText,
   Search,
   ShoppingCart,
   UserSearch,
@@ -10,6 +11,7 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
+import { contactUsPageImport } from '@/entities/page';
 import {
   aboutPageImport,
   catalogSearchPageImport,
@@ -66,6 +68,13 @@ export const navigationData: INavigationData[] = [
     id: ROUTES.CATALOG,
     icon: <ShoppingCart />,
     importFunc: catalogWrapperImport,
+  },
+  {
+    title: 'Обратная связь',
+    route: ROUTES.CONTACT_US,
+    id: ROUTES.CONTACT_US,
+    icon: <MessageSquareText />,
+    importFunc: contactUsPageImport,
   },
 ] as const;
 
