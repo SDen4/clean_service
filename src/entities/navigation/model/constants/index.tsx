@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
-import { contactUsPageImport } from '@/entities/page';
 import {
   aboutPageImport,
   catalogSearchPageImport,
   catalogWrapperImport,
   contactsPageImport,
+  contactUsPageImport,
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,

@@ -1,10 +1,11 @@
 export {
   aboutPageImport,
-  contactsPageImport,
   catalogPageImport,
+  catalogSearchPageImport,
+  catalogWrapperImport,
+  contactsPageImport,
+  contactUsPageImport,
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,
-  catalogSearchPageImport,
-  catalogWrapperImport,
 } from '../../model/constants';
