@@ -64,7 +64,7 @@ const CatalogWrapper = () => {
               value={searchValue}
               onChange={onChange}
               onFocus={onFocus}
-              className="pr-10 pl-10 bg-background"
+              className="pr-10 pl-10"
               placeholder="Поиск товаров по каталогу"
             />
 
