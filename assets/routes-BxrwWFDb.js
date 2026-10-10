@@ -1,0 +1,1 @@
+var e=function(e){return e.MAIN=`/`,e.CONTACTS=`contacts`,e.ABOUT=`about`,e.SERVICES=`services`,e.PRIVACY_POLICY=`privacy-policy`,e.CATALOG=`catalog`,e.CATALOG_SEARCH=`catalog-search`,e.CONTACT_US=`contact-us`,e}({});export{e as t};
