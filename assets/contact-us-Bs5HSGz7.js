@@ -1,0 +1,1 @@
+import{t as e}from"./vendor-u0Q0cDsb.js";var t=e(),n=()=>(0,t.jsx)(t.Fragment,{children:(0,t.jsx)(`h2`,{children:`Обратная связь`})});export{n as default};
