@@ -19,6 +19,7 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       output: {
+        strictExecutionOrder: true,
         codeSplitting: {
           maxSize: 250000,
           maxModuleSize: 250000,
