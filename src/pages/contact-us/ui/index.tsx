@@ -11,8 +11,15 @@ import {
 } from '@/features/contact-us';
 
 import type { TErrors } from '@/entities/contact-us';
-import { defaultErrors, defaultValues } from '@/entities/contact-us';
+import {
+  defaultErrors,
+  defaultValues,
+  emptyLocalstorageData,
+  PreventSendBtn,
+  storageKey,
+} from '@/entities/contact-us';
 
+import { useLocalStorage } from '@/shared/lib';
 import { Button, FieldGroup, FieldSet, Spinner } from '@/shared/ui';
 
 import { createEmailError } from '../model/helpers/create-email-error';
@@ -24,8 +31,12 @@ const ContactUsPage = () => {
   const [errors, setErrors] = useState(defaultErrors);
   const [isPending, setIsPending] = useState(false);
 
+  const time = useLocalStorage(storageKey, emptyLocalstorageData);
+
   const sendMessage = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    localStorage.setItem(storageKey, emptyLocalstorageData);
 
     const newErrors: TErrors = {
       name: !values.name ? 'ФИО обязательно' : '',
@@ -59,6 +70,7 @@ const ContactUsPage = () => {
         toast('Ваше сообщение успешно доставлено', { icon: <MailCheck /> });
       }
     } catch (error) {
+      localStorage.setItem(storageKey, String(new Date().getTime()));
       const errorMessage =
         error instanceof Error ? error.message : String(error);
 
@@ -122,10 +134,14 @@ const ContactUsPage = () => {
             <div className="flex gap-5">
               <ResetFormBtn setValues={setValues} setErrors={setErrors} />
 
-              <Button variant="outline" type="submit" disabled={isPending}>
-                {isPending ? <Spinner /> : <Send />}
-                Отправить
-              </Button>
+              {time === emptyLocalstorageData ? (
+                <Button variant="outline" type="submit" disabled={isPending}>
+                  {isPending ? <Spinner /> : <Send />}
+                  Отправить
+                </Button>
+              ) : (
+                <PreventSendBtn />
+              )}
             </div>
           </div>
         </form>

@@ -15,3 +15,8 @@ export const defaultErrors: TErrors = {
   message: '',
   checkbox: '',
 };
+
+/** Идентификатор в localstorage для хранения времени ошибки отправки обратной связи */
+export const storageKey = 'REQUEST_ERROR_TIME';
+/** Дефолтное значение идентификатора storageKey */
+export const emptyLocalstorageData = 'NONE';
