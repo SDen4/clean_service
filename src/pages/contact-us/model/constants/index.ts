@@ -9,6 +9,7 @@ export const inputsList: TInputItem[] = [
     type: 'text',
     id: 'name',
     icon: User,
+    maxLength: 100,
   },
   {
     placeholder: 'Введите телефон',
@@ -16,6 +17,8 @@ export const inputsList: TInputItem[] = [
     type: 'tel',
     id: 'phone',
     icon: Phone,
+    maxLength: 12,
+    pattern: '^\\d+$',
   },
   {
     placeholder: 'Введите электронную почту',
@@ -23,5 +26,7 @@ export const inputsList: TInputItem[] = [
     type: 'email',
     id: 'email',
     icon: Mail,
+    maxLength: 100,
+    pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~@-]*$",
   },
 ];

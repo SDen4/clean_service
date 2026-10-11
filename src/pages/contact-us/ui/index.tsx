@@ -1,8 +1,8 @@
-import { useActionState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 import { MailCheck, Send, TriangleAlert } from 'lucide-react';
 import { toast } from 'sonner';
 
-import type { TFormState, TInputErrors } from '@/features/contact-us';
 import {
   Input,
   PolicyCheckbox,
@@ -10,83 +10,107 @@ import {
   Textarea,
 } from '@/features/contact-us';
 
+import type { TErrors } from '@/entities/contact-us';
+import { defaultErrors, defaultValues } from '@/entities/contact-us';
+
 import { Button, FieldGroup, FieldSet, Spinner } from '@/shared/ui';
 
-import { inputsList } from '../constants';
+import { createEmailError } from '../model/helpers/create-email-error';
+
+import { inputsList } from '../model/constants';
 
 const ContactUsPage = () => {
-  async function sendMessage(
-    _previousState: TFormState | undefined | null,
-    formData: { get: (arg0: string) => unknown },
-  ) {
-    // параметры запроса
-    const values = {
-      name: String(formData.get('name') ?? ''),
-      phone: String(formData.get('phone') ?? ''),
-      email: String(formData.get('email') ?? ''),
-      message: String(formData.get('message') ?? ''),
-      checkbox: String(formData.get('checkbox') ?? ''),
-    };
+  const [values, setValues] = useState(defaultValues);
+  const [errors, setErrors] = useState(defaultErrors);
+  const [isPending, setIsPending] = useState(false);
 
-    const errors: TInputErrors = {
+  const sendMessage = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const newErrors: TErrors = {
       name: !values.name ? 'ФИО обязательно' : '',
-      email: !values.email ? 'Email обязателен' : '',
+      email: createEmailError(values.email),
       phone: !values.phone ? 'Телефон обязателен' : '',
       message: !values.message ? 'Сообщение обязательно' : '',
       checkbox: !values.checkbox ? 'Обязательное поле' : '',
     };
 
-    if (Object.values(errors).some((el) => !!el)) {
-      return { errors, values };
-    }
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some((el) => !!el)) return;
+
+    setIsPending(true);
 
     try {
-      fetch('https://bep-remont.duckdns.org/bot/send', {
+      const response = await fetch('https://bep-remont.duckdns.org/bot/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
-      })
-        .then((r) => r.json())
-        .then((res) => {
-          if (res) {
-            toast('Ваше сообщение успешно доставлено', { icon: <MailCheck /> });
-          }
-        })
-        .catch((err) => {
-          toast(`Ошибка отправки сообщения: ${err}`, {
-            icon: <TriangleAlert />,
-          });
-        });
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result) {
+        setValues(defaultValues);
+        toast('Ваше сообщение успешно доставлено', { icon: <MailCheck /> });
+      }
     } catch (error) {
-      toast(`Ошибка отправки сообщения: ${error}`, { icon: <TriangleAlert /> });
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+
+      toast(`Ошибка отправки сообщения: ${errorMessage}`, {
+        icon: <TriangleAlert />,
+      });
+    } finally {
+      setIsPending(false);
     }
-
-    return { success: true };
-  }
-
-  const [state, formAction, isPending] = useActionState(sendMessage, null);
+  };
 
   return (
     <>
       <h2>Обратная связь</h2>
 
       <div className="flex flex-col gap-10 justify-center sm:justify-start w-full">
-        <form action={formAction} className="flex flex-col w-full gap-5">
+        <form onSubmit={sendMessage} className="flex flex-col w-full gap-5">
           <div className="flex flex-col w-full gap-y-5 md:gap-0">
             <FieldGroup className="flex-col md:flex-row w-full">
               <FieldSet className="flex-1">
                 {inputsList.map((item) => (
-                  <Input key={item.id} item={item} state={state} />
+                  <Input
+                    key={item.id}
+                    item={item}
+                    values={values}
+                    errors={errors}
+                    setValues={setValues}
+                    setErrors={setErrors}
+                    isDisabled={isPending}
+                  />
                 ))}
               </FieldSet>
 
               <FieldSet className="flex-1">
-                <Textarea state={state} />
+                <Textarea
+                  values={values}
+                  errors={errors}
+                  setValues={setValues}
+                  setErrors={setErrors}
+                  isDisabled={isPending}
+                />
               </FieldSet>
             </FieldGroup>
 
             <FieldSet>
-              <PolicyCheckbox state={state} />
+              <PolicyCheckbox
+                values={values}
+                errors={errors}
+                setValues={setValues}
+                setErrors={setErrors}
+                isDisabled={isPending}
+              />
             </FieldSet>
           </div>
 
@@ -96,7 +120,8 @@ const ContactUsPage = () => {
             </span>
 
             <div className="flex gap-5">
-              <ResetFormBtn />
+              <ResetFormBtn setValues={setValues} setErrors={setErrors} />
+
               <Button variant="outline" type="submit" disabled={isPending}>
                 {isPending ? <Spinner /> : <Send />}
                 Отправить

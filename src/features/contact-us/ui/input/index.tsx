@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { X } from 'lucide-react';
+
+import type { TErrors, TValues } from '@/entities/contact-us';
 
 import {
   Button,
@@ -9,35 +11,61 @@ import {
   Input as InputShared,
 } from '@/shared/ui';
 
-import type { TFormState, TInputItem } from '../../model/types';
+import type { TInputItem } from '../../model/types';
 
 interface IProps {
-  state?: TFormState | null;
+  values: TValues;
+  setValues: React.Dispatch<React.SetStateAction<TValues>>;
+  errors: TErrors;
+  setErrors: React.Dispatch<React.SetStateAction<TErrors>>;
+  isDisabled: boolean;
   item: TInputItem;
 }
 
-export const Input = ({ state, item }: IProps) => {
-  const [error, setError] = useState('');
+export const Input = ({
+  values,
+  setValues,
+  errors,
+  setErrors,
+  isDisabled,
+  item,
+}: IProps) => {
+  const error = errors[item.id];
+  const value = values[item.id];
 
-  const v = state?.values;
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (isDisabled) return;
 
-  const onChange = () => setError((prev) => (prev ? '' : prev));
+    const newValue = e.target.value;
+    if (error) setErrors((prev) => ({ ...prev, [item.id]: '' }));
 
-  const onResetValue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const form = e.currentTarget.form;
-    if (!form) return;
+    if (item?.pattern && newValue) {
+      const regExp = new RegExp(item.pattern);
 
-    const field = form.elements.namedItem(item.id);
-    if (field instanceof HTMLInputElement) field.value = '';
+      if (!regExp.test(newValue)) {
+        setErrors((prev) => ({ ...prev, [item.id]: 'Недопустимый символ' }));
+        return;
+      }
+    }
+
+    if (newValue?.length > item.maxLength) {
+      setErrors((prev) => ({
+        ...prev,
+        [item.id]: `Максимальное кол-во символов: ${item.maxLength}`,
+      }));
+      return;
+    }
+
+    setValues((prev) => ({ ...prev, [item.id]: newValue }));
+  };
+
+  const onResetValue = () => {
+    if (isDisabled) return;
+    if (error) setErrors((prev) => ({ ...prev, [item.id]: '' }));
+    setValues((prev) => ({ ...prev, [item.id]: '' }));
   };
 
   const Icon = item.icon;
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (state?.errors) setError(state.errors?.[item.id]);
-    if (state?.success) setError('');
-  }, [item.id, state?.errors, state?.success]);
 
   return (
     <Field className="min-h-[90px]" data-invalid={!!error}>
@@ -50,23 +78,27 @@ export const Input = ({ state, item }: IProps) => {
           />
 
           <InputShared
-            defaultValue={v?.[item.id] ?? ''}
+            value={value ?? ''}
             className={`pr-10 pl-10 py-4 ${!!error && 'placeholder:text-red-300'}`}
-            type={item.type}
+            type="text"
             name={item.id}
             id={`${item.id}Id`}
             placeholder={item.placeholder}
             onChange={onChange}
             aria-invalid={!!error}
+            disabled={isDisabled}
           />
 
-          <Button
-            variant="ghost"
-            className="absolute right-1 top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0"
-            onClick={onResetValue}
-          >
-            <X />
-          </Button>
+          {!!value && (
+            <Button
+              variant="ghost"
+              className="absolute right-1 top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0"
+              onClick={onResetValue}
+              disabled={isDisabled}
+            >
+              <X />
+            </Button>
+          )}
         </div>
 
         {!!error && <FieldError>{error}</FieldError>}
