@@ -6,6 +6,7 @@ import { PackageSearch, Search, X } from 'lucide-react';
 import { useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
 
+import { ROUTES } from '@/shared/config';
 import { Badge, Button, Input } from '@/shared/ui';
 
 const CatalogWrapper = () => {
@@ -19,10 +20,10 @@ const CatalogWrapper = () => {
 
   useEffect(() => {
     if (searchValue && !isSearchPage) {
-      navigate('catalog-search');
+      navigate(ROUTES.CATALOG_SEARCH);
     }
     if (!searchValue && isSearchPage) {
-      navigate('catalog');
+      navigate(ROUTES.CATALOG);
     }
   }, [navigate, isSearchPage, searchValue]);
 

@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { ImageOff } from 'lucide-react';
 
+import { ProductQuestionButton } from '@/features/product';
+
 import { useGetCatalogData } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
@@ -85,12 +87,16 @@ const ProductPage = () => {
                 </div>
               ) : null}
 
-              {product?.price ? (
-                <div>
-                  <span>Цена</span>
-                  <h6>{formatNumbers(product.price)} руб.</h6>
-                </div>
-              ) : null}
+              <div className="flex justify-between items-end w-full">
+                {product?.price ? (
+                  <div>
+                    <span>Цена</span>
+                    <h6>{formatNumbers(product.price)} руб.</h6>
+                  </div>
+                ) : null}
+
+                <ProductQuestionButton product={product} />
+              </div>
             </div>
           </div>
         </div>

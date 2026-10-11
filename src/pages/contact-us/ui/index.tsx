@@ -1,5 +1,6 @@
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MailCheck, Send, TriangleAlert } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -23,13 +24,23 @@ import { useLocalStorage } from '@/shared/lib';
 import { Button, FieldGroup, FieldSet, Spinner } from '@/shared/ui';
 
 import { createEmailError } from '../model/helpers/create-email-error';
+import { createMessageText } from '../model/helpers/create-message-text';
 
 import { inputsList } from '../model/constants';
 
 const ContactUsPage = () => {
+  const { state } = useLocation();
+
   const [values, setValues] = useState(defaultValues);
   const [errors, setErrors] = useState(defaultErrors);
   const [isPending, setIsPending] = useState(false);
+
+  useEffect(() => {
+    if (state?.id) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setValues((prev) => ({ ...prev, message: createMessageText(state) }));
+    }
+  }, [state]);
 
   const time = useLocalStorage(storageKey, emptyLocalstorageData);
 
