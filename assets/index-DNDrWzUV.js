@@ -1,1 +1,0 @@
-import{j as e,T as s}from"./index-C8k0Ggbu.js";const r=()=>e.jsxs("div",{className:"flex flex-col justify-center items-center gap-3 flex-1",children:[e.jsx(s,{width:75,height:75}),e.jsx("h3",{children:"Нет данных для отображения"})]});export{r as P};

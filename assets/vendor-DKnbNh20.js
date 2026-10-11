@@ -1,0 +1,1 @@
+import{i as e,n as t}from"./rolldown-runtime-8BhlS34s.js";import{r as n}from"./vendor-C4trmVex.js";import{n as r}from"./vendor-Bj7aMiPl.js";import{a as i,o as a,r as o}from"./vendor-CrFgc6PW.js";function s(e){return c.createElement(o,{flushSync:l.flushSync,...e})}var c,l;function u(){return(u=t((()=>{a(),c=e(n(),1),l=e(r(),1),n(),n(),r(),i()})))()}export{u as n,s as t};
