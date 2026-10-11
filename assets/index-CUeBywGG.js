@@ -1,1 +1,0 @@
-import{j as e,V as n,T as o,X as c}from"./index-BlWHFYqs.js";const l="Ошибка",i="Запрашиваемой страницы не существует",d=({title:r,text:t,icon:s})=>{const a=s??o;return e.jsxs(n,{icon:a,children:[e.jsx("h1",{children:r??l}),e.jsx("h4",{className:"text-center",children:t??i}),e.jsx(c,{})]})};export{d as default};
