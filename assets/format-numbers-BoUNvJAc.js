@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=(e,t=0,n=0)=>typeof e==`number`?new Intl.NumberFormat(`ru-RU`,{minimumFractionDigits:n,maximumFractionDigits:t}).format(e):``})))()}export{n,t};
