@@ -80,7 +80,8 @@ export const Input = ({
           <InputShared
             value={value ?? ''}
             className={`pr-10 pl-10 py-4 ${!!error && 'placeholder:text-red-300'}`}
-            type="text"
+            type={item.type}
+            inputMode={item?.inputMode}
             name={item.id}
             id={`${item.id}Id`}
             placeholder={item.placeholder}

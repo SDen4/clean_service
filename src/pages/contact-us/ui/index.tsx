@@ -59,9 +59,7 @@ const ContactUsPage = () => {
         body: JSON.stringify(values),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const result = await response.json();
 
@@ -87,7 +85,11 @@ const ContactUsPage = () => {
       <h2>Обратная связь</h2>
 
       <div className="flex flex-col gap-10 justify-center sm:justify-start w-full">
-        <form onSubmit={sendMessage} className="flex flex-col w-full gap-5">
+        <form
+          noValidate
+          onSubmit={sendMessage}
+          className="flex flex-col w-full gap-5"
+        >
           <div className="flex flex-col w-full gap-y-5 md:gap-0">
             <FieldGroup className="flex-col md:flex-row w-full">
               <FieldSet className="flex-1">
