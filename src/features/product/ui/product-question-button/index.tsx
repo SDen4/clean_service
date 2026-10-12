@@ -14,8 +14,10 @@ interface IProps {
 /** Кнопка "Задать вопрос по товару" в карточке товара */
 export const ProductQuestionButton = ({ product }: IProps) => {
   const navigate = useNavigate();
+  const href = window.location.href;
 
-  const onClick = () => navigate(`/${ROUTES.CONTACT_US}`, { state: product });
+  const onClick = () =>
+    navigate(`/${ROUTES.CONTACT_US}`, { state: { product, href } });
 
   return (
     <Button variant="outline" onClick={onClick}>

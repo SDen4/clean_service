@@ -29,18 +29,19 @@ import { createMessageText } from '../model/helpers/create-message-text';
 import { inputsList } from '../model/constants';
 
 const ContactUsPage = () => {
-  const { state } = useLocation();
+  const product = useLocation().state?.product;
+  const href = useLocation().state?.href;
 
   const [values, setValues] = useState(defaultValues);
   const [errors, setErrors] = useState(defaultErrors);
   const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
-    if (state?.id) {
+    if (product?.id) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setValues((prev) => ({ ...prev, message: createMessageText(state) }));
+      setValues((prev) => ({ ...prev, message: createMessageText(product) }));
     }
-  }, [state]);
+  }, [href, product]);
 
   const time = useLocalStorage(storageKey, emptyLocalstorageData);
 
@@ -67,7 +68,7 @@ const ContactUsPage = () => {
       const response = await fetch('https://bep-remont.duckdns.org/bot/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, href }),
       });
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);

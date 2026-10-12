@@ -1,7 +1,7 @@
 import type { IOffer } from '@/entities/catalog';
 
 /** Генерация пред заполненного текста - Вопрос по товару */
-export const createMessageText = (state?: IOffer) => {
+export const createMessageText = (product?: IOffer) => {
   return `Добрый день!
-Интересует ${state?.name} (${state?.vendor}, арт: ${state?.vendorCode}, цена: ${state?.price} руб.)`;
+Интересует ${product?.name} (${product?.vendor}, арт: ${product?.vendorCode}, цена: ${product?.price} руб.)`;
 };
