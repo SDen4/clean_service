@@ -1,9 +1,10 @@
 export { Badge } from './badge';
+export * from './breadcrumb';
 export * from './button';
 export * from './card';
 export { Checkbox } from './checkbox';
 export * from './clipboard-copy-wrapper';
-export * from './breadcrumb';
+export * from './dialog';
 export * from './dropdown-menu';
 export * from './field';
 export * from './go-main-button';
