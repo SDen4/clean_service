@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { MailCheck, Send, TriangleAlert } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -29,8 +29,11 @@ import { createMessageText } from '../model/helpers/create-message-text';
 import { inputsList } from '../model/constants';
 
 const ContactUsPage = () => {
-  const product = useLocation().state?.product;
-  const href = useLocation().state?.href;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const product = location.state?.product;
+  const href = location.state?.href;
 
   const [values, setValues] = useState(defaultValues);
   const [errors, setErrors] = useState(defaultErrors);
@@ -76,6 +79,7 @@ const ContactUsPage = () => {
       const result = await response.json();
 
       if (result) {
+        navigate(location.pathname, { replace: true, state: null }); // сброс state, переданного при переходе п кнопке "Задать вопрос по товару"
         setValues(defaultValues);
         toast('Ваше сообщение успешно доставлено', { icon: <MailCheck /> });
       }
