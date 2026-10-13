@@ -19,8 +19,7 @@ export const inputsList: TInputItem[] = [
     inputMode: 'tel',
     id: 'phone',
     icon: Phone,
-    maxLength: 12,
-    pattern: '^\\d+$',
+    maxLength: 18, // валидная длина телефонного номера со всеми символами
   },
   {
     placeholder: 'Введите электронную почту',

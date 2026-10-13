@@ -107,6 +107,7 @@ export default defineConfig([
               '@base-ui',
               'vitest',
               'sonner',
+              'use-mask-input',
             ],
             ['^@/app'],
             ['^@/pages'],

@@ -25,6 +25,7 @@ import { Button, FieldGroup, FieldSet, Spinner } from '@/shared/ui';
 
 import { createEmailError } from '../model/helpers/create-email-error';
 import { createMessageText } from '../model/helpers/create-message-text';
+import { createPhoneError } from '../model/helpers/create-phone-error';
 
 import { inputsList } from '../model/constants';
 
@@ -56,7 +57,7 @@ const ContactUsPage = () => {
     const newErrors: TErrors = {
       name: !values.name ? 'ФИО обязательно' : '',
       email: createEmailError(values.email),
-      phone: !values.phone ? 'Телефон обязателен' : '',
+      phone: createPhoneError(values.phone),
       message: !values.message ? 'Сообщение обязательно' : '',
       checkbox: !values.checkbox ? 'Обязательное поле' : '',
     };

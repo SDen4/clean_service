@@ -1,5 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { X } from 'lucide-react';
+import { withMask } from 'use-mask-input';
 
 import type { TErrors, TValues } from '@/entities/contact-us';
 
@@ -88,6 +89,9 @@ export const Input = ({
             onChange={onChange}
             aria-invalid={!!error}
             disabled={isDisabled}
+            ref={
+              item.id === 'phone' ? withMask('\\+7 (999) 999-99-99') : undefined
+            }
           />
 
           {!!value && (
