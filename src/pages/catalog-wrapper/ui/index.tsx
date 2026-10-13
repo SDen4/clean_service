@@ -43,7 +43,7 @@ const CatalogWrapper = () => {
     <>
       <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] lg:sticky lg:top-[85px] lg:z-50">
         <div
-          className="sticky top-20 bg-white overflow-hidden
+          className="sticky top-20 overflow-hidden
             animate-collapse 
             [animation-timeline:scroll(root)] 
             [animation-range:0_75px]"
