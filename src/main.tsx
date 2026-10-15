@@ -13,3 +13,12 @@ createRoot(document.getElementById('root')!).render(
     </ThemeProvider>
   </StrictMode>,
 );
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/clean_service/sw.js')
+      // eslint-disable-next-line no-console
+      .catch((err) => console.error('SW registration failed:', err));
+  });
+}
