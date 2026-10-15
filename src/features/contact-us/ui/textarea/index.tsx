@@ -1,7 +1,11 @@
 import type { ChangeEvent } from 'react';
 import { X } from 'lucide-react';
 
-import type { TErrors, TValues } from '@/entities/contact-us';
+import {
+  maxMessageLength,
+  type TErrors,
+  type TValues,
+} from '@/entities/contact-us';
 
 import {
   Button,
@@ -10,8 +14,6 @@ import {
   FieldLabel,
   Textarea as TextareaShared,
 } from '@/shared/ui';
-
-const maxLength = 250;
 
 interface IProps {
   values: TValues;
@@ -38,10 +40,10 @@ export const Textarea = ({
 
     if (error) setErrors((prev) => ({ ...prev, message: '' }));
 
-    if (newValue?.length > maxLength) {
+    if (newValue?.length > maxMessageLength) {
       setErrors((prev) => ({
         ...prev,
-        message: `Максимальное кол-во символов: ${maxLength}`,
+        message: `Максимальное кол-во символов: ${maxMessageLength}`,
       }));
       return;
     }
@@ -57,7 +59,16 @@ export const Textarea = ({
 
   return (
     <Field data-invalid={!!error}>
-      <FieldLabel>Сообщение *</FieldLabel>
+      <div className="flex w-full justify-between items-end h-5">
+        <FieldLabel>Сообщение *</FieldLabel>
+
+        {!!value && (
+          <span className="self-end">
+            {value.length} / {maxMessageLength}
+          </span>
+        )}
+      </div>
+
       <div className="flex flex-col gap-1 relative min-w-[300px] min-h-[240px]">
         <TextareaShared
           value={value ?? ''}

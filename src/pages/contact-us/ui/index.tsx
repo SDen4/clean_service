@@ -16,6 +16,7 @@ import {
   defaultErrors,
   defaultValues,
   emptyLocalstorageData,
+  inputsList,
   PreventSendBtn,
   storageKey,
 } from '@/entities/contact-us';
@@ -26,8 +27,6 @@ import { Button, FieldGroup, FieldSet, Spinner } from '@/shared/ui';
 import { createEmailError } from '../model/helpers/create-email-error';
 import { createMessageText } from '../model/helpers/create-message-text';
 import { createPhoneError } from '../model/helpers/create-phone-error';
-
-import { inputsList } from '../model/constants';
 
 const ContactUsPage = () => {
   const navigate = useNavigate();

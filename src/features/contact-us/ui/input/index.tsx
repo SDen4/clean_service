@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react';
 import { X } from 'lucide-react';
 import { withMask } from 'use-mask-input';
 
-import type { TErrors, TValues } from '@/entities/contact-us';
+import type { TErrors, TInputItem, TValues } from '@/entities/contact-us';
 
 import {
   Button,
@@ -11,8 +11,6 @@ import {
   FieldLabel,
   Input as InputShared,
 } from '@/shared/ui';
-
-import type { TInputItem } from '../../model/types';
 
 interface IProps {
   values: TValues;
