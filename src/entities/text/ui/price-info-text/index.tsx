@@ -3,8 +3,10 @@ import { contactUsPageImport } from '@/entities/page/@x/text';
 import { ROUTES } from '@/shared/config';
 import { Link } from '@/shared/ui';
 
-export const PriceInfoText = () => (
-  <small>
+export const PriceInfoText = ({
+  ...props
+}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => (
+  <small {...props}>
     Информация о товарах и ценах, размещённая на сайте, носит справочный
     характер и не является публичной офертой (ст. 437 ГК РФ). Сайт является
     информационной витриной. Указанные цены не являются окончательными; наличие

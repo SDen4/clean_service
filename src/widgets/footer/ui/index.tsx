@@ -1,3 +1,5 @@
+import { Toaster } from 'sonner';
+
 import {
   contacts,
   mail,
@@ -77,6 +79,8 @@ const Footer = () => (
 
       <span>&#169; 2026 БэП Ремонт. Все права защищены</span>
     </BlockWrapper>
+
+    <Toaster />
   </footer>
 );
 

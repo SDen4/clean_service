@@ -56,7 +56,7 @@ const ProductsListPage = () => {
         </div>
       )}
 
-      <PriceInfoText />
+      <PriceInfoText className="mt-auto" />
     </>
   );
 };
