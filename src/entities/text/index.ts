@@ -1,2 +1,4 @@
 export * from './ui/about-page';
-export * from './ui/service-item';
+
+export { ServiceItem } from './ui/service-item';
+export { PriceInfoText } from './ui/price-info-text';

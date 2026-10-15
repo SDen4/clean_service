@@ -44,7 +44,7 @@ export const PolicyCheckbox = ({
           className="text-blue-500 underline"
         >
           Политикой конфиденциальности
-        </Link>{' '}
+        </Link>
       </span>
     </Checkbox>
   );

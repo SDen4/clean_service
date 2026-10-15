@@ -59,13 +59,13 @@ export const Textarea = ({
 
   return (
     <Field data-invalid={!!error}>
-      <div className="flex w-full justify-between items-end h-5">
+      <div className="flex w-full justify-between items-end">
         <FieldLabel>Сообщение *</FieldLabel>
 
         {!!value && (
-          <span className="self-end">
+          <small className="self-end">
             {value.length} / {maxMessageLength}
-          </span>
+          </small>
         )}
       </div>
 

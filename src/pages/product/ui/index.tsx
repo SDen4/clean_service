@@ -4,6 +4,7 @@ import { ImageOff } from 'lucide-react';
 import { ImageDialog, ProductQuestionButton } from '@/features/product';
 
 import { useGetCatalogData } from '@/entities/catalog';
+import { PriceInfoText } from '@/entities/text';
 
 import { formatNumbers } from '@/shared/lib';
 import { ClipboardCopyWrapper, Loader } from '@/shared/ui';
@@ -95,6 +96,8 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
+
+          <PriceInfoText />
         </div>
       )}
     </>

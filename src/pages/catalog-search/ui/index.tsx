@@ -5,6 +5,7 @@ import { ProductCard } from '@/features/product';
 
 import type { IOffer } from '@/entities/catalog';
 import { EMPTY_PATH, useProducts } from '@/entities/catalog';
+import { PriceInfoText } from '@/entities/text';
 
 import { ScrollUpButton } from '@/shared/ui';
 
@@ -42,6 +43,8 @@ const CatalogSearch = () => {
           );
         })}
       </div>
+
+      <PriceInfoText />
 
       <ScrollUpButton />
     </>

@@ -5,6 +5,7 @@ import type { TSortState } from '@/features/product';
 import { PriceSortButton, ProductCard } from '@/features/product';
 
 import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
+import { PriceInfoText } from '@/entities/text';
 
 import { Loader, ScrollUpButton } from '@/shared/ui';
 
@@ -54,6 +55,8 @@ const ProductsListPage = () => {
           <ScrollUpButton />
         </div>
       )}
+
+      <PriceInfoText />
     </>
   );
 };
