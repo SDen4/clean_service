@@ -66,7 +66,7 @@ const CatalogWrapper = () => {
               onChange={onChange}
               onFocus={onFocus}
               className="pr-10 pl-10"
-              placeholder="Поиск товаров по каталогу"
+              placeholder="Поиск товаров"
             />
 
             {!!searchValue && (
