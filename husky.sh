@@ -17,4 +17,5 @@ cat > "$HUSKY_PRE_COMMIT_PATH" << 'EOF'
 
 npx lint-staged
 npx eslint "src/**/*.ts{,x}"
+npm run test
 npx steiger src || true
