@@ -1,1 +1,1 @@
-export { contactUsPageImport } from '../../model/constants';
+export { contactUsPageImport, contactsPageImport } from '../../model/constants';

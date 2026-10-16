@@ -1,5 +1,7 @@
-import { contactsPageImport } from '@/entities/page';
-import { contactUsPageImport } from '@/entities/page/@x/text';
+import {
+  contactsPageImport,
+  contactUsPageImport,
+} from '@/entities/page/@x/text';
 
 import { ROUTES } from '@/shared/config';
 import { Link } from '@/shared/ui';
