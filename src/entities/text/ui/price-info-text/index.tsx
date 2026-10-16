@@ -1,3 +1,4 @@
+import { contactsPageImport } from '@/entities/page';
 import { contactUsPageImport } from '@/entities/page/@x/text';
 
 import { ROUTES } from '@/shared/config';
@@ -14,7 +15,7 @@ export const PriceInfoText = ({
     по{' '}
     <Link
       to={`/${ROUTES.CONTACTS}`}
-      onMouseEnter={contactUsPageImport}
+      onMouseEnter={contactsPageImport}
       className="text-blue-500 underline"
     >
       телефону
@@ -22,7 +23,7 @@ export const PriceInfoText = ({
     ,{' '}
     <Link
       to={`/${ROUTES.CONTACTS}`}
-      onMouseEnter={contactUsPageImport}
+      onMouseEnter={contactsPageImport}
       className="text-blue-500 underline"
     >
       электронной почте
