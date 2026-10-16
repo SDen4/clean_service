@@ -15,6 +15,7 @@ import {
   mainPageImport,
   privacyPolicyPageImport,
 } from '@/entities/page';
+import { currentYear } from '@/entities/text';
 
 import { ROUTES } from '@/shared/config';
 import { logo } from '@/shared/model';
@@ -77,7 +78,7 @@ const Footer = () => (
         </FooterBlock>
       </div>
 
-      <span>&#169; 2026 БэП Ремонт. Все права защищены</span>
+      <span>&#169; {currentYear} БэП Ремонт. Все права защищены</span>
     </BlockWrapper>
 
     <Toaster />

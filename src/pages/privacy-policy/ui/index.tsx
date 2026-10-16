@@ -1,4 +1,5 @@
 import { contacts, mail } from '@/entities/contact';
+import { currentYear } from '@/entities/text';
 
 import { ROUTES } from '@/shared/config';
 
@@ -315,7 +316,9 @@ const PrivacyPolicyPage = () => {
       </section>
 
       <p>
-        <small>© {companyName}, 2026. Все права защищены.</small>
+        <small>
+          © {companyName}, {currentYear}. Все права защищены.
+        </small>
       </p>
     </div>
   );
