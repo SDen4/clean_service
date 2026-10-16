@@ -44,7 +44,7 @@ const CatalogSearch = () => {
         })}
       </div>
 
-      <PriceInfoText />
+      <PriceInfoText className="mt-auto" />
 
       <ScrollUpButton />
     </>
