@@ -1,4 +1,4 @@
-const CACHE_NAME = 'app-shell-v1';
+const CACHE_NAME = `app-shell-__CACHE_VERSION__`;
 
 const BASE = '/clean_service/';
 const OFFLINE_URL = `${BASE}offline.html`;
@@ -14,7 +14,18 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    (async () => {
+      // Удаляем все старые бакеты, кроме текущего
+      const keys = await caches.keys();
+      await Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key)),
+      );
+      await self.clients.claim();
+    })(),
+  );
 });
 
 self.addEventListener('fetch', (event) => {
@@ -34,8 +45,9 @@ self.addEventListener('fetch', (event) => {
 });
 
 async function handleNavigate(request) {
-  if (!self.navigator.onLine) return serveOffline();
-
+  if (!self.navigator.onLine) {
+    return serveOffline();
+  }
   try {
     return await fetch(request);
   } catch {
@@ -44,8 +56,8 @@ async function handleNavigate(request) {
 }
 
 async function serveOffline() {
-  const cached = await caches.match(OFFLINE_URL);
-
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(OFFLINE_URL);
   return (
     cached ||
     new Response('Offline', {
@@ -56,14 +68,15 @@ async function serveOffline() {
 }
 
 async function handleAsset(request) {
-  const cached = await caches.match(request);
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(request);
   if (cached) return cached;
 
   try {
     const response = await fetch(request);
     if (response.ok) {
       const copy = response.clone();
-      caches.open(CACHE_NAME).then((c) => c.put(request, copy));
+      cache.put(request, copy);
     }
     return response;
   } catch {
