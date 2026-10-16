@@ -95,7 +95,7 @@ export const Input = ({
           {!!value && (
             <Button
               variant="ghost"
-              className="absolute right-1 top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0"
+              className="absolute right-[1px] top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0 rounded-tl-none rounded-bl-none focus:bg-sky-200"
               onClick={onResetValue}
               disabled={isDisabled}
             >

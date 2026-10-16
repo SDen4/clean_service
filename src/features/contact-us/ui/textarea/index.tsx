@@ -84,7 +84,7 @@ export const Textarea = ({
         {!!value && (
           <Button
             variant="ghost"
-            className="absolute right-1 top-5 -translate-y-1/2 hover:bg-transparent outline-none border-0"
+            className="absolute right-[1px] top-[17px] -translate-y-1/2 hover:bg-transparent outline-none border-0 focus:bg-sky-200 rounded-tl-none rounded-bl-none rounded-br-none"
             onClick={onResetValue}
             disabled={isDisabled}
           >
