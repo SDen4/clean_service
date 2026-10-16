@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MailCheck, Send, TriangleAlert } from 'lucide-react';
+import { MailCheck, MailWarning, Send, TriangleAlert } from 'lucide-react';
 import { toast } from 'sonner';
 
 import {
@@ -63,7 +63,12 @@ const ContactUsPage = () => {
 
     setErrors(newErrors);
 
-    if (Object.values(newErrors).some((el) => !!el)) return;
+    if (Object.values(newErrors).some((el) => !!el)) {
+      toast('Заполните все обязательные поля', {
+        icon: <MailWarning className="stroke-red-500" />,
+      });
+      return;
+    }
 
     setIsPending(true);
 
