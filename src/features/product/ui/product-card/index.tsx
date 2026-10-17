@@ -41,7 +41,7 @@ export const ProductCard = ({ product, to, ...props }: IProps) => {
             </h6>
 
             {product?.price ? (
-              <span>{formatNumbers(product.price)} руб.</span>
+              <span>{formatNumbers(product.price)}&nbsp;руб.</span>
             ) : null}
           </div>
 
