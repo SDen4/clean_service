@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 import { SearchX } from 'lucide-react';
 
-import { ProductCard } from '@/features/product';
+import { ProductRow } from '@/features/product';
 
 import type { IOffer } from '@/entities/catalog';
 import { EMPTY_PATH, useProducts } from '@/entities/catalog';
@@ -35,7 +35,7 @@ const CatalogSearch = () => {
               ?.parentId ?? EMPTY_PATH;
 
           return (
-            <ProductCard
+            <ProductRow
               product={el}
               key={el.id + el.name}
               to={`/catalog/${category}/${el.categoryId}/${el.id}`}

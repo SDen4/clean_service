@@ -11,7 +11,7 @@ interface IProps extends Omit<ComponentProps<typeof Link>, 'to'> {
   to?: string;
 }
 
-export const ProductCard = ({ product, to, ...props }: IProps) => {
+export const ProductRow = ({ product, to, ...props }: IProps) => {
   return (
     <Link
       className="[content-visibility:auto] [contain-intrinsic-size:auto_80px]"

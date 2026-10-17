@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import type { TSortState } from '@/features/product';
-import { PriceSortButton, ProductCard } from '@/features/product';
+import { PriceSortButton, ProductRow } from '@/features/product';
 
 import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
 import { PriceInfoText } from '@/entities/text';
@@ -50,7 +50,7 @@ const ProductsListPage = () => {
       ) : (
         <div className="flex flex-col w-full gap-1">
           {filteredOffers.map((el) => (
-            <ProductCard product={el} key={el.id + el.name} />
+            <ProductRow product={el} key={el.id + el.name} />
           ))}
           <ScrollUpButton />
         </div>
