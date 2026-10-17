@@ -33,7 +33,7 @@ export const ProductCard = ({ product, to, ...props }: IProps) => {
               {product.name}{' '}
               {!!product?.vendor && <>(Производитель: {product.vendor})</>}
               {!!product?.vendorCode && (
-                <span> Артикул: {product.vendorCode}</span>
+                <span> Артикул:&nbsp;{product.vendorCode}</span>
               )}
               {product.available === false && (
                 <span className="text-red-600"> Нет в наличии</span>
