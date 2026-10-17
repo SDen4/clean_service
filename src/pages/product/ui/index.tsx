@@ -41,7 +41,7 @@ const ProductPage = () => {
               )}
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-full">
               {product?.vendor ? (
                 <div>
                   <span>Производитель</span>
