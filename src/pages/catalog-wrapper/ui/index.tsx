@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { PackageSearch, Search, X } from 'lucide-react';
 
-import { ProductListTypeButton } from '@/features/product';
+import type { TSortState } from '@/features/product';
+import { PriceSortButton, ProductListTypeButton } from '@/features/product';
 
 import { useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
@@ -17,6 +18,8 @@ const CatalogWrapper = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { offers } = useProducts();
+
+  const [sort, setSort] = useState<TSortState>('none');
 
   const isSearchPage = pathname.includes('catalog-search');
 
@@ -35,11 +38,22 @@ const CatalogWrapper = () => {
     setSearchValue(e.target.value);
   };
 
-  const foundOffers = offers.filter((offer) =>
-    `${offer.name}_${offer.vendor}_${offer.description}_${offer.vendor}_${offer.vendorCode}`
-      .toLowerCase()
-      .includes(searchValue.toLowerCase()),
-  );
+  const foundOffers = offers
+    .filter((offer) =>
+      `${offer.name}_${offer.vendor}_${offer.description}_${offer.vendor}_${offer.vendorCode}`
+        .toLowerCase()
+        .includes(searchValue.toLowerCase()),
+    )
+    .sort((a, b) => {
+      if (sort !== 'none') {
+        if (sort === 'asc') {
+          return a.price > b.price ? 1 : -1;
+        } else {
+          return b.price > a.price ? 1 : -1;
+        }
+      }
+      return 0;
+    });
 
   return (
     <>
@@ -82,7 +96,12 @@ const CatalogWrapper = () => {
             )}
           </div>
 
-          <ProductListTypeButton />
+          {!!searchValue && (
+            <>
+              <PriceSortButton sort={sort} setSort={setSort} />
+              <ProductListTypeButton />
+            </>
+          )}
         </div>
       </div>
 

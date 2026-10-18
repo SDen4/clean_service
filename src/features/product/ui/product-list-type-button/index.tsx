@@ -17,7 +17,7 @@ export const ProductListTypeButton = () => {
   };
 
   return (
-    <Button variant="outline" onClick={onClick}>
+    <Button variant="outline" onClick={onClick} className="px-[7px]">
       {isCard ? <Grid2X2 /> : <Rows3 />}
     </Button>
   );
