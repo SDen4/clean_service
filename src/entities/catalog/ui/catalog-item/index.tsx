@@ -28,6 +28,7 @@ export const CatalogItem = ({ item }: IProps) => {
       <CardHeader>
         <Link
           to={isNoSubCategories ? `${EMPTY_PATH}/${item.id}` : String(item.id)}
+          className="hover:text-sky-600 transition-all duration-200"
         >
           <CardTitle className="z-[1] p-4 text-2xl dark:text-sky-950">
             {item.name}
@@ -38,7 +39,10 @@ export const CatalogItem = ({ item }: IProps) => {
       <ul className="z-10 ml-2">
         {subCategories.map((el) => (
           <li key={el.id + String(el?.parentId)}>
-            <Link to={`${item.id}/${el.id}`} className="dark:text-sky-950">
+            <Link
+              to={`${item.id}/${el.id}`}
+              className="dark:text-sky-950 hover:text-sky-500 transition-all duration-300"
+            >
               {el.name}
             </Link>
           </li>

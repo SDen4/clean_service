@@ -28,7 +28,12 @@ const SubCategoryPage = () => {
         <ul>
           {subCategories.map((el) => (
             <li key={el.id}>
-              <Link to={String(el.id)}>{el.name}</Link>
+              <Link
+                to={String(el.id)}
+                className="hover:text-sky-600 transition-all duration-200"
+              >
+                {el.name}
+              </Link>
             </li>
           ))}
         </ul>

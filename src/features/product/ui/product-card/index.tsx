@@ -24,7 +24,12 @@ export const ProductCard = ({ product, to, ...props }: IProps) => {
         <div className="flex flex-col items-center w-full gap-3">
           <div className="flex justify-center items-center rounded-lg overflow-hidden">
             {product?.picture ? (
-              <img loading="lazy" decoding="async" src={product.picture} />
+              <img
+                loading="lazy"
+                decoding="async"
+                src={product.picture}
+                className="min-h-[291px] max-h-[291px]"
+              />
             ) : (
               <ImageOff width="100%" height="auto" className="stroke-sky-200" />
             )}
