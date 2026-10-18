@@ -6,6 +6,8 @@ import type { IOffer } from '@/entities/catalog';
 import { formatNumbers } from '@/shared/lib';
 import { Link } from '@/shared/ui';
 
+import { linkClassName } from '../../model/constants';
+
 interface IProps extends Omit<ComponentProps<typeof Link>, 'to'> {
   product: IOffer;
   to?: string;
@@ -13,21 +15,17 @@ interface IProps extends Omit<ComponentProps<typeof Link>, 'to'> {
 
 export const ProductRow = ({ product, to, ...props }: IProps) => {
   return (
-    <Link
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_80px]"
-      {...props}
-      to={to || product.id}
-    >
+    <Link className={linkClassName} {...props} to={to || product.id}>
       <div className="flex items-center gap-3 w-full p-2 rounded-md bg-slate-100 dark:bg-slate-200">
         <div className="flex justify-center items-center w-16 h-16">
           {product?.picture ? (
             <img loading="lazy" decoding="async" src={product.picture} />
           ) : (
-            <ImageOff />
+            <ImageOff width="100%" height="auto" className="stroke-sky-200" />
           )}
         </div>
 
-        <div className="flex flex-col w-full gap-1">
+        <div className="flex flex-col w-full gap-2 min-w-0 flex-1">
           <div className="flex w-full items-center justify-between gap-1">
             <h6 className="dark:text-sky-950">
               {product.name}{' '}
@@ -45,7 +43,7 @@ export const ProductRow = ({ product, to, ...props }: IProps) => {
             ) : null}
           </div>
 
-          <span>{product.description}</span>
+          <span className="block min-w-0 truncate">{product.description}</span>
         </div>
       </div>
     </Link>

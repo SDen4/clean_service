@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { PackageSearch, Search, X } from 'lucide-react';
 
+import { ProductListTypeButton } from '@/features/product';
+
 import { useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
 
@@ -41,7 +43,7 @@ const CatalogWrapper = () => {
 
   return (
     <>
-      <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] lg:sticky lg:top-[85px] lg:z-50">
+      <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] xl:sticky xl:top-[85px] xl:z-50">
         <div
           className="sticky top-20 overflow-hidden
             animate-collapse 
@@ -79,6 +81,8 @@ const CatalogWrapper = () => {
               </Button>
             )}
           </div>
+
+          <ProductListTypeButton />
         </div>
       </div>
 

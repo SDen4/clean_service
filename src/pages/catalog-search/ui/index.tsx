@@ -1,10 +1,11 @@
 import { useOutletContext } from 'react-router-dom';
 import { SearchX } from 'lucide-react';
 
-import { ProductRow } from '@/features/product';
+import { Product } from '@/features/product';
 
 import type { IOffer } from '@/entities/catalog';
 import { EMPTY_PATH, useProducts } from '@/entities/catalog';
+import { ProductListWrapper } from '@/entities/product';
 import { PriceInfoText } from '@/entities/text';
 
 import { ScrollUpButton } from '@/shared/ui';
@@ -28,21 +29,21 @@ const CatalogSearch = () => {
 
   return (
     <>
-      <div className="flex flex-col w-full gap-1">
+      <ProductListWrapper>
         {foundOffers.map((el) => {
           const category =
             categories.find((cat) => String(cat.id) === String(el.categoryId))
               ?.parentId ?? EMPTY_PATH;
 
           return (
-            <ProductRow
+            <Product
               product={el}
               key={el.id + el.name}
               to={`/catalog/${category}/${el.categoryId}/${el.id}`}
             />
           );
         })}
-      </div>
+      </ProductListWrapper>
 
       <PriceInfoText className="mt-auto" />
 

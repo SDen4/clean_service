@@ -17,7 +17,7 @@ const CatalogPage = () => {
       {isLoading && !isData && !error ? (
         <Loader />
       ) : (
-        <div className="flex justify-center lg:justify-between flex-wrap w-full gap-10">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] w-full gap-10">
           {categories
             .filter((el) => !el.parentId)
             .map((el) => (

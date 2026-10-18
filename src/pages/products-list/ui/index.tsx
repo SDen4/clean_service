@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import type { TSortState } from '@/features/product';
-import { PriceSortButton, ProductRow } from '@/features/product';
+import {
+  PriceSortButton,
+  Product,
+  ProductListTypeButton,
+} from '@/features/product';
 
 import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
+import { ProductListWrapper } from '@/entities/product';
 import { PriceInfoText } from '@/entities/text';
 
 import { Loader, ScrollUpButton } from '@/shared/ui';
@@ -42,18 +47,22 @@ const ProductsListPage = () => {
           {subCategoryName}{' '}
           {filteredOffers?.length ? `(${filteredOffers.length}\u00a0шт.)` : ''}
         </h2>
-        <PriceSortButton sort={sort} setSort={setSort} />
+
+        <div className="flex flex-wrap gap-2 items-end">
+          <PriceSortButton sort={sort} setSort={setSort} />
+          <ProductListTypeButton />
+        </div>
       </div>
 
       {isLoading && !isData && !error ? (
         <Loader />
       ) : (
-        <div className="flex flex-col w-full gap-1">
+        <ProductListWrapper>
           {filteredOffers.map((el) => (
-            <ProductRow product={el} key={el.id + el.name} />
+            <Product product={el} key={el.id + el.name} />
           ))}
           <ScrollUpButton />
-        </div>
+        </ProductListWrapper>
       )}
 
       <PriceInfoText className="mt-auto" />
