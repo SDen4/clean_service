@@ -1,4 +1,4 @@
-const CACHE_NAME = `app-shell-mvdpyspw`;
+const CACHE_NAME = `app-shell-mvds8781`;
 
 const BASE = '/clean_service/';
 const OFFLINE_URL = `${BASE}offline.html`;
