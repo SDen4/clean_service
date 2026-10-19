@@ -12,9 +12,9 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
-import { callBackPageImport } from '@/entities/page';
 import {
   aboutPageImport,
+  callBackPageImport,
   catalogSearchPageImport,
   catalogWrapperImport,
   contactsPageImport,
