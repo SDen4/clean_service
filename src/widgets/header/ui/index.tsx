@@ -1,4 +1,5 @@
 import { lazy, useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Navigation } from '@/features/navigation';
 import { ModeToggle } from '@/features/theme';
@@ -7,6 +8,7 @@ import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { LinkLogo } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
 
+import { ROUTES } from '@/shared/config';
 import { Tooltip } from '@/shared/ui';
 
 const MenuLazy = lazy(() => import('@/features/header'));
@@ -15,9 +17,12 @@ const windowWidthForMenuVisible = 1024;
 
 export const Header = () => {
   const headerRef = useRef<HTMLHeadElement | null>(null);
+  const { pathname } = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
+
+  const isSearchPage = pathname.includes(ROUTES.CATALOG_SEARCH);
 
   const scrollListenerFunc = useCallback(
     () => setIsScrolled(window.scrollY > 0),
@@ -49,7 +54,7 @@ export const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`flex items-center justify-center w-full py-2 sticky top-0 bg-background z-20 transition-shadow duration-500 ${isScrolled ? 'opacity-[97%] shadow-md dark:shadow-white/20' : ''}`}
+      className={`flex items-center justify-center w-full py-2 sticky top-0 bg-background z-20 transition-shadow duration-500 ${isScrolled && !isSearchPage ? 'opacity-[97%] shadow-md dark:shadow-white/20' : ''}`}
     >
       <BlockWrapper>
         <div className="flex justify-between w-full items-center">

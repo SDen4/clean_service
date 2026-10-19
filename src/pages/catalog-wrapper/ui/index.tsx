@@ -57,7 +57,7 @@ const CatalogWrapper = () => {
 
   return (
     <>
-      <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] xl:sticky xl:top-[85px] xl:z-50">
+      <div className="flex w-full items-end justify-between flex-wrap gap-3 sm:top-[78px] sm:sticky sm:z-50 xl:top-[120px] bg-background pb-2">
         <div
           className="sticky top-20 overflow-hidden
             animate-collapse 

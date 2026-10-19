@@ -31,7 +31,11 @@ export const ProductCard = ({ product, to, ...props }: IProps) => {
                 className="min-h-[291px] max-h-[291px]"
               />
             ) : (
-              <ImageOff width="100%" height="auto" className="stroke-sky-200" />
+              <ImageOff
+                width="100%"
+                height="100%"
+                className="stroke-sky-200 min-h-full"
+              />
             )}
           </div>
 

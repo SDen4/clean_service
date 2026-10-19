@@ -21,7 +21,7 @@ export const ProductRow = ({ product, to, ...props }: IProps) => {
           {product?.picture ? (
             <img loading="lazy" decoding="async" src={product.picture} />
           ) : (
-            <ImageOff width="100%" height="auto" className="stroke-sky-200" />
+            <ImageOff width="100%" height="100%" className="stroke-sky-200" />
           )}
         </div>
 
