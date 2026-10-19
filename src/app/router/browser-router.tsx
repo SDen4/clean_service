@@ -9,6 +9,7 @@ import { checkNumberUrl } from './checkNumberUrl';
 
 import {
   AboutPageLazy,
+  CallBackPageLazy,
   CatalogPageLazy,
   CatalogSearchPageLazy,
   CatalogWrapperPageLazy,
@@ -135,6 +136,14 @@ export const browserRouter = createBrowserRouter(
           element: (
             <ErrorBoundary>
               <ContactUsPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: ROUTES.CALL_BACK,
+          element: (
+            <ErrorBoundary>
+              <CallBackPageLazy />
             </ErrorBoundary>
           ),
         },

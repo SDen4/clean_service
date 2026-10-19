@@ -5,6 +5,7 @@ import type { IErrorPageProps } from '@/pages/error';
 
 import {
   aboutPageImport,
+  callBackPageImport,
   catalogPageImport,
   catalogSearchPageImport,
   catalogWrapperImport,
@@ -34,9 +35,11 @@ const ProductPageLazy = lazy(productPageImport);
 const ProductsListPageLazy = lazy(productsListPageImport);
 const ServicesPageLazy = lazy(servicesPageImport);
 const SubCategoryPageLazy = lazy(subCategoryPageImport);
+const CallBackPageLazy = lazy(callBackPageImport);
 
 export {
   AboutPageLazy,
+  CallBackPageLazy,
   CatalogPageLazy,
   CatalogSearchPageLazy,
   CatalogWrapperPageLazy,

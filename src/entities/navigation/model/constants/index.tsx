@@ -4,6 +4,7 @@ import {
   Info,
   Landmark,
   MessageSquareText,
+  PhoneOutgoing,
   Search,
   ShoppingCart,
   UserSearch,
@@ -11,6 +12,7 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
+import { callBackPageImport } from '@/entities/page';
 import {
   aboutPageImport,
   catalogSearchPageImport,
@@ -56,13 +58,6 @@ export const navigationData: INavigationData[] = [
     importFunc: servicesPageImport,
   },
   {
-    title: 'Контакты',
-    route: ROUTES.CONTACTS,
-    id: ROUTES.CONTACTS,
-    icon: <UserSearch />,
-    importFunc: contactsPageImport,
-  },
-  {
     title: 'Каталог',
     route: ROUTES.CATALOG,
     id: ROUTES.CATALOG,
@@ -75,6 +70,20 @@ export const navigationData: INavigationData[] = [
     id: ROUTES.CONTACT_US,
     icon: <MessageSquareText />,
     importFunc: contactUsPageImport,
+  },
+  {
+    title: 'Контакты',
+    route: ROUTES.CONTACTS,
+    id: ROUTES.CONTACTS,
+    icon: <UserSearch />,
+    importFunc: contactsPageImport,
+  },
+  {
+    title: 'Перезвонить мне',
+    route: ROUTES.CALL_BACK,
+    id: ROUTES.CALL_BACK,
+    icon: <PhoneOutgoing />,
+    importFunc: callBackPageImport,
   },
 ] as const;
 

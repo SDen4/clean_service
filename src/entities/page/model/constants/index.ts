@@ -26,6 +26,8 @@ export const privacyPolicyPageImport = () =>
 
 export const subCategoryPageImport = () => getPreloader(PageKeys.subCategory)();
 
+export const callBackPageImport = () => getPreloader(PageKeys.callBack)();
+
 export const productsListPageImport = () =>
   getPreloader(PageKeys.productsList)();
 

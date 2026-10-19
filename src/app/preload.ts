@@ -17,6 +17,7 @@ registerPreloader(PageKeys.productsList, () => import('@/pages/products-list'));
 registerPreloader(PageKeys.product, () => import('@/pages/product'));
 registerPreloader(PageKeys.contacts, () => import('@/pages/contacts'));
 registerPreloader(PageKeys.contactUs, () => import('@/pages/contact-us'));
+registerPreloader(PageKeys.callBack, () => import('@/pages/call-back'));
 registerPreloader(PageKeys.about, () => import('@/pages/about'));
 registerPreloader(PageKeys.services, () => import('@/pages/services'));
 registerPreloader(PageKeys.error, () => import('@/pages/error'));
