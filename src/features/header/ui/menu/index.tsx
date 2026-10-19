@@ -27,7 +27,9 @@ const Menu = ({ className }: IProps) => {
   const { pathname } = useLocation();
 
   const isCurrentPage = (path: string) =>
-    pathname !== '/' ? path === pathname.slice(1) : path === pathname;
+    pathname !== '/'
+      ? pathname.slice(1).includes(path)
+      : pathname.includes(path);
 
   return (
     <div className={className}>
@@ -39,6 +41,7 @@ const Menu = ({ className }: IProps) => {
             </Button>
           }
         />
+
         <DropdownMenuContent align="start">
           <DropdownMenuGroup className="flex flex-col gap-y-1">
             <DropdownMenuLabel>Телефоны</DropdownMenuLabel>
@@ -81,7 +84,7 @@ const Menu = ({ className }: IProps) => {
                   </DropdownMenuShortcut>
                 </span>
               ) : (
-                <DropdownMenuItem key={el.id} disabled={true}>
+                <DropdownMenuItem key={el.id}>
                   <Link
                     to={el.route}
                     className="flex items-center justify-between w-full text-base"
