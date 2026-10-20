@@ -1,4 +1,5 @@
 export { useTheme } from './hooks/use-theme';
+export { useScrolled } from './hooks/use-scrolled';
 
 export { PageKeys } from './constants';
 

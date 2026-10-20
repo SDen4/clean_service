@@ -13,12 +13,11 @@ import { ROUTES } from '@/shared/config';
 import { Badge, Button, Input } from '@/shared/ui';
 
 const CatalogWrapper = () => {
-  const [searchValue, setSearchValue] = useState('');
-
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { offers } = useProducts();
 
+  const [searchValue, setSearchValue] = useState('');
   const [sort, setSort] = useState<TSortState>('none');
 
   const isSearchPage = pathname.includes('catalog-search');
@@ -57,17 +56,21 @@ const CatalogWrapper = () => {
 
   return (
     <>
-      <div className="flex w-full items-end justify-between flex-wrap gap-3 top-[70px] xl:sticky xl:top-[85px] xl:z-50">
+      <div className="flex w-full items-end justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
         <div
-          className="sticky top-20 overflow-hidden
+          className="sticky top-20 
+            overflow-hidden
             animate-collapse 
             [animation-timeline:scroll(root)] 
-            [animation-range:0_75px]"
+            [animation-range:0_75px]
+            "
         >
-          <h2>Каталог {isSearchPage && '(поиск)'}</h2>
+          <h2 className="hidden md:block">
+            Каталог {isSearchPage && '(поиск)'}
+          </h2>
         </div>
 
-        <div className="flex items-center justify-end flex-wrap gap-3 w-full md:w-[65%]">
+        <div className="flex items-center justify-end flex-wrap gap-2 rounded-md pointer-events-auto bg-background ml-auto p-2 -mr-2 lg:p-0 lg:mr-0">
           {!!searchValue && (
             <Badge className="rounded-md px-2 py-4" variant="secondary">
               <PackageSearch data-icon="inline-start" />
@@ -75,13 +78,13 @@ const CatalogWrapper = () => {
             </Badge>
           )}
 
-          <div className="relative min-w-[220px] w-[35%]">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={searchValue}
               onChange={onChange}
               onFocus={onFocus}
-              className="pr-10 pl-10"
+              className="px-10 w-56"
               placeholder="Поиск товаров"
             />
 

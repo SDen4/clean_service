@@ -7,6 +7,7 @@ import { contacts, mail, MailItem, PhoneItem } from '@/entities/contact';
 import { LinkLogo } from '@/entities/header';
 import { BlockWrapper } from '@/entities/page';
 
+import { useScrolled } from '@/shared/model';
 import { Tooltip } from '@/shared/ui';
 
 const MenuLazy = lazy(() => import('@/features/header'));
@@ -16,13 +17,10 @@ const windowWidthForMenuVisible = 1024;
 export const Header = () => {
   const headerRef = useRef<HTMLHeadElement | null>(null);
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { isScrolled } = useScrolled();
+
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
 
-  const scrollListenerFunc = useCallback(
-    () => setIsScrolled(window.scrollY > 0),
-    [],
-  );
   const resizeListenerFunc = useCallback(() => {
     if (headerRef?.current?.clientWidth) {
       setMobileMenuVisible(
@@ -38,13 +36,6 @@ export const Header = () => {
       window.removeEventListener('resize', resizeListenerFunc);
     };
   }, [resizeListenerFunc]);
-
-  useEffect(() => {
-    document.addEventListener('scroll', scrollListenerFunc);
-    return () => {
-      document.removeEventListener('scroll', scrollListenerFunc);
-    };
-  }, [scrollListenerFunc]);
 
   return (
     <header
