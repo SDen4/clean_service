@@ -45,7 +45,7 @@ const Menu = ({ className }: IProps) => {
           }
         />
 
-        <DropdownMenuContent align="start">
+        <DropdownMenuContent align="start" className="pb-2">
           <DropdownMenuGroup className="flex flex-col gap-y-1">
             <DropdownMenuLabel>Телефоны</DropdownMenuLabel>
             <div className="flex flex-col gap-y-2 w-full">
