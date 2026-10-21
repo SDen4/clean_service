@@ -26,10 +26,13 @@ interface IProps {
 const Menu = ({ className }: IProps) => {
   const { pathname } = useLocation();
 
-  const isCurrentPage = (path: string) =>
-    pathname !== '/'
-      ? pathname.slice(1).includes(path)
-      : pathname.includes(path);
+  const isCurrentPage = (path: string) => {
+    if (path === '/') {
+      return pathname === path;
+    } else {
+      return pathname.slice(1).includes(path);
+    }
+  };
 
   return (
     <div className={className}>
