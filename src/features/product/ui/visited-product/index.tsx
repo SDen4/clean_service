@@ -1,6 +1,6 @@
 import { ImageOff } from 'lucide-react';
 
-import type { IOffer } from '@/entities/catalog/@x/product';
+import type { IOffer } from '@/entities/catalog';
 
 import { formatNumbers } from '@/shared/lib';
 import { Link } from '@/shared/ui';
@@ -18,7 +18,9 @@ export const VisitedProduct = ({ product }: IProps) => {
       to={product?.id}
     >
       <div className="flex flex-col gap-2 items-center">
-        <h6 className="text-center text-sm">{product?.name}</h6>
+        <h6 className="text-center text-sm dark:text-sky-950">
+          {product?.name}
+        </h6>
 
         {!!product?.vendorCode && (
           <span className="text-center text-xs">

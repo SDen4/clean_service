@@ -1,6 +1,9 @@
-import { DeleteVisitedProductsButton } from '@/features/product';
+import {
+  DeleteVisitedProductsButton,
+  VisitedProduct,
+} from '@/features/product';
 
-import { useVisitedProducts, VisitedProduct } from '@/entities/product';
+import { useVisitedProducts } from '@/entities/product';
 
 export const VisitedProducts = () => {
   const { visitedProducts } = useVisitedProducts();
