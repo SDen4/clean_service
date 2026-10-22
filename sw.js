@@ -1,4 +1,4 @@
-const CACHE_NAME = `app-shell-mvjtwn4d`;
+const CACHE_NAME = `app-shell-mvjubu2q`;
 
 const BASE = '/clean_service/';
 const OFFLINE_URL = `${BASE}offline.html`;
