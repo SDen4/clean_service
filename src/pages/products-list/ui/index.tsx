@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { VisitedProducts } from '@/widgets/visited-products';
+
 import type { TSortState } from '@/features/product';
 import {
   PriceSortButton,
@@ -64,6 +66,8 @@ const ProductsListPage = () => {
           <ScrollUpButton />
         </ProductListWrapper>
       )}
+
+      <VisitedProducts />
 
       <PriceInfoText className="mt-auto" />
     </>

@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageOff } from 'lucide-react';
 
 import { ImageDialog, ProductQuestionButton } from '@/features/product';
 
 import { useGetCatalogData } from '@/entities/catalog';
+import { useVisitedProducts } from '@/entities/product';
 import { PriceInfoText } from '@/entities/text';
 
 import { formatNumbers } from '@/shared/lib';
@@ -14,10 +16,16 @@ const ProductPage = () => {
   const { productId } = useParams();
 
   const { offers, isLoading, isData, error } = useGetCatalogData();
+  const { setVisitedProduct } = useVisitedProducts();
 
   const product = offers.find((el) => String(el.id) === String(productId));
 
   const productParams = Object.entries(product?.params ?? {});
+
+  useEffect(() => {
+    setVisitedProduct(productId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productId]);
 
   return (
     <>

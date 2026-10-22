@@ -1,0 +1,1 @@
+export { VisitedProducts } from './ui';
