@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useProducts } from '@/entities/catalog';
+import { useProducts } from '@/entities/catalog/@x/product';
 
 import { setLocalStorage, useLocalStorage } from '@/shared/lib';
 

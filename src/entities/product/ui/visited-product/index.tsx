@@ -1,6 +1,6 @@
 import { ImageOff } from 'lucide-react';
 
-import type { IOffer } from '@/entities/catalog';
+import type { IOffer } from '@/entities/catalog/@x/product';
 
 import { formatNumbers } from '@/shared/lib';
 import { Link } from '@/shared/ui';
