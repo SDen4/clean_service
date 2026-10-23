@@ -45,14 +45,14 @@ export const useVisitedProducts = () => {
     // максимальное кол-во в просмотренных
     if (visitedProductsIds.length >= MAX_VISITED_ITEMS) {
       const res = visitedProductsIds.concat();
-      res.shift();
-      res.push(String(productId));
+      res.length = MAX_VISITED_ITEMS - 1;
+      res.unshift(String(productId));
       setLocalStorage(VISITED_PRODUCTS, res.join(','));
       return;
     }
 
     // валидный кейс добавления в список просмотренных
-    setLocalStorage(VISITED_PRODUCTS, `${visitedProductsIdsStr},${productId}`);
+    setLocalStorage(VISITED_PRODUCTS, `${productId},${visitedProductsIdsStr}`);
   };
 
   /** Удалить список просмотренных товаров */
