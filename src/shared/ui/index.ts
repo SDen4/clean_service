@@ -18,6 +18,7 @@ export * from './error-page-wrapper';
 
 export * from './link';
 export * from './loader';
+export { Separator } from './separator';
 export { ScrollUpButton } from './scroll-up-button';
 export { Spinner } from './spinner';
 export { Textarea } from './textarea';

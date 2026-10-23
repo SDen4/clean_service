@@ -5,6 +5,13 @@ import {
 
 import { useVisitedProducts } from '@/entities/product';
 
+import { Separator } from '@/shared/ui';
+
+const Divider = () => (
+  <Separator className="h-[1px] bg-sky-200 dark:bg-sky-800" />
+);
+
+/** Виджет списка просмотренных товаров */
 export const VisitedProducts = () => {
   const { visitedProducts } = useVisitedProducts();
 
@@ -18,6 +25,8 @@ export const VisitedProducts = () => {
         <DeleteVisitedProductsButton />
       </div>
 
+      <Divider />
+
       <div className="max-w-full overflow-x-scroll">
         <div className="flex w-max gap-3">
           {visitedProducts.map((el) => (
@@ -25,6 +34,8 @@ export const VisitedProducts = () => {
           ))}
         </div>
       </div>
+
+      <Divider />
     </div>
   );
 };

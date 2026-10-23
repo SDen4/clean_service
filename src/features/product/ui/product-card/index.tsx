@@ -16,49 +16,47 @@ interface IProps extends Omit<ComponentProps<typeof Link>, 'to'> {
 export const ProductCard = ({ product, to, ...props }: IProps) => {
   return (
     <Link
-      className={`${linkClassName} max-w-[450px]`}
+      className={`${linkClassName} max-w-[450px] flex-col w-full items-center justify-between gap-3 p-2 bg-slate-100 dark:bg-slate-200 h-[stretch]`}
       {...props}
       to={to || product.id}
     >
-      <div className="flex flex-col w-full items-center justify-between gap-3 p-2 bg-slate-100 dark:bg-slate-200 h-[stretch]">
-        <div className="flex flex-col items-center w-full gap-3">
-          <div className="flex justify-center items-center rounded-lg overflow-hidden">
-            {product?.picture ? (
-              <img
-                loading="lazy"
-                decoding="async"
-                src={product.picture}
-                className="min-h-[291px] max-h-[291px]"
-              />
-            ) : (
-              <ImageOff
-                width="100%"
-                height="100%"
-                className="stroke-sky-200 min-h-full"
-              />
-            )}
-          </div>
-
-          <h6 className="dark:text-sky-950 text-center">
-            {product.name}{' '}
-            {!!product?.vendor && <>(Производитель: {product.vendor})</>}
-          </h6>
-
-          {product.available === false && (
-            <span className="text-red-600"> Нет в наличии</span>
-          )}
-
-          {!!product?.vendorCode && (
-            <span className="text-center">
-              Артикул:&nbsp;{product.vendorCode}
-            </span>
+      <div className="flex flex-col items-center w-full gap-3">
+        <div className="flex justify-center items-center rounded-lg overflow-hidden bg-background w-full">
+          {product?.picture ? (
+            <img
+              loading="lazy"
+              decoding="async"
+              src={product.picture}
+              className="min-h-[291px] max-h-[291px]"
+            />
+          ) : (
+            <ImageOff
+              width="100%"
+              height="100%"
+              className="stroke-sky-200 min-h-full"
+            />
           )}
         </div>
 
-        {product?.price ? (
-          <span>{formatNumbers(product.price)}&nbsp;руб.</span>
-        ) : null}
+        <h6 className="dark:text-sky-950 text-center">
+          {product.name}{' '}
+          {!!product?.vendor && <>(Производитель: {product.vendor})</>}
+        </h6>
+
+        {product.available === false && (
+          <span className="text-red-600"> Нет в наличии</span>
+        )}
+
+        {!!product?.vendorCode && (
+          <span className="text-center">
+            Артикул:&nbsp;{product.vendorCode}
+          </span>
+        )}
       </div>
+
+      {product?.price ? (
+        <span>{formatNumbers(product.price)}&nbsp;руб.</span>
+      ) : null}
     </Link>
   );
 };

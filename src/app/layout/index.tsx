@@ -14,7 +14,7 @@ export const Layout = ({ children }: { children: ReactNode }) => (
   <TooltipProvider delay={tooltipDelay}>
     <Header />
     <Breadcrumb />
-    <main className="flex flex-col flex-1 gap-4 px-2 pt-4 pb-6 max-w-screen-xl w-full">
+    <main className="flex flex-col flex-1 gap-5 px-2 pt-4 pb-6 max-w-screen-xl w-full">
       {children}
     </main>
     <FooterLazy />
