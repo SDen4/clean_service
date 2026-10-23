@@ -19,7 +19,7 @@ export const VisitedProducts = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-end gap-3">
+      <div className="flex items-end justify-between gap-3 w-full">
         <h2>Вы смотрели</h2>
 
         <DeleteVisitedProductsButton />

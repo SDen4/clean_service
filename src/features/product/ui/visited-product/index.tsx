@@ -30,15 +30,17 @@ export const VisitedProduct = ({ product }: IProps) => {
       </div>
 
       <div className="flex flex-col gap-2 items-center">
-        {product?.picture ? (
-          <img loading="lazy" decoding="async" src={product.picture} />
-        ) : (
-          <ImageOff
-            width="100%"
-            height="100%"
-            className="stroke-sky-200 min-h-full"
-          />
-        )}
+        <div className="flex justify-center items-center rounded-lg overflow-hidden bg-background w-full">
+          {product?.picture ? (
+            <img loading="lazy" decoding="async" src={product.picture} />
+          ) : (
+            <ImageOff
+              width="100%"
+              height="100%"
+              className="stroke-sky-200 min-h-full"
+            />
+          )}
+        </div>
 
         {product?.price ? (
           <span className="text-xs">{formatNumbers(product.price)} руб.</span>

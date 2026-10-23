@@ -10,7 +10,7 @@ export const DeleteVisitedProductsButton = () => {
   const onClick = () => clearVisitedProducts();
 
   return (
-    <Tooltip text="Удалить историю просмотра" side="right">
+    <Tooltip text="Удалить историю просмотра">
       <Button variant="outline" onClick={onClick} className="px-2">
         <Trash />
       </Button>
