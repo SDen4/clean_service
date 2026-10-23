@@ -1,15 +1,14 @@
 import type { ChangeEvent } from 'react';
-import { X } from 'lucide-react';
 import { withMask } from 'use-mask-input';
 
 import type { TErrors, TInputItem, TValues } from '@/entities/contact-us';
 
 import {
-  Button,
   Field,
   FieldError,
   FieldLabel,
   Input as InputShared,
+  InputXButton,
 } from '@/shared/ui';
 
 interface IProps {
@@ -93,14 +92,7 @@ export const Input = ({
           />
 
           {!!value && (
-            <Button
-              variant="ghost"
-              className="absolute right-[1px] top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0 rounded-tl-none rounded-bl-none focus:bg-sky-200"
-              onClick={onResetValue}
-              disabled={isDisabled}
-            >
-              <X />
-            </Button>
+            <InputXButton onClick={onResetValue} disabled={isDisabled} />
           )}
         </div>
 

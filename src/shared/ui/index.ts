@@ -9,6 +9,7 @@ export * from './dropdown-menu';
 export * from './field';
 export * from './go-main-button';
 export { Input } from './input';
+export { InputXButton } from './input-x-button';
 
 export * from './navigation-menu';
 export * from './navigation-menu/navigation-menu-trigger-style';

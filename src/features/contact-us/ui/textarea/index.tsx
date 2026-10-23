@@ -1,5 +1,4 @@
 import type { ChangeEvent } from 'react';
-import { X } from 'lucide-react';
 
 import {
   maxMessageLength,
@@ -8,10 +7,10 @@ import {
 } from '@/entities/contact-us';
 
 import {
-  Button,
   Field,
   FieldError,
   FieldLabel,
+  InputXButton,
   Textarea as TextareaShared,
 } from '@/shared/ui';
 
@@ -82,14 +81,11 @@ export const Textarea = ({
         />
 
         {!!value && (
-          <Button
-            variant="ghost"
-            className="absolute right-[1px] top-[17px] -translate-y-1/2 hover:bg-transparent outline-none border-0 focus:bg-sky-200 rounded-tl-none rounded-bl-none rounded-br-none"
+          <InputXButton
+            className="top-[17px] rounded-br-none"
             onClick={onResetValue}
             disabled={isDisabled}
-          >
-            <X />
-          </Button>
+          />
         )}
 
         {!!error && <FieldError>{error}</FieldError>}
