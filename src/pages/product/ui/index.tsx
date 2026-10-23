@@ -41,11 +41,11 @@ const ProductPage = () => {
           </h2>
 
           <div className="flex flex-col items-center sm:items-start sm:flex-row gap-10">
-            <div className="flex justify-center items-center sm:min-w-80 lg:min-w-96 sm:w-80 lg:w-96 sm:h-80 lg:h-96 rounded-xl overflow-auto">
+            <div className="flex justify-center items-center sm:min-w-80 lg:min-w-96 sm:w-80 lg:w-96 rounded-xl overflow-auto">
               {product?.picture ? (
                 <ImageDialog src={product.picture} />
               ) : (
-                <ImageOff className="w-48 h-48" />
+                <ImageOff className="stroke-sky-200" width="80%" height="80%" />
               )}
             </div>
 
@@ -92,11 +92,11 @@ const ProductPage = () => {
                 </div>
               ) : null}
 
-              <div className="flex justify-between items-end w-full">
+              <div className="flex justify-between flex-wrap items-end w-full gap-2">
                 {product?.price ? (
                   <div>
                     <span>Цена</span>
-                    <h6>{formatNumbers(product.price)} руб.</h6>
+                    <h6>{formatNumbers(product.price)}&nbsp;руб.</h6>
                   </div>
                 ) : null}
 
