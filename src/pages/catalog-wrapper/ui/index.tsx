@@ -4,7 +4,11 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { PackageSearch, Search, X } from 'lucide-react';
 
 import type { TSortState } from '@/features/product';
-import { PriceSortButton, ProductListTypeButton } from '@/features/product';
+import {
+  PriceSortButton,
+  ProductListTypeButton,
+  sortProductsByPrice,
+} from '@/features/product';
 
 import { useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
@@ -56,16 +60,7 @@ const CatalogWrapper = () => {
         .toLowerCase()
         .includes(searchValue.toLowerCase()),
     )
-    .sort((a, b) => {
-      if (sort !== 'none') {
-        if (sort === 'asc') {
-          return a.price > b.price ? 1 : -1;
-        } else {
-          return b.price > a.price ? 1 : -1;
-        }
-      }
-      return 0;
-    });
+    .sort(sortProductsByPrice(sort));
 
   return (
     <>

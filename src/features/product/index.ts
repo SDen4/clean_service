@@ -8,3 +8,5 @@ export { VisitedProduct } from './ui/visited-product';
 export { ProductQuestionButton } from './ui/product-question-button';
 
 export type { TSortState } from './model/types';
+
+export { sortProductsByPrice } from './model/helpers/sort-products-by-price';

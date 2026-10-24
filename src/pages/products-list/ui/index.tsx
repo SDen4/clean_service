@@ -8,6 +8,7 @@ import {
   PriceSortButton,
   Product,
   ProductListTypeButton,
+  sortProductsByPrice,
 } from '@/features/product';
 
 import { ProductsListFallback, useGetCatalogData } from '@/entities/catalog';
@@ -29,16 +30,7 @@ const ProductsListPage = () => {
   const [sort, setSort] = useState<TSortState>('none');
   const filteredOffers = offers
     ?.filter((el) => String(el.categoryId) === String(subCategoryId))
-    .sort((a, b) => {
-      if (sort !== 'none') {
-        if (sort === 'asc') {
-          return a.price > b.price ? 1 : -1;
-        } else {
-          return b.price > a.price ? 1 : -1;
-        }
-      }
-      return 0;
-    });
+    .sort(sortProductsByPrice(sort));
 
   if (!isData || !filteredOffers?.length) return <ProductsListFallback />;
 
