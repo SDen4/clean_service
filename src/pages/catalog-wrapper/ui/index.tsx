@@ -12,12 +12,16 @@ import { catalogSearchPageImport } from '@/entities/page';
 import { ROUTES } from '@/shared/config';
 import { Badge, Button, Input } from '@/shared/ui';
 
+let timer: number | undefined;
+const debounceTime = 300; // ms
+
 const CatalogWrapper = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { offers } = useProducts();
 
   const [searchValue, setSearchValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [sort, setSort] = useState<TSortState>('none');
 
   const isSearchPage = pathname.includes('catalog-search');
@@ -32,9 +36,18 @@ const CatalogWrapper = () => {
   }, [navigate, isSearchPage, searchValue]);
 
   const onFocus = () => catalogSearchPageImport();
-  const onReset = () => setSearchValue('');
+
+  const onReset = () => {
+    setSearchValue('');
+    setInputValue('');
+  };
+
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
+    const value = e.target.value;
+
+    setInputValue(value);
+    clearTimeout(timer);
+    timer = setTimeout(() => setSearchValue(value), debounceTime);
   };
 
   const foundOffers = offers
@@ -81,7 +94,7 @@ const CatalogWrapper = () => {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              value={searchValue}
+              value={inputValue}
               onChange={onChange}
               onFocus={onFocus}
               className="px-10 w-56"
