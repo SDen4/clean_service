@@ -5,7 +5,7 @@ export interface ICategory {
   name: string;
 }
 
-/** Элемент товара партнера */
+/** Элемент карточки товара */
 export interface IOffer {
   id: string;
   available: boolean;
@@ -20,6 +20,8 @@ export interface IOffer {
   url: string;
   /** Все <param name="...">...</param> в виде словаря: { "Цвет": "Серый", "Модель": "LSU135" } */
   params: Record<string, string>;
+  /** URL БЭП Ремонт (не приходит в выгрузке! используется для функционала просмотренных товаров) */
+  bepUrl?: string;
 }
 
 /** Промежуточный тип — как fast-xml-parser отдаёт данные до нормализации */

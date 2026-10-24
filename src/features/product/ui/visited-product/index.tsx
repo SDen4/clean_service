@@ -15,7 +15,7 @@ export const VisitedProduct = ({ product }: IProps) => {
   return (
     <Link
       className="flex flex-col items-center justify-between max-w-56 gap-2 p-2 rounded-md hover:shadow-lg transition-shadow duration-500 bg-slate-100 dark:bg-slate-200 h-[stretch]"
-      to={product?.id}
+      to={product?.bepUrl ? `${product.bepUrl}` : product.id}
     >
       <div className="flex flex-col gap-2 items-center h-[stretch] justify-between">
         <h6 className="text-center text-sm dark:text-sky-950">

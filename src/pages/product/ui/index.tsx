@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { ImageOff } from 'lucide-react';
 
 import { ImageDialog, ProductQuestionButton } from '@/features/product';
@@ -14,6 +14,7 @@ import { ClipboardCopyWrapper, Loader } from '@/shared/ui';
 /** Страница товара от партнера */
 const ProductPage = () => {
   const { productId } = useParams();
+  const { pathname } = useLocation();
 
   const { offers, isLoading, isData, error } = useGetCatalogData();
   const { setVisitedProduct } = useVisitedProducts();
@@ -23,9 +24,9 @@ const ProductPage = () => {
   const productParams = Object.entries(product?.params ?? {});
 
   useEffect(() => {
-    setVisitedProduct(productId);
+    setVisitedProduct(pathname);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productId]);
+  }, [pathname]);
 
   return (
     <>

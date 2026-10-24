@@ -4,6 +4,8 @@ import { useProducts } from '@/entities/catalog/@x/product';
 
 import { setLocalStorage, useLocalStorage } from '@/shared/lib';
 
+import { getProductIdFromPath } from '../../helpers/get-product-id-from-path';
+
 /** Ключ localstorage для id просмотренных товаров */
 export const VISITED_PRODUCTS = 'VISITED_PRODUCTS';
 
@@ -14,45 +16,53 @@ const MAX_VISITED_ITEMS = 10;
 export const useVisitedProducts = () => {
   const { offers } = useProducts((store) => store);
 
-  const visitedProductsIdsStr = useLocalStorage(VISITED_PRODUCTS);
+  const visitedProductsPathsStr = useLocalStorage(VISITED_PRODUCTS);
 
-  const visitedProductsIds = useMemo(
+  const visitedProductsPaths = useMemo(
     () =>
-      visitedProductsIdsStr?.length ? visitedProductsIdsStr.split(',') : [],
-    [visitedProductsIdsStr],
+      visitedProductsPathsStr?.length ? visitedProductsPathsStr.split(',') : [],
+    [visitedProductsPathsStr],
   );
 
   /** Список просмотренных товаров */
   const visitedProducts = useMemo(
     () =>
-      visitedProductsIds.map((id) =>
-        offers.find((el) => String(el.id) === String(id)),
-      ),
-    [offers, visitedProductsIds],
+      visitedProductsPaths.map((path) => {
+        const foundOffer = offers.find(
+          (el) => String(el.id) === getProductIdFromPath(path),
+        );
+
+        if (!foundOffer) return undefined;
+
+        return { ...foundOffer, bepUrl: path };
+      }),
+    [offers, visitedProductsPaths],
   );
 
   /** Добавить в список просмотренных товаров новый id товара */
-  const setVisitedProduct = (productId?: number | string) => {
+  const setVisitedProduct = (pathname?: string) => {
+    if (!pathname) return;
+
     // дубль
-    if (productId && visitedProductsIds.includes(String(productId))) return;
+    if (visitedProductsPaths.includes(pathname)) return;
 
     // пустой список
-    if (!visitedProductsIds.length) {
-      setLocalStorage(VISITED_PRODUCTS, `${productId}`);
+    if (!visitedProductsPaths.length) {
+      setLocalStorage(VISITED_PRODUCTS, pathname);
       return;
     }
 
     // максимальное кол-во в просмотренных
-    if (visitedProductsIds.length >= MAX_VISITED_ITEMS) {
-      const res = visitedProductsIds.concat();
+    if (visitedProductsPaths.length >= MAX_VISITED_ITEMS) {
+      const res = visitedProductsPaths.concat();
       res.length = MAX_VISITED_ITEMS - 1;
-      res.unshift(String(productId));
+      res.unshift(pathname);
       setLocalStorage(VISITED_PRODUCTS, res.join(','));
       return;
     }
 
     // валидный кейс добавления в список просмотренных
-    setLocalStorage(VISITED_PRODUCTS, `${productId},${visitedProductsIdsStr}`);
+    setLocalStorage(VISITED_PRODUCTS, `${pathname},${visitedProductsPathsStr}`);
   };
 
   /** Удалить список просмотренных товаров */
