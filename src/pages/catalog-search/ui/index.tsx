@@ -1,10 +1,9 @@
 import { useOutletContext } from 'react-router-dom';
-import { SearchX } from 'lucide-react';
 
 import { Product } from '@/features/product';
 
 import type { IOffer } from '@/entities/catalog';
-import { EMPTY_PATH, useProducts } from '@/entities/catalog';
+import { EMPTY_PATH, SearchFallback, useProducts } from '@/entities/catalog';
 import { ProductListWrapper } from '@/entities/product';
 import { PriceInfoText } from '@/entities/text';
 
@@ -18,14 +17,7 @@ const CatalogSearch = () => {
     searchValue: string;
   }>();
 
-  if (!foundOffers?.length && !!searchValue) {
-    return (
-      <div className="flex flex-col justify-center items-center gap-3 flex-1">
-        <SearchX width={75} height={75} />
-        <h3>По вашему запросу ничего не найдено</h3>
-      </div>
-    );
-  }
+  if (!foundOffers?.length && !!searchValue) return <SearchFallback />;
 
   return (
     <>

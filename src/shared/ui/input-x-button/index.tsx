@@ -19,7 +19,7 @@ export const InputXButton = ({ onClick, isDisabled, ...props }: IProps) => (
     onClick={onClick}
     disabled={isDisabled}
     {...props}
-    className={`absolute right-[1px] top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0 rounded-tl-none rounded-bl-none focus:bg-sky-200 ${props?.className}`}
+    className={`absolute right-[1px] top-1/2 -translate-y-1/2 hover:bg-transparent outline-none border-0 rounded-tl-none rounded-bl-none focus:bg-sky-200 active:bg-transparent ${props?.className}`}
   >
     <X />
   </Button>

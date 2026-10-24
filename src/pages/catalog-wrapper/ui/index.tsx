@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { PackageSearch, Search, X } from 'lucide-react';
+import { PackageSearch, Search } from 'lucide-react';
 
 import type { TSortState } from '@/features/product';
 import {
@@ -14,7 +14,8 @@ import { useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
 
 import { ROUTES } from '@/shared/config';
-import { Badge, Button, Input } from '@/shared/ui';
+import { useScrolled } from '@/shared/model';
+import { Badge, Input, InputXButton } from '@/shared/ui';
 
 let timer: number | undefined;
 const debounceTime = 300; // ms
@@ -23,6 +24,7 @@ const CatalogWrapper = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { offers } = useProducts();
+  const { isScrolled } = useScrolled();
 
   const [searchValue, setSearchValue] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -65,18 +67,7 @@ const CatalogWrapper = () => {
   return (
     <>
       <div className="flex w-full items-end justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
-        <div
-          className="sticky top-20 
-            overflow-hidden
-            animate-collapse 
-            [animation-timeline:scroll(root)] 
-            [animation-range:0_75px]
-            "
-        >
-          <h2 className="hidden md:block">
-            Каталог {isSearchPage && '(поиск)'}
-          </h2>
-        </div>
+        {!isScrolled && <h2>Каталог {isSearchPage && '(поиск)'}</h2>}
 
         <div className="flex items-center justify-end flex-wrap gap-2 rounded-md pointer-events-auto bg-background ml-auto p-2 -mr-2 lg:p-0 lg:mr-0">
           {!!searchValue && (
@@ -96,15 +87,7 @@ const CatalogWrapper = () => {
               placeholder="Поиск товаров"
             />
 
-            {!!searchValue && (
-              <Button
-                variant="ghost"
-                onClick={onReset}
-                className="absolute right-1 top-1/2 -translate-y-1/2 hover:bg-transparent"
-              >
-                <X />
-              </Button>
-            )}
+            {!!searchValue && <InputXButton onClick={onReset} />}
           </div>
 
           {!!searchValue && (

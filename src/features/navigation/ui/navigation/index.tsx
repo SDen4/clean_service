@@ -17,13 +17,18 @@ interface IProps {
   className?: string;
 }
 
+const productsListPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+$/);
+
 /** Навигация по сайту */
 export const Navigation = ({ className }: IProps) => {
   const { pathname } = useLocation();
   const { isScrolled } = useScrolled();
 
-  const isCatalog = pathname.includes(ROUTES.CATALOG_SEARCH);
-  const isScroll = isCatalog && isScrolled;
+  const isShrunkPage =
+    pathname.includes(ROUTES.CATALOG_SEARCH) ||
+    productsListPageRegExp.test(pathname);
+
+  const isScroll = isShrunkPage && isScrolled;
 
   return (
     <NavigationMenu className={`${className}`}>

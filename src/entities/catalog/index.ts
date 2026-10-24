@@ -1,5 +1,6 @@
 export { CatalogItem } from './ui/catalog-item';
 export { ProductsListFallback } from './ui/products-list-fallback';
+export { SearchFallback } from './ui/search-fallback';
 
 export type { ICategory, IOffer } from './model/types';
 
