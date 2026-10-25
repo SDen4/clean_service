@@ -9,4 +9,5 @@ export {
   privacyPolicyPageImport,
   servicesPageImport,
   callBackPageImport,
+  visitedProductsPageImport,
 } from '../../model/constants';

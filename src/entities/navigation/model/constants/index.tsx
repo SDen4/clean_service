@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
-import { visitedProductsPageImport } from '@/entities/page';
 import {
   aboutPageImport,
   callBackPageImport,
@@ -24,6 +23,7 @@ import {
   mainPageImport,
   privacyPolicyPageImport,
   servicesPageImport,
+  visitedProductsPageImport,
 } from '@/entities/page/@x/navigation';
 
 import { ROUTES } from '@/shared/config';
