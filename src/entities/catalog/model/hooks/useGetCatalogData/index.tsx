@@ -20,8 +20,8 @@ const parser = new XMLParser({
   trimValues: true,
 });
 
-export const useGetCatalogData = () => {
-  const [isLoading, setIsLoading] = useState(true);
+export const useGetCatalogData = (isCancelRequest?: boolean) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const { categories, offers, setData, isData } = useProducts((store) => store);
@@ -29,10 +29,12 @@ export const useGetCatalogData = () => {
   useEffect(() => {
     const controller = new AbortController();
 
-    if (isData) return;
+    if (isData || isCancelRequest) return;
 
     (async () => {
       try {
+        setIsLoading(true);
+
         const response = await fetch(feedUrl, {
           headers: { Accept: 'application/xml,text/xml,*/*' },
           signal: controller.signal,
@@ -62,12 +64,12 @@ export const useGetCatalogData = () => {
           err instanceof Error ? err.message : 'Не удалось загрузить фид',
         );
       } finally {
-        if (!controller.signal.aborted) setIsLoading(false);
+        setIsLoading(false);
       }
     })();
 
     return () => controller.abort();
-  }, [isData, setData]);
+  }, [isCancelRequest, isData, setData]);
 
   return { categories, offers, isLoading, isData, error };
 };

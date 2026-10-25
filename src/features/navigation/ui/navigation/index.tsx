@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
 import { navigationData } from '@/entities/navigation';
-import { useVisitedProducts } from '@/entities/product';
 
 import { ROUTES } from '@/shared/config';
 import { useScrolled } from '@/shared/model';
@@ -24,7 +23,6 @@ const productsListPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+$/);
 export const Navigation = ({ className }: IProps) => {
   const { pathname } = useLocation();
   const { isScrolled } = useScrolled();
-  const { visitedProducts } = useVisitedProducts();
 
   const isShrunkPage =
     pathname.includes(ROUTES.CATALOG_SEARCH) ||
@@ -37,11 +35,7 @@ export const Navigation = ({ className }: IProps) => {
     <NavigationMenu className={`${className}`}>
       <NavigationMenuList className="gap-2 items-start px-0">
         {navigationData
-          .filter(
-            (el) =>
-              el.id !== ROUTES.MAIN &&
-              !(el.id === ROUTES.VISITED_PRODUCTS && !visitedProducts?.length),
-          )
+          .filter((el) => el.id !== ROUTES.MAIN)
           .map((el) => (
             <NavigationMenuItem
               key={el.id}
