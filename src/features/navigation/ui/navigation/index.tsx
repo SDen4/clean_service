@@ -25,6 +25,7 @@ export const Navigation = ({ className }: IProps) => {
   const { isScrolled } = useScrolled();
 
   const isShrunkPage =
+    pathname.includes(ROUTES.CATALOG) ||
     pathname.includes(ROUTES.CATALOG_SEARCH) ||
     pathname.includes(ROUTES.VISITED_PRODUCTS) ||
     productsListPageRegExp.test(pathname);
