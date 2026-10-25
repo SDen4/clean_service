@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BookSearch, ShoppingCart } from 'lucide-react';
+import { ShoppingCart, TextSearch } from 'lucide-react';
 
 import { ROUTES } from '@/shared/config';
 import { Button } from '@/shared/ui';
@@ -11,7 +11,7 @@ export const VisitedProductsListFallback = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-3 flex-1">
-      <BookSearch width={75} height={75} />
+      <TextSearch width={75} height={75} />
       <h3 className="text-center">Вы пока ничего не посмотрели</h3>
       <h6 className="text-center">
         На этой странице мы показываем последние просмотренные товары, чтобы вы
