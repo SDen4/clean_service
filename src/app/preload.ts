@@ -22,6 +22,10 @@ registerPreloader(PageKeys.about, () => import('@/pages/about'));
 registerPreloader(PageKeys.services, () => import('@/pages/services'));
 registerPreloader(PageKeys.error, () => import('@/pages/error'));
 registerPreloader(
+  PageKeys.visitedProducts,
+  () => import('@/pages/visited-products'),
+);
+registerPreloader(
   PageKeys.privacyPolicy,
   () => import('@/pages/privacy-policy'),
 );

@@ -22,6 +22,7 @@ import {
   ProductsListPageLazy,
   ServicesPageLazy,
   SubCategoryPageLazy,
+  VisitedProductsPageLazy,
 } from './lazy-components-imports';
 
 export const browserRouter = createBrowserRouter(
@@ -144,6 +145,14 @@ export const browserRouter = createBrowserRouter(
           element: (
             <ErrorBoundary>
               <CallBackPageLazy />
+            </ErrorBoundary>
+          ),
+        },
+        {
+          path: ROUTES.VISITED_PRODUCTS,
+          element: (
+            <ErrorBoundary>
+              <VisitedProductsPageLazy />
             </ErrorBoundary>
           ),
         },

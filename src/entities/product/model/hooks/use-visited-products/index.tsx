@@ -10,7 +10,7 @@ import { getProductIdFromPath } from '../../helpers/get-product-id-from-path';
 export const VISITED_PRODUCTS = 'VISITED_PRODUCTS';
 
 /** Максимальное кол-во элементов в просмотренных */
-const MAX_VISITED_ITEMS = 10;
+const MAX_VISITED_ITEMS = 12;
 
 /** Запись в localstorage идентификаторов просмотренных товаров */
 export const useVisitedProducts = () => {

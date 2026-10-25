@@ -2,7 +2,7 @@ import { AboutSubText, AboutText, AboutTitle } from '@/entities/text';
 
 import { logo } from '@/shared/model';
 
-export const AboutPage = () => (
+const AboutPage = () => (
   <div className="flex flex-col gap-4">
     <h2 className="mb-2">О компании</h2>
 

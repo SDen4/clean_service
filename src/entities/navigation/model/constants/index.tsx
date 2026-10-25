@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import {
+  Eye,
   House,
   Info,
   Landmark,
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react';
 
 import type { ICategory } from '@/entities/catalog/@x/navigation';
+import { visitedProductsPageImport } from '@/entities/page';
 import {
   aboutPageImport,
   callBackPageImport,
@@ -63,6 +65,13 @@ export const navigationData: INavigationData[] = [
     id: ROUTES.CATALOG,
     icon: <ShoppingCart />,
     importFunc: catalogWrapperImport,
+  },
+  {
+    title: 'Вы смотрели',
+    route: ROUTES.VISITED_PRODUCTS,
+    id: ROUTES.VISITED_PRODUCTS,
+    icon: <Eye />,
+    importFunc: visitedProductsPageImport,
   },
   {
     title: 'Обратная связь',

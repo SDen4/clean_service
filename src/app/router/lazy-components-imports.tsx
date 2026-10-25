@@ -18,6 +18,7 @@ import {
   productsListPageImport,
   servicesPageImport,
   subCategoryPageImport,
+  visitedProductsPageImport,
 } from '@/entities/page';
 
 const AboutPageLazy = lazy(aboutPageImport);
@@ -36,6 +37,7 @@ const ProductsListPageLazy = lazy(productsListPageImport);
 const ServicesPageLazy = lazy(servicesPageImport);
 const SubCategoryPageLazy = lazy(subCategoryPageImport);
 const CallBackPageLazy = lazy(callBackPageImport);
+const VisitedProductsPageLazy = lazy(visitedProductsPageImport);
 
 export {
   AboutPageLazy,
@@ -52,4 +54,5 @@ export {
   ProductsListPageLazy,
   ServicesPageLazy,
   SubCategoryPageLazy,
+  VisitedProductsPageLazy,
 };

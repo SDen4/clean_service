@@ -32,3 +32,6 @@ export const productsListPageImport = () =>
   getPreloader(PageKeys.productsList)();
 
 export const productPageImport = () => getPreloader(PageKeys.product)();
+
+export const visitedProductsPageImport = () =>
+  getPreloader(PageKeys.visitedProducts)();

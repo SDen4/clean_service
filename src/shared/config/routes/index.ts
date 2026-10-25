@@ -17,4 +17,6 @@ export enum ROUTES {
   CONTACT_US = 'contact-us',
   /** Перезвонить мне */
   CALL_BACK = 'call-back',
+  /** Просмотренные товары */
+  VISITED_PRODUCTS = 'visited_products',
 }

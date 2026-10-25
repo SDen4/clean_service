@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import {
   DeleteVisitedProductsButton,
   VisitedProduct,
@@ -12,7 +14,7 @@ const Divider = () => (
 );
 
 /** Виджет списка просмотренных товаров */
-export const VisitedProducts = () => {
+export const VisitedProducts = memo(() => {
   const { visitedProducts } = useVisitedProducts();
 
   if (!visitedProducts?.length) return null;
@@ -38,4 +40,4 @@ export const VisitedProducts = () => {
       <Divider />
     </div>
   );
-};
+});

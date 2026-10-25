@@ -21,7 +21,7 @@ export const ProductCard = ({ product, to, ...props }: IProps) => {
       to={to || product.id}
     >
       <div className="flex flex-col items-center w-full gap-3">
-        <div className="flex justify-center items-center rounded-lg overflow-hidden bg-background w-full">
+        <div className="flex justify-center items-center rounded-lg overflow-hidden bg-background dark:bg-white w-full">
           {product?.picture ? (
             <img
               loading="lazy"

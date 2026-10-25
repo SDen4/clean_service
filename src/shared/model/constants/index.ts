@@ -13,4 +13,5 @@ export enum PageKeys {
   services = 'services',
   subCategory = 'sub-category',
   callBack = 'call-back',
+  visitedProducts = 'visited-products',
 }
