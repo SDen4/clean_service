@@ -74,7 +74,7 @@ const ProductsListPage = () => {
 
   return (
     <>
-      <div className="flex w-full items-end justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
+      <div className="flex w-full items-center justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
         {!isScrolled && (
           <h2>
             {subCategoryName}{' '}
