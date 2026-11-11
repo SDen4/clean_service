@@ -55,8 +55,8 @@ const ContactsPage = () => {
             height="450"
             style={{ borderRadius: '8px' }}
             loading="lazy"
-            allowTransparency
             referrerPolicy="strict-origin-when-cross-origin"
+            className="w-full aspect-[4/3] border-0"
           />
         </div>
       </div>
