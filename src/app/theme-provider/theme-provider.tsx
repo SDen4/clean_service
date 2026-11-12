@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { ThemeProviderContext } from '@/shared/config';
+import { setLocalStorage } from '@/shared/lib';
 import type { Theme } from '@/shared/model';
 
 type ThemeProviderProps = {
@@ -39,7 +40,7 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+      setLocalStorage(storageKey, theme);
       setTheme(theme);
     },
   };

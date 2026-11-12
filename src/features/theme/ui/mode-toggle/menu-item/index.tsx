@@ -11,10 +11,16 @@ interface IProps {
 export const MenuItem = ({ themeType, names }: IProps) => {
   const { setTheme, theme } = useTheme();
 
+  const onClick = () => setTheme(themeType);
+
   return (
     <DropdownMenuItem
-      onClick={() => setTheme(themeType)}
-      className={cn(theme === themeType && 'bg-accent text-accent-foreground')}
+      onClick={onClick}
+      className={cn(
+        theme === themeType
+          ? 'bg-accent text-accent-foreground'
+          : 'cursor-pointer',
+      )}
     >
       {names[themeType]}
     </DropdownMenuItem>
