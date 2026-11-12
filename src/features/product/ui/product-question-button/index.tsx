@@ -20,7 +20,7 @@ export const ProductQuestionButton = ({ product }: IProps) => {
     navigate(`/${ROUTES.CONTACT_US}`, { state: { product, href } });
 
   return (
-    <Button variant="outline" onClick={onClick}>
+    <Button onClick={onClick}>
       <MailQuestionMark />
       Задать вопрос по товару
     </Button>
