@@ -18,7 +18,7 @@ export const useVisitedProducts = () => {
 
   const visitedProductsPathsStr = useLocalStorage(VISITED_PRODUCTS);
 
-  const visitedProductsPaths = useMemo(
+  const visitedProductsPathsArr = useMemo(
     () =>
       visitedProductsPathsStr?.length ? visitedProductsPathsStr.split(',') : [],
     [visitedProductsPathsStr],
@@ -27,7 +27,7 @@ export const useVisitedProducts = () => {
   /** Список просмотренных товаров */
   const visitedProducts = useMemo(
     () =>
-      visitedProductsPaths.map((path) => {
+      visitedProductsPathsArr.map((path) => {
         const foundOffer = offers.find(
           (el) => String(el.id) === getProductIdFromPath(path),
         );
@@ -36,33 +36,33 @@ export const useVisitedProducts = () => {
 
         return { ...foundOffer, bepUrl: path };
       }),
-    [offers, visitedProductsPaths],
+    [offers, visitedProductsPathsArr],
   );
 
   /** Добавить в список просмотренных товаров новый id товара */
-  const setVisitedProduct = (pathname?: string) => {
-    if (!pathname) return;
-
-    // дубль
-    if (visitedProductsPaths.includes(pathname)) return;
+  const setVisitedProduct = (pathName?: string) => {
+    if (!pathName) return;
 
     // пустой список
-    if (!visitedProductsPaths.length) {
-      setLocalStorage(VISITED_PRODUCTS, pathname);
+    if (!visitedProductsPathsArr.length) {
+      setLocalStorage(VISITED_PRODUCTS, pathName);
       return;
     }
 
+    // дубль
+    if (visitedProductsPathsArr.includes(pathName)) return;
+
     // максимальное кол-во в просмотренных
-    if (visitedProductsPaths.length >= MAX_VISITED_ITEMS) {
-      const res = visitedProductsPaths.concat();
+    if (visitedProductsPathsArr.length >= MAX_VISITED_ITEMS) {
+      const res = visitedProductsPathsArr.concat();
       res.length = MAX_VISITED_ITEMS - 1;
-      res.unshift(pathname);
+      res.unshift(pathName);
       setLocalStorage(VISITED_PRODUCTS, res.join(','));
       return;
     }
 
     // валидный кейс добавления в список просмотренных
-    setLocalStorage(VISITED_PRODUCTS, `${pathname},${visitedProductsPathsStr}`);
+    setLocalStorage(VISITED_PRODUCTS, `${pathName},${visitedProductsPathsStr}`);
   };
 
   /** Удалить список просмотренных товаров */

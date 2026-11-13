@@ -16,9 +16,9 @@ import {
 import { SearchFallback, useGetCatalogData } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
 import { ProductListWrapper } from '@/entities/product';
+import { Title } from '@/entities/product-list';
 import { PriceInfoText } from '@/entities/text';
 
-import { useScrolled } from '@/shared/model';
 import {
   Badge,
   Input,
@@ -33,13 +33,8 @@ const debounceTime = 300; // ms
 /** Список товаров от партнера */
 const ProductsListPage = () => {
   const { subCategoryId } = useParams();
-  const { isScrolled } = useScrolled();
 
-  const { offers, categories, isLoading, isData, error } = useGetCatalogData();
-
-  const subCategoryName =
-    categories.find((el) => String(el.id) === String(subCategoryId))?.name ||
-    '';
+  const { offers, isLoading, categories, isData, error } = useGetCatalogData();
 
   const [searchValue, setSearchValue] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -75,14 +70,7 @@ const ProductsListPage = () => {
   return (
     <>
       <div className="flex w-full items-center justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
-        {!isScrolled && (
-          <h2>
-            {subCategoryName}{' '}
-            {categoryOffers?.length
-              ? `(${categoryOffers.length}\u00a0шт.)`
-              : ''}
-          </h2>
-        )}
+        <Title categoryOffers={categoryOffers} categories={categories} />
 
         <div className="flex items-center justify-end flex-wrap gap-2 rounded-md pointer-events-auto bg-background ml-auto p-2 -mr-2 lg:p-0 lg:mr-0">
           {!!searchValue && (
