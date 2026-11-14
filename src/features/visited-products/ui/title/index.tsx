@@ -1,4 +1,4 @@
-import { DeleteVisitedProductsButton } from '@/features/product';
+import { DeleteVisitedProductsButton } from '@/features/product/@x/visited-products';
 
 import { useScrolled } from '@/shared/model';
 
