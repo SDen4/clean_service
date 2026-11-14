@@ -10,11 +10,10 @@ import {
   sortProductsByPrice,
 } from '@/features/product';
 
-import { useProducts } from '@/entities/catalog';
+import { Title, useProducts } from '@/entities/catalog';
 import { catalogSearchPageImport } from '@/entities/page';
 
 import { ROUTES } from '@/shared/config';
-import { useScrolled } from '@/shared/model';
 import { Badge, Input, InputXButton } from '@/shared/ui';
 
 let timer: number | undefined;
@@ -24,7 +23,6 @@ const CatalogWrapper = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { offers } = useProducts();
-  const { isScrolled } = useScrolled();
 
   const [searchValue, setSearchValue] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -67,7 +65,7 @@ const CatalogWrapper = () => {
   return (
     <>
       <div className="flex w-full items-center justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
-        {!isScrolled && <h2>Каталог {isSearchPage && '(поиск)'}</h2>}
+        <Title isSearchPage={isSearchPage} />
 
         <div className="flex items-center justify-end flex-wrap gap-2 rounded-md pointer-events-auto bg-background ml-auto p-2 -mr-2 lg:p-0 lg:mr-0">
           {!!searchValue && (
