@@ -16,6 +16,9 @@ cat > "$HUSKY_PRE_COMMIT_PATH" << 'EOF'
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
+echo "================= START ESLINT ================="
 npx eslint "src/**/*.ts{,x}"
+echo "=============== START UNIT TESTS ==============="
 npm run test
+echo "================= START STEIGER ================"
 npx steiger src || true

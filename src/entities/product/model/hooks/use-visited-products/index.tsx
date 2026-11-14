@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import type { IOffer } from '@/entities/catalog/@x/product';
 import { useProducts } from '@/entities/catalog/@x/product';
 
 import { setLocalStorage, useLocalStorage } from '@/shared/lib';
@@ -25,7 +26,7 @@ export const useVisitedProducts = () => {
   );
 
   /** Список просмотренных товаров */
-  const visitedProducts = useMemo(
+  const visitedProducts: (IOffer | undefined)[] = useMemo(
     () =>
       visitedProductsPathsArr.map((path) => {
         const foundOffer = offers.find(

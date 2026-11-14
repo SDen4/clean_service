@@ -1,12 +1,17 @@
 import { DeleteVisitedProductsButton } from '@/features/product/@x/visited-products';
 
+import type { IOffer } from '@/entities/catalog';
+
 import { useScrolled } from '@/shared/model';
 
 interface IProps {
-  visitedProducts: unknown[];
+  /** Массив просмотренных карточек товара */
+  visitedProducts: (IOffer | undefined)[];
+  /** Поисковое значение */
   searchValue: string;
 }
 
+/** Заголовок списка товаров в каталоге */
 export const Title = ({ visitedProducts, searchValue }: IProps) => {
   const { isScrolled } = useScrolled();
 

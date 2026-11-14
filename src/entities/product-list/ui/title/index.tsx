@@ -6,10 +6,13 @@ import type { ICategory, IOffer } from '@/entities/catalog/@x/product-list';
 import { useScrolled } from '@/shared/model';
 
 interface IProps {
+  /** Массив карточек товара */
   categoryOffers: IOffer[];
+  /** Массив категорий */
   categories: ICategory[];
 }
 
+/** Заголовок списка товаров в каталоге */
 export const Title = ({ categoryOffers, categories }: IProps) => {
   const { subCategoryId } = useParams();
   const { isScrolled } = useScrolled();
