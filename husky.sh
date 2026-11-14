@@ -15,12 +15,22 @@ cat > "$HUSKY_PRE_COMMIT_PATH" << 'EOF'
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "=============== START LINT STAGED =============="
+echo
+echo "================== LINT STAGED ================="
+echo
 npx lint-staged
-echo "================= START ESLINT ================="
-npx eslint "src/**/*.ts{,x}"
-echo "=============== START UNIT TESTS ==============="
+echo
+echo "==================== ESLINT ===================="
+echo
+npx eslint "src/**/*.{ts,tsx}"
+echo
+echo "================== UNIT TESTS =================="
+echo
 npm run test
-echo "================= START STEIGER ================"
+echo
+echo "==================== STEIGER ==================="
+echo
 npx steiger src || true
+echo
 echo "============ END OF PRECOMMIT CHECKS ==========="
+echo
