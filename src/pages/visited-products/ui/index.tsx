@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { PackageSearch, Search } from 'lucide-react';
 
 import {
-  DeleteVisitedProductsButton,
   PriceSortButton,
   Product,
   ProductListTypeButton,
   sortProductsByPrice,
   type TSortState,
 } from '@/features/product';
+import { Title } from '@/features/visited-products';
 
 import {
   SearchFallback,
@@ -19,7 +19,6 @@ import {
 import { ProductListWrapper, useVisitedProducts } from '@/entities/product';
 import { PriceInfoText } from '@/entities/text';
 
-import { useScrolled } from '@/shared/model';
 import {
   Badge,
   Input,
@@ -32,7 +31,6 @@ let timer: number | undefined;
 const debounceTime = 300; // ms
 
 const VisitedProducts = () => {
-  const { isScrolled } = useScrolled();
   const { visitedProducts } = useVisitedProducts();
   const { isLoading, error } = useGetCatalogData(!visitedProducts?.length);
 
@@ -64,14 +62,7 @@ const VisitedProducts = () => {
   return (
     <>
       <div className="flex w-full items-end justify-between flex-wrap gap-2 sticky top-[70px] sm:top-[60px] lg:top-[80px] z-40 pointer-events-none">
-        {!isScrolled && (
-          <div className="flex items-end gap-3 pointer-events-auto">
-            <h2>Вы смотрели</h2>
-            {!!visitedProducts?.length && !searchValue && (
-              <DeleteVisitedProductsButton />
-            )}
-          </div>
-        )}
+        <Title visitedProducts={visitedProducts} searchValue={searchValue} />
 
         <div className="flex items-center justify-end flex-wrap gap-2 rounded-md pointer-events-auto bg-background ml-auto p-2 -mr-2 lg:p-0 lg:mr-0">
           {!!searchValue && (
