@@ -41,7 +41,7 @@ export const ClipboardCopyWrapper = ({ children }: IProps) => {
       <Tooltip text="Скопировать в буфер обмена">
         <Button
           onClick={onClick}
-          className="bg-transparent hover:bg-transparent p-0 h-4"
+          className="bg-transparent hover:bg-transparent p-0 h-4 [&_svg]:stroke-blue-500"
         >
           <Copy className="w-[4px] h-[4px]" />
         </Button>
