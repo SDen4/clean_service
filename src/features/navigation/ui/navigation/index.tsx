@@ -18,6 +18,7 @@ interface IProps {
 }
 
 const productsListPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+$/);
+const productPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+\/\d+$/);
 
 /** Навигация по сайту */
 export const Navigation = ({ className }: IProps) => {
@@ -25,10 +26,11 @@ export const Navigation = ({ className }: IProps) => {
   const { isScrolled } = useScrolled();
 
   const isShrunkPage =
-    pathname.includes(ROUTES.CATALOG) ||
-    pathname.includes(ROUTES.CATALOG_SEARCH) ||
-    pathname.includes(ROUTES.VISITED_PRODUCTS) ||
-    productsListPageRegExp.test(pathname);
+    (pathname.includes(ROUTES.CATALOG) ||
+      pathname.includes(ROUTES.CATALOG_SEARCH) ||
+      pathname.includes(ROUTES.VISITED_PRODUCTS) ||
+      productsListPageRegExp.test(pathname)) &&
+    !productPageRegExp.test(pathname);
 
   const isScroll = isShrunkPage && isScrolled;
 
