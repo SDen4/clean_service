@@ -13,24 +13,18 @@ import {
   navigationMenuTriggerStyle,
 } from '@/shared/ui';
 
+import { isShrunkPageHelper } from '../../model/helpers/is-shrunk-page-helper';
+
 interface IProps {
   className?: string;
 }
-
-const productsListPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+$/);
-const productPageRegExp = new RegExp(/^\/catalog\/\d+\/\d+\/\d+$/);
 
 /** Навигация по сайту */
 export const Navigation = ({ className }: IProps) => {
   const { pathname } = useLocation();
   const { isScrolled } = useScrolled();
 
-  const isShrunkPage =
-    (pathname.includes(ROUTES.CATALOG) ||
-      pathname.includes(ROUTES.CATALOG_SEARCH) ||
-      pathname.includes(ROUTES.VISITED_PRODUCTS) ||
-      productsListPageRegExp.test(pathname)) &&
-    !productPageRegExp.test(pathname);
+  const isShrunkPage = isShrunkPageHelper(pathname);
 
   const isScroll = isShrunkPage && isScrolled;
 
